@@ -1,0 +1,227 @@
+@import "../variables";
+
+
+
+.boxVideoMobile {
+  display: none;
+  width: 100%;
+  background-color: $--blue-color-100;
+  box-sizing: border-box;
+  padding: 23px 10px 23px;
+  // display: flex;
+  align-items: center;
+}
+
+.boxVideo {
+  width: 100%;
+  background-color: $--white-color;
+  box-sizing: border-box;
+  padding: 42px 20px 46px;
+  display: flex;
+  align-items: center;
+}
+
+.viewBackground {
+  background: url("../../public/images/macbook.svg") no-repeat top center;
+  background-size: 100%;
+  padding-top: 15px;
+  padding-bottom: 26px;
+  padding-left: 68px;
+  padding-right: 66px;
+  position: relative;
+}
+
+.viewVideo {
+  video {
+    min-height: 260px;
+  }
+}
+
+.viewPoster {
+  position: absolute;
+  top: 15px;
+  left: 62px;
+  right: 61px;
+  z-index: 2;
+}
+
+.playButton {
+  position: absolute;
+  z-index: 3;
+  top: 15px;
+  left: 62px;
+  right: 61px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 30px;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 1200px) {
+  
+
+  .viewVideo {
+    video {
+      min-height: 237px;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  
+
+  .viewBackground {
+    padding-left: 55px;
+    padding-right: 53px;
+    padding-top: 14px;
+  }
+
+  .playButton {
+    a {
+      width: 48px;
+    }
+  }
+
+  .viewPoster {
+    top: 14px;
+    left: 55px;
+    right: 52px;
+  }
+
+  .viewVideo {
+    video {
+      min-height: 202px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .boxVideoMobile {
+    display: block;
+  }
+
+  .boxVideo {
+    display: none;
+  }
+
+  .playButton {
+    a {
+      width: 33px;
+      height: 33px;
+    }
+  }
+
+  .viewBackground {
+    padding-left: 87px;
+    padding-right: 85px;
+    padding-bottom: 50px;
+  }
+
+  .viewPoster {
+    left: 87px;
+    right: 84px;
+    top: 22px;
+
+    > span {
+      width: 100% !important;
+      min-height: 328px;
+    }
+  }
+
+  .viewVideo {
+    video {
+      min-height: 334px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  
+}
+
+@media (max-width: 414px) {
+  .boxVideoMobile {
+  }
+
+  .viewBackground {
+    padding: 0 0 35px;
+  }
+
+  .viewVideo {
+    max-width: 258px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 10px;
+    min-height: 180px;
+
+    video {
+      min-height: 161px;
+    }
+  }
+
+  .playButton {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .viewPoster {
+    min-height: auto;
+    left: 0;
+    top: 10px;
+    right: 0;
+    bottom: 0;
+
+    > span {
+      min-height: auto;
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .boxVideoMobile {
+  }
+
+  .viewBackground {
+    padding: 0 0 35px;
+  }
+
+  .viewVideo {
+    max-width: 230px;
+    margin: 0 auto;
+    position: relative;
+    padding-top: 10px;
+    min-height: 160px;
+
+    video {
+      min-height: 144px;
+    }
+  }
+
+  .playButton {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  .viewPoster {
+    min-height: auto;
+    left: 0;
+    top: 10px;
+    right: 0;
+    bottom: 0;
+
+    > span {
+      min-height: auto;
+    }
+  }
+}
