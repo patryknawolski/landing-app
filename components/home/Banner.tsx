@@ -1,5 +1,4 @@
-import type { NextPage } from "next";
-import React, { useState } from "react";
+import React from "react";
 import { useRef } from "react";
 import Image from "next/image";
 
@@ -185,7 +184,10 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
               justifyContent="center"
               alignItems="center"
             >
-              <Box maxW={{ base: "105px", md: "155px" }} mt={{base: '6px', md: 0}}>
+              <Box
+                maxW={{ base: "105px", md: "155px" }}
+                mt={{ base: "6px", md: 0 }}
+              >
                 <Image alt="" src={Comp2} priority />
               </Box>
             </Box>
