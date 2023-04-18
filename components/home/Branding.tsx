@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
 import { Box, Heading, Text, Grid, GridItem } from "@chakra-ui/react";
+import { Hide } from "@chakra-ui/react";
 
 import BrandingImg from "public/images/branding.webp";
 import Branding1Img from "public/images/branding1.svg";
@@ -117,7 +118,7 @@ const Branding: NextPage = () => {
       </Box>
 
       <Grid
-        gap="40px"
+        gap={{ base: "10px", sm: "40px" }}
         templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(5, 1fr)" }}
       >
         <GridItem colSpan={{ base: 5, md: 3 }}>
@@ -197,14 +198,22 @@ const Branding: NextPage = () => {
             h="100%"
             alignItems="center"
             display="flex"
-            justifyContent={{ base: "flex-end" }}
+            justifyContent={{ sm: "flex-end" }}
             padding={{ base: "0 25px", md: 0 }}
           >
-            <Box maxW="467px" mr={{ base: "0", md: "40px", xl: "80px" }}>
+            <Box
+              maxW="467px"
+              display={{ base: "flex", sm: "block" }}
+              alignItems={{ base: "center", sm: undefined }}
+              mr={{ base: "0", md: "40px", xl: "80px" }}
+            >
               <Box
-                padding={{ base: "20px 25px", md: "25px 40px" }}
+                flex={{ base: "1 0 33.33%", sm: undefined }}
+                padding={{ base: "10px", sm: "25px 40px" }}
                 borderRadius="10px"
-                border={active === 0 ? "1px solid #E9E9F3" : ""}
+                border={
+                  active === 0 ? "1px solid #E9E9F3" : "1px solid transparent"
+                }
                 boxShadow={{
                   base:
                     active === 0 ? "10px 10px 5px 0px rgba(53,53,61,0.05)" : "",
@@ -218,30 +227,35 @@ const Branding: NextPage = () => {
               >
                 <Heading
                   as="h3"
-                  mb={{ base: "10px", md: "12px" }}
+                  mb={{ sm: "12px" }}
                   fontWeight="600"
-                  fontSize={{ base: "20px", md: "33px" }}
+                  fontSize={{ base: "16px", md: "33px" }}
                   lineHeight={{ base: "25px", md: "38px" }}
                   color={active === 0 ? "#4959E7" : "#110F24"}
                 >
                   BitPrime
                 </Heading>
-                <Text
-                  fontWeight="normal"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  lineHeight={{ base: "22px", md: "28px" }}
-                  color={active === 0 ? "#4959E7" : "#6C6B74"}
-                  maxW="387px"
-                >
-                  Aliquet augue sed sed metus maecenas nit viverra ut. Orci elit
-                  lorem elit magna sed.
-                </Text>
+                <Hide below="sm">
+                  <Text
+                    fontWeight="normal"
+                    fontSize={{ base: "14px", md: "18px" }}
+                    lineHeight={{ base: "22px", md: "28px" }}
+                    color={active === 0 ? "#4959E7" : "#6C6B74"}
+                    maxW="387px"
+                  >
+                    Aliquet augue sed sed metus maecenas nit viverra ut. Orci
+                    elit lorem elit magna sed.
+                  </Text>
+                </Hide>
               </Box>
 
               <Box
-                padding={{ base: "20px 25px", md: "25px 40px" }}
+                flex={{ base: "1 0 33.33%", sm: undefined }}
+                padding={{ base: "10px", sm: "25px 40px" }}
                 borderRadius="10px"
-                border={active === 1 ? "1px solid #E9E9F3" : ""}
+                border={
+                  active === 1 ? "1px solid #E9E9F3" : "1px solid transparent"
+                }
                 boxShadow={{
                   base:
                     active === 1 ? "10px 10px 5px 0px rgba(53,53,61,0.05)" : "",
@@ -255,29 +269,34 @@ const Branding: NextPage = () => {
               >
                 <Heading
                   as="h3"
-                  mb={{ base: "10px", md: "12px" }}
+                  mb={{ sm: "12px" }}
                   fontWeight="600"
-                  fontSize={{ base: "20px", md: "33px" }}
+                  fontSize={{ base: "16px", md: "33px" }}
                   lineHeight={{ base: "25px", md: "38px" }}
                   color={active === 1 ? "#4959E7" : "#110F24"}
                 >
                   Kubota
                 </Heading>
-                <Text
-                  fontWeight="normal"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  lineHeight={{ base: "22px", md: "28px" }}
-                  color={active === 1 ? "#4959E7" : "#6C6B74"}
-                >
-                  Aliquet augue sed sed metus maecenas nit viverra ut. Orci elit
-                  lorem elit magna sed.
-                </Text>
+                <Hide below="sm">
+                  <Text
+                    fontWeight="normal"
+                    fontSize={{ base: "14px", md: "18px" }}
+                    lineHeight={{ base: "22px", md: "28px" }}
+                    color={active === 1 ? "#4959E7" : "#6C6B74"}
+                  >
+                    Aliquet augue sed sed metus maecenas nit viverra ut. Orci
+                    elit lorem elit magna sed.
+                  </Text>
+                </Hide>
               </Box>
 
               <Box
-                padding={{ base: "20px 25px", md: "25px 40px" }}
+                flex={{ base: "1 0 33.33%", sm: undefined }}
+                padding={{ base: "10px", sm: "25px 40px" }}
                 borderRadius="10px"
-                border={active === 2 ? "1px solid #E9E9F3" : ""}
+                border={
+                  active === 2 ? "1px solid #E9E9F3" : "1px solid transparent"
+                }
                 boxShadow={{
                   base:
                     active === 2 ? "10px 10px 5px 0px rgba(53,53,61,0.05)" : "",
@@ -291,23 +310,25 @@ const Branding: NextPage = () => {
               >
                 <Heading
                   as="h3"
-                  mb={{ base: "10px", md: "12px" }}
+                  mb={{ sm: "12px" }}
                   fontWeight="600"
-                  fontSize={{ base: "20px", md: "33px" }}
+                  fontSize={{ base: "16px", md: "33px" }}
                   lineHeight={{ base: "25px", md: "38px" }}
                   color={active === 2 ? "#4959E7" : "#110F24"}
                 >
                   Member Check
                 </Heading>
-                <Text
-                  fontWeight="normal"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  lineHeight={{ base: "22px", md: "28px" }}
-                  color={active === 2 ? "#4959E7" : "#6C6B74"}
-                >
-                  Aliquet augue sed sed metus maecenas nit viverra ut. Orci elit
-                  lorem elit magna sed.
-                </Text>
+                <Hide below="sm">
+                  <Text
+                    fontWeight="normal"
+                    fontSize={{ base: "14px", md: "18px" }}
+                    lineHeight={{ base: "22px", md: "28px" }}
+                    color={active === 2 ? "#4959E7" : "#6C6B74"}
+                  >
+                    Aliquet augue sed sed metus maecenas nit viverra ut. Orci
+                    elit lorem elit magna sed.
+                  </Text>
+                </Hide>
               </Box>
             </Box>
           </Box>
