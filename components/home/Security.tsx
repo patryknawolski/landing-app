@@ -62,7 +62,7 @@ const Security: NextPage = () => {
   return (
     <Box
       w="100%"
-      padding={{ base: "90px 25px", md: "0 101px 150px" }}
+      padding={{ base: "60px 25px", md: "0 101px 150px" }}
       maxW="1440px"
       margin="0 auto"
     >

@@ -10,7 +10,7 @@ const Provide: NextPage = () => {
   return (
     <Box
       w="100%"
-      padding={{ base: "90px 0px", md: "100px 60px", xl: "150px 138px" }}
+      padding={{ base: "60px 0px", md: "100px 60px", xl: "150px 138px" }}
       backgroundImage="url('/images/bg-provide.webp')"
       backgroundSize="cover"
       backgroundRepeat="no-repeat"

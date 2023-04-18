@@ -75,7 +75,7 @@ const Branding: NextPage = () => {
   return (
     <Box
       w="100%"
-      padding={{ base: "90px 0", md: "150px 0" }}
+      padding={{ base: "60px 0", md: "150px 0" }}
       maxW="1440px"
       margin="0 auto"
     >

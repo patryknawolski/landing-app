@@ -19,7 +19,7 @@ const Starting: React.FC<Props> = ({ priceRef }) => {
       id="price"
       ref={priceRef}
       backgroundColor="#F8FAFF"
-      padding={{ base: "90px 25px", md: "150px 127px" }}
+      padding={{ base: "60px 25px", md: "150px 127px" }}
     >
       <Box maxW="1440px" margin="0 auto">
         <Box mb={{ base: "40px", md: "80px" }}>

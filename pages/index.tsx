@@ -59,7 +59,7 @@ const Home: NextPage = () => {
       <Security />
       <Starting priceRef={priceRef} />
 
-      <Box pt={{ base: "90px", md: "150px" }}>
+      <Box pt={{ base: "60px", md: "150px" }}>
         <Carousel />
       </Box>
     </Layout>
