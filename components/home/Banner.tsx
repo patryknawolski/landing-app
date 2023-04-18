@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useRef } from "react";
 import Image from "next/image";
 
@@ -25,6 +25,11 @@ interface Props {
 
 const Banner: React.FC<Props> = ({ bannerRef }) => {
   const videoRef = useRef<any>(null);
+  const tryForFreeInput = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    tryForFreeInput.current?.focus();
+  }, []);
 
   return (
     <div ref={bannerRef}>
@@ -79,9 +84,11 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
                   border="1px solid rgba(255, 255, 255, 0.35)"
                   outline="none"
                   _placeholder={{ color: "#D9DBF9" }}
+                  autoFocus
                   _focus={{
                     outline: "none",
                   }}
+                  ref={tryForFreeInput}
                 />
                 <InputRightElement
                   width={{ base: "122px", md: "150px" }}
