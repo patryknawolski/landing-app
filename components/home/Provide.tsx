@@ -10,9 +10,8 @@ const Provide: NextPage = () => {
   return (
     <Box
       w="100%"
-      padding={{ base: "90px 0px", md: "100px 60px", xl: "150px 138px" }}
-      backgroundImage="url('/images/Passive.png')"
-      // backgroundImage="url('/images/bg-provide.webp')"
+      padding={{ base: "60px 0px", md: "100px 60px", xl: "150px 138px" }}
+      backgroundImage="url('/images/bg-provide.webp')"
       backgroundSize="cover"
       backgroundRepeat="no-repeat"
       backgroundPosition="top center"
@@ -39,7 +38,8 @@ const Provide: NextPage = () => {
             lineHeight={{ base: "22px", md: "28px" }}
             textAlign={{ base: "left", md: "center" }}
           >
-            Passive liveness technology lets your customers take a single photo of themselves without the need to blink, smile, or turn their heads.
+            Passive liveness technology lets your customers take a single photo
+            of themselves without the need to blink, smile, or turn their heads.
           </Text>
         </Box>
 

@@ -30,7 +30,7 @@ const Footer: NextPage = () => {
         maxW="1440px"
         margin="0 auto"
         padding={{
-          base: "95px 25px 30px",
+          base: "60px 25px 30px",
           md: "60px 30px",
           xl: "100px 65px",
         }}

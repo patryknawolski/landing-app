@@ -36,7 +36,7 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
     <div ref={bannerRef}>
       <Box
         w="100%"
-        padding={{ base: "134px 20px 100px", md: "203px 0 100px" }}
+        padding={{ base: "113px 25px 60px", md: "203px 0 100px" }}
         background={{
           base: "url('/images/bg-banner-mb.svg') no-repeat bottom center",
           md: "url('/images/bg-banner.svg') no-repeat bottom center",
@@ -156,8 +156,8 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
         </Box>
 
         <Box
-          maxW="1012px"
-          margin={{ base: "100px 36px 0", md: "60px auto 0" }}
+          maxW="843px"
+          margin={{ base: "36px 36px 0", md: "60px auto 0" }}
           textAlign="center"
         >
           <Heading

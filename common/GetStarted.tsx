@@ -15,7 +15,7 @@ const GetStarted: NextPage = () => {
     <Box
       w="100%"
       padding={{
-        base: "90px 25px 40px",
+        base: "60px 25px 40px",
         lg: "60px 30px",
         xl: "100px 65px 150px 211px",
       }}

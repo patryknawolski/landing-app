@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 import { useRef, useEffect, useState, Suspense, lazy } from "react";
 import { useRouter } from "next/router";
 
@@ -21,7 +21,6 @@ import { useRouter } from "next/router";
 // const WhyCoreKYC = dynamic(() => import('components/home/WhyCoreKYC'))
 // const MoreReasons = dynamic(() => import('components/home/MoreReasons'))
 // const Access = dynamic(() => import('components/home/Access'))
-
 
 import Banner from "components/home/Banner";
 import Layout from "components/layout/Layout";
@@ -94,10 +93,8 @@ const Home: NextPage = () => {
       <Security />
       <Starting priceRef={priceRef} />
 
-      <Box p={{ base: '20px', lg: "65px"}}>
-        <Box bg="#F8FAFF" borderRadius="5px" pt="61px">
-          <Carousel />
-        </Box>
+      <Box pt={{ base: "60px", md: "150px" }}>
+        <Carousel />
       </Box>
     </Layout>
     // </Suspense>
