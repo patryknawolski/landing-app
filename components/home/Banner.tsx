@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useRef } from "react";
 import Image from "next/image";
 
@@ -17,6 +17,10 @@ import Comp1 from "public/images/cp1.svg";
 import Comp2 from "public/images/cp2.svg";
 import Comp3 from "public/images/cp3.svg";
 import Comp4 from "public/images/cp4.svg";
+import CatalistLogo from "public/images/Catalist.svg";
+import CoinstashLogo from "public/images/Coinstash.svg";
+import TMNZLogo from "public/images/tmnz.svg";
+import TompkinsWakeLogo from "public/images/TompkinsWake.svg";
 import PhoneMb from "public/images/phone.svg";
 
 interface Props {
@@ -26,6 +30,19 @@ interface Props {
 const Banner: React.FC<Props> = ({ bannerRef }) => {
   const videoRef = useRef<any>(null);
   const tryForFreeInput = useRef<HTMLInputElement | null>(null);
+
+  const logos = useMemo<Array<string>>(() => {
+    return [
+      Comp1,
+      CatalistLogo,
+      CoinstashLogo,
+      Comp2,
+      Comp3,
+      Comp4,
+      TMNZLogo,
+      TompkinsWakeLogo,
+    ];
+  }, []);
 
   useEffect(() => {
     tryForFreeInput.current?.focus();
@@ -171,53 +188,19 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
             We work with companies like
           </Heading>
 
-          <SimpleGrid
-            columns={{ base: 2, md: 4 }}
-            gap={{ base: "15px", md: "0" }}
-          >
-            <Box
-              textAlign="center"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Box maxW={{ base: "103px", md: "152px" }}>
-                <Image alt="" src={Comp1} priority />
-              </Box>
-            </Box>
-            <Box
-              textAlign="center"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
+          <SimpleGrid columns={{ base: 2, md: 4 }} gap={{ base: "15px" }}>
+            {logos.map((logo) => (
               <Box
-                maxW={{ base: "105px", md: "155px" }}
-                mt={{ base: "6px", md: 0 }}
+                textAlign="center"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
               >
-                <Image alt="" src={Comp2} priority />
+                <Box maxW={{ base: "100px", md: "150px" }}>
+                  <Image alt="" src={logo} priority />
+                </Box>
               </Box>
-            </Box>
-            <Box
-              textAlign="center"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Box maxW={{ base: "95px", md: "141px" }}>
-                <Image alt="" src={Comp3} priority />
-              </Box>
-            </Box>
-            <Box
-              textAlign="center"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <Box maxW={{ base: "102px", md: "150px" }}>
-                <Image alt="" src={Comp4} priority />
-              </Box>
-            </Box>
+            ))}
           </SimpleGrid>
         </Box>
 
