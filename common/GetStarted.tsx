@@ -26,13 +26,7 @@ const GetStarted: NextPage = () => {
       }}
       backgroundSize="cover !important"
     >
-      <Box
-        maxW="1440px"
-        margin="0 auto"
-        color="#fff"
-        position="relative"
-        overflow="hidden"
-      >
+      <Box maxW="1440px" margin="0 auto" color="#fff" position="relative">
         <Box display="inline-block" w="100%" position="relative">
           <Heading
             as="h2"
@@ -70,7 +64,8 @@ const GetStarted: NextPage = () => {
               outline="none"
               _placeholder={{ color: "#D9DBF9" }}
               _focus={{
-                outline: "none",
+                outline: "1px solid white",
+                outlineOffset: 0,
               }}
             />
             <InputRightElement

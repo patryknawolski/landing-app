@@ -82,11 +82,11 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
                   fontSize={{ base: "14px", md: "16px" }}
                   color="#D9DBF9"
                   border="1px solid rgba(255, 255, 255, 0.35)"
-                  outline="none"
                   _placeholder={{ color: "#D9DBF9" }}
                   autoFocus
                   _focus={{
-                    outline: "none",
+                    outline: "1px solid white",
+                    outlineOffset: 0,
                   }}
                   ref={tryForFreeInput}
                 />
