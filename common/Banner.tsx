@@ -214,7 +214,6 @@ const Banner: React.FC<Props> = ({ image, title, text, isPep }) => {
                         borderRadius="10px"
                         height="50px"
                         fontSize={{ base: "14px", md: "16px" }}
-                        // color="#D9DBF9"
                         border="1px solid rgba(255, 255, 255, 0.35)"
                         _placeholder={{ color: "#D9DBF9" }}
                         _focus={{
