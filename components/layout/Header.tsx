@@ -83,6 +83,7 @@ const Header: React.FC<Props> = ({
         alignItems="center"
         maxW="1440px"
         margin="0 auto"
+        transition="padding 0.3s ease-in-out"
       >
         <NextLink href="/">
           <Link
