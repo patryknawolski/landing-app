@@ -73,12 +73,7 @@ const Carousel: NextPage = () => {
   return (
     <Box w="100%" paddingBottom={{ base: "70px", md: "100px" }}>
       <Box maxW="1440px" margin="0 auto">
-        <Box
-          w="100%"
-          maxW={{ base: "325px", lg: "600px" }}
-          margin="0 auto"
-          textAlign="center"
-        >
+        <Box w="100%" margin="0 auto" textAlign="center">
           <Slider
             {...settings}
             dotsClass="dotsCustom"
@@ -91,6 +86,7 @@ const Carousel: NextPage = () => {
               padding={{ base: "30px 20px 0", xl: "47px 22px 0" }}
               paddingTop={{ base: "10px", lg: 0 }}
               backgroundPosition={{ base: "60px 0", lg: "top left" }}
+              maxW={{ base: "325px", lg: "600px" }}
             >
               <Heading
                 as="h4"
@@ -121,6 +117,7 @@ const Carousel: NextPage = () => {
               padding={{ base: "30px 20px 0", xl: "47px 22px 0" }}
               paddingTop={{ base: "10px", lg: 0 }}
               backgroundPosition={{ base: "60px 0", lg: "top left" }}
+              maxW={{ base: "325px", lg: "600px" }}
             >
               <Heading
                 as="h4"
@@ -151,6 +148,7 @@ const Carousel: NextPage = () => {
               padding={{ base: "30px 20px 0", xl: "47px 22px 0" }}
               paddingTop={{ base: "10px", lg: 0 }}
               backgroundPosition={{ base: "60px 0", lg: "top left" }}
+              maxW={{ base: "325px", lg: "600px" }}
             >
               <Heading
                 as="h4"
