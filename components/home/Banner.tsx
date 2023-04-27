@@ -13,11 +13,8 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 
-import Comp1 from "public/images/cp1.svg";
 import Comp2 from "public/images/cp2.svg";
 import Comp3 from "public/images/cp3.svg";
-import Comp4 from "public/images/cp4.svg";
-import CatalistLogo from "public/images/Catalist.svg";
 import CoinstashLogo from "public/images/Coinstash.svg";
 import TMNZLogo from "public/images/tmnz.svg";
 import TompkinsWakeLogo from "public/images/TompkinsWake.svg";
@@ -32,16 +29,7 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
   const tryForFreeInput = useRef<HTMLInputElement | null>(null);
 
   const logos = useMemo<Array<string>>(() => {
-    return [
-      Comp1,
-      CatalistLogo,
-      CoinstashLogo,
-      Comp2,
-      Comp3,
-      Comp4,
-      TMNZLogo,
-      TompkinsWakeLogo,
-    ];
+    return [CoinstashLogo, Comp2, Comp3, TMNZLogo, TompkinsWakeLogo];
   }, []);
 
   useEffect(() => {
@@ -187,7 +175,7 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
             We work with companies like
           </Heading>
 
-          <SimpleGrid columns={{ base: 2, md: 4 }} gap={{ base: "15px" }}>
+          <SimpleGrid columns={{ base: 2, lg: 5 }} gap={{ base: "15px" }}>
             {logos.map((logo) => (
               <Box
                 textAlign="center"
