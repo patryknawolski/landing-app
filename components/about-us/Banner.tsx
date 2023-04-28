@@ -28,7 +28,7 @@ const Banner: React.FC<Props> = ({ title, text }) => {
           as="h3"
           fontSize={{ base: "33px", md: "60px" }}
           lineHeight={{ base: "42px", md: "75px" }}
-          maxW="570px"
+          maxW="720px"
           margin="0 auto 20px"
           color="#fff"
         >

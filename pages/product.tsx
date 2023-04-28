@@ -10,8 +10,8 @@ const Product: NextPage = () => {
   return (
     <Layout title="Product" isStarted={true}>
       <Banner
-        title="Products and some text about them "
-        text="Scelerisque nisl velit non pretium luctus imperdiet in eget. Sed vitae nisl vulputate ut eu."
+        title="Simple, secure & fast <br/>AI-driven verification tools"
+        text="Wherever your customers are, we’re there too. Across 200 countries, 10K+ IDs, and 4 billion customers, we've got you covered."
       />
       <Detail />
     </Layout>

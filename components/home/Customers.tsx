@@ -68,7 +68,7 @@ const Customers: NextPage = () => {
   return (
     <Box
       w="100%"
-      padding={{ base: "0 25px 130px", md: "0 25px", xl: 0 }}
+      padding={{ base: "60px 20px 130px", md: "150px 20px 0px"}}
       maxW="1440px"
       margin="0 auto"
     >
@@ -82,14 +82,14 @@ const Customers: NextPage = () => {
           maxW="760px"
           margin={{ base: "0 auto 15px", md: "0 auto 30px" }}
         >
-          Instantly access thousands of data sets to{" "}
+          Access thousands of data sets to{" "}
           <Heading
             as="span"
             color="#4959E7"
             fontSize={{ base: "28px", md: "40px" }}
             lineHeight={{ base: "35px", md: "50px" }}
           >
-            reach over 4 billion customers
+            onboard over 4 billion customers
           </Heading>
         </Heading>
 
@@ -101,7 +101,7 @@ const Customers: NextPage = () => {
           fontSize={{ base: "14px", md: "20px" }}
           lineHeight={{ base: "22px", md: "32px" }}
         >
-          From live selfies to government ID to address verification, Corekyc
+          From live selfies to government ID to address verification, CoreKYC
           offers 1000’s of verification components you can select for the ideal
           KYC/AML experience.
         </Text>
@@ -109,7 +109,7 @@ const Customers: NextPage = () => {
 
       <Box display={{ base: "none", md: "block" }}>
         <SimpleGrid columns={{ base: 1, md: 1, lg: 2 }} gap="65px">
-          <Box w="100%" pl={{ base: "40px", md: 0, xl: "118px" }}>
+          <Box w="100%" pl={{ base: "40px", md: 0, xl: "98px" }}>
             <SimpleGrid columns={{ base: 1, md: 2 }} gap="18px">
               <Box
                 h="100%"
@@ -119,8 +119,8 @@ const Customers: NextPage = () => {
               >
                 <Statistic
                   isActive={hover === 1}
-                  title={`9,000+ ID documents covered`}
-                  text={`Access government and commercial data sources to verify name, date of birth, and address in over 30 countries.`}
+                  title={`10,000+ ID documents covered`}
+                  text={`Provide coverage all over the globe and across many languages. Wherever your customers are, be there too.`}
                 />
               </Box>
               <Box

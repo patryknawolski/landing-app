@@ -15,7 +15,7 @@ const GetStarted: NextPage = () => {
     <Box
       w="100%"
       padding={{
-        base: "60px 25px 40px",
+        base: "90px 25px 40px",
         lg: "60px 30px",
         xl: "100px 65px 150px 211px",
       }}
@@ -26,7 +26,13 @@ const GetStarted: NextPage = () => {
       }}
       backgroundSize="cover !important"
     >
-      <Box maxW="1440px" margin="0 auto" color="#fff" position="relative">
+      <Box
+        maxW="1440px"
+        margin="0 auto"
+        color="#fff"
+        position="relative"
+        overflow="hidden"
+      >
         <Box display="inline-block" w="100%" position="relative">
           <Heading
             as="h2"
@@ -44,8 +50,9 @@ const GetStarted: NextPage = () => {
             maxW="511px"
             fontWeight="normal"
           >
-            Nam venenatis egestas tortor in pellentesque. Nunc maecenas augue
-            sit aenean neque.
+            With real-time ID scanning, lightning-fast OCR, data verification,
+            and passive liveness checks, you can remotely onboard customers in
+            less than 30 seconds.
           </Text>
 
           <InputGroup
@@ -64,8 +71,7 @@ const GetStarted: NextPage = () => {
               outline="none"
               _placeholder={{ color: "#D9DBF9" }}
               _focus={{
-                outline: "1px solid white",
-                outlineOffset: 0,
+                outline: "none",
               }}
             />
             <InputRightElement
@@ -89,23 +95,10 @@ const GetStarted: NextPage = () => {
                   border: "none",
                 }}
               >
-                Try for free
+                Get a demo
               </Button>
             </InputRightElement>
           </InputGroup>
-
-          {/* <Box textAlign="center">
-            <Button
-              variant="outline"
-              color={COLORS.white}
-              position={{ base: "relative", lg: "absolute" }}
-              right="0"
-              top="0"
-              marginTop={{ base: "70px", lg: 0 }}
-            >
-              Try for free
-            </Button>
-          </Box> */}
         </Box>
       </Box>
     </Box>

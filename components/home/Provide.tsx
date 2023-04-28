@@ -10,24 +10,25 @@ const Provide: NextPage = () => {
   return (
     <Box
       w="100%"
-      padding={{ base: "60px 0px", md: "100px 60px", xl: "150px 138px" }}
-      backgroundImage="url('/images/bg-provide.webp')"
+      padding={{ base: "90px 0px", md: "100px 60px", xl: "150px 138px" }}
+      backgroundImage="url('/images/Passive.png')"
+      // backgroundImage="url('/images/bg-provide.webp')"
       backgroundSize="cover"
       backgroundRepeat="no-repeat"
-      backgroundPosition="bottom center"
+      backgroundPosition="top center"
     >
       <Box maxW="1440px" margin="0 auto">
-        <Box padding={{ base: "0 25px", md: "0" }}>
+        <Box padding={{ base: "0 20px", md: "0" }}>
           <Heading
             fontWeight="600"
             color="#fff"
-            maxW="714px"
+            maxW="812px"
             margin="0 auto"
             fontSize={{ base: "28px", md: "40px" }}
             lineHeight={{ base: "35px", md: "50px" }}
             textAlign={{ base: "left", md: "center" }}
           >
-            Provide passive liveness checks to onboard more customers
+            Onboard 58% more customers in seconds
           </Heading>
 
           <Text
@@ -38,11 +39,7 @@ const Provide: NextPage = () => {
             lineHeight={{ base: "22px", md: "28px" }}
             textAlign={{ base: "left", md: "center" }}
           >
-            With ‘single frame’ or passive liveness checks your customers can
-            avoid smiling, blinking, head-turning, or moving the camera. I{"'"}s
-            an easier, faster, more secure, and less costly way to detect if a
-            customer is physically present behind the camera. You{"'"}ll get
-            happier customers and 30%+ more completed verifications.
+            Passive liveness technology lets your customers take a single photo of themselves without the need to blink, smile, or turn their heads.
           </Text>
         </Box>
 
@@ -110,7 +107,7 @@ const Provide: NextPage = () => {
               preload="yes"
               // ref={videoRef}
             >
-              <source src="/videos/new-liveness.webm" type="video/webm" />
+              <source src="/videos/NewLiveness.webm" type="video/mp4" />
               Your browser does not support HTML video.
             </video>
           </Box>

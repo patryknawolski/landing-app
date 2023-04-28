@@ -3,8 +3,8 @@ import Image from "next/image";
 
 import { Box, Heading, Text, SimpleGrid } from "@chakra-ui/react";
 
-import User1 from "public/images/Jordan.svg";
-import User2 from "public/images/Gowtham.svg";
+import User1 from "public/images/CEO.png";
+import User2 from "public/images/CTO.png";
 
 const Founders: NextPage = () => {
   return (
@@ -26,7 +26,7 @@ const Founders: NextPage = () => {
           color="#110F24"
           fontWeight="600"
         >
-          Our co-founders
+          Our Co-founders
         </Heading>
 
         <SimpleGrid
@@ -34,7 +34,15 @@ const Founders: NextPage = () => {
           spacing={{ base: "40px", md: "72px" }}
         >
           <Box w="100%">
-            <Image alt="" src={User1} priority layout="responsive" />
+            <Box
+              w="100%"
+              h="420px"
+              display="grid"
+              borderRadius={"10px"}
+              overflow="hidden"
+            >
+              <Image alt="" src={User1} priority layout="responsive" />
+            </Box>
             <Heading
               as="h3"
               margin="15px 0 15px"
@@ -50,14 +58,31 @@ const Founders: NextPage = () => {
               fontSize={{ base: "14px", md: "18px" }}
               lineHeight={{ base: "22px", md: "28px" }}
             >
-              Nisi arcu senectus dignissim sed. Consectetur cras velit
-              suspendisse risus nec et pharetra. Sollicitudin nec amet in
-              volutpat blandit eleifend sagittis in.
+              The passion Jordan has for solving unsolved problems shines
+              through in everything he does. Following a successful career in
+              the financial markets, he ventured into the world of tech
+              start-ups. Jordan now leads a team of skilled developers and AML
+              analysts focused on becoming the category king in customer
+              onboarding.
             </Text>
           </Box>
 
           <Box w="100%">
-            <Image alt="" src={User2} priority layout="responsive" />
+            <Box
+              w="100%"
+              h="420px"
+              display="grid"
+              borderRadius={"10px"}
+              overflow="hidden"
+            >
+              <Image
+                alt=""
+                src={User2}
+                priority
+                layout="responsive"
+                objectFit="cover"
+              />
+            </Box>
             <Heading
               as="h3"
               margin="15px 0 15px"
@@ -73,9 +98,7 @@ const Founders: NextPage = () => {
               fontSize={{ base: "14px", md: "18px" }}
               lineHeight={{ base: "22px", md: "28px" }}
             >
-              Ac, id sapien rhoncus neque hendrerit est eget euismod sagittis.
-              Lorem morbi felis, euismod tincidunt tincidunt in. Faucibus est
-              tortor ut maecenas elit.
+              {`Gowtham is an exceptional full-stack developer and part-time drone pilot. Gowtham leads our international team of software engineers, architects, and security analysts from Christchurch, New Zealand. He's your behind-the-scenes hero (without a cape) building world-first anti-fraud features to keep your firm compliant.`}
             </Text>
           </Box>
         </SimpleGrid>

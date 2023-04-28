@@ -151,17 +151,17 @@ const Banner: React.FC<Props> = ({ image, title, text, isPep }) => {
         <ModalOverlay />
         <ModalContent>
           {/* <ModalHeader>Modal Title</ModalHeader> */}
-          <ModalCloseButton
-            _hover={{
-              border: "none",
-              outline: "none",
-              bg: "none",
-            }}
-            _focus={{
-              border: "none",
-              outline: "none",
-              bg: "none",
-            }}
+          <ModalCloseButton  
+          _hover={{
+            border: 'none',
+            outline: 'none',
+            bg: 'none'
+          }} 
+          _focus={{
+            border: 'none',
+            outline: 'none',
+            bg: 'none'
+          }} 
           />
           <ModalBody p="55px 30px">
             <Formik
@@ -214,11 +214,12 @@ const Banner: React.FC<Props> = ({ image, title, text, isPep }) => {
                         borderRadius="10px"
                         height="50px"
                         fontSize={{ base: "14px", md: "16px" }}
+                        // color="#D9DBF9"
                         border="1px solid rgba(255, 255, 255, 0.35)"
+                        outline="none"
                         _placeholder={{ color: "#D9DBF9" }}
                         _focus={{
-                          outline: "1px solid white",
-                          outlineOffset: 0,
+                          outline: "none",
                         }}
                         value={values.email}
                         onChange={handleChange}

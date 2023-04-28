@@ -14,23 +14,24 @@ const Detail: NextPage = () => {
         <SimpleGrid columns={{ base: 1, lg: 2 }} gap="40px">
           <Box w="100%">
             <Text
-              maxW={{ base: "100%", md: "493px" }}
+              maxW={{ base: "100%", md: "410px" }}
               marginLeft={{ base: 0, lg: "30px" }}
               color="#110F24"
               fontSize={{ base: "22px", md: "30px" }}
               lineHeight={{ base: "34px", md: "46px" }}
-              fontWeight="500"
+              fontWeight="700"
             >
-              Here we can highlight some information.{" "}
+              The{" "}
               <Heading
                 as="span"
                 fontSize={{ base: "22px", md: "30px" }}
                 lineHeight={{ base: "34px", md: "46px" }}
+                fontWeight="700"
                 color="#4959E7"
-                fontWeight="normal"
               >
-                Here we can highlight some information.
-              </Heading>
+                world’s most trusted
+              </Heading>{" "}
+              and accurate customer onboarding technology.
             </Text>
           </Box>
 
@@ -41,11 +42,9 @@ const Detail: NextPage = () => {
               lineHeight={{ base: "22px", md: "28px" }}
               marginBottom="15px"
             >
-              Condimentum urna blandit dignissim posuere lacus, mattis viverra
-              diam. Rutrum turpis dignissim fames amet, mi malesuada. Ipsum,
-              netus semper mauris ut urna rhoncus faucibus non. Tincidunt turpis
-              lobortis porttitor fermentum ullamcorper sapien volutpat blandit
-              tincidunt. Id quisque dui.
+              In 2018, it became clear that the scores of global biometric
+              providers were not performing their job - detecting fraudulent
+              customer onboarding.
             </Text>
             <Text
               color="#6C6B74"
@@ -53,9 +52,7 @@ const Detail: NextPage = () => {
               lineHeight={{ base: "22px", md: "28px" }}
               marginBottom="15px"
             >
-              Risus libero enim amet enim, felis porttitor purus. Lorem diam
-              suscipit quam ultrices consequat. Purus vestibulum accumsan,
-              aenean erat vel id convallis.
+              {`So, over the past four years, CoreKYC built a new category of know your customer (KYC) that combines best-in-class biometrics with anti-fraud tools that work. We're the first and only certified NZ-coded customer onboarding technology.`}
             </Text>
             <Text
               color="#6C6B74"
@@ -63,8 +60,10 @@ const Detail: NextPage = () => {
               lineHeight={{ base: "22px", md: "28px" }}
               marginBottom="15px"
             >
-              Tincidunt volutpat suscipit dui odio. Maecenas aenean enim enim
-              purus vitae non pellentesque.
+              Through our global, omni-channel platform, businesses can access a
+              wide range of tools from hosted, embedded, and mobile verification
+              flows. Affordably verify new customers with ease while preventing
+              fraud and enhancing compliance.
             </Text>
           </Box>
         </SimpleGrid>

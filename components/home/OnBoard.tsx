@@ -35,7 +35,7 @@ const Item: React.FC<TextType> = ({ value }) => (
 
 const OnBoard = () => {
   return (
-    <Box w="100%" padding={{ base: "0 25px 60px", md: "150px 0" }}>
+    <Box w="100%" padding={{ base: "0 25px 100px", md: "150px 0" }}>
       <Box maxW="1440px" margin="0 auto">
         <SimpleGrid
           columns={{ base: 1, md: 2 }}

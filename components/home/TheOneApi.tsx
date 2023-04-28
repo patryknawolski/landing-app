@@ -17,6 +17,7 @@ import ApiImg from "public/images/api.svg";
 const TheOneApi: NextPage = () => {
   return (
     <Box
+      id="developers"
       w="100%"
       padding={{ base: "0 0", md: "0 0 0" }}
       maxW="1440px"

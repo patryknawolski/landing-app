@@ -19,7 +19,7 @@ const Starting: React.FC<Props> = ({ priceRef }) => {
       id="price"
       ref={priceRef}
       backgroundColor="#F8FAFF"
-      padding={{ base: "60px 25px", md: "150px 127px" }}
+      padding={{ base: "90px 25px", md: "150px 127px" }}
     >
       <Box maxW="1440px" margin="0 auto">
         <Box mb={{ base: "40px", md: "80px" }}>
@@ -32,7 +32,7 @@ const Starting: React.FC<Props> = ({ priceRef }) => {
             maxW={{ base: "220px", md: "760px" }}
             margin={{ base: "0 auto 15px", md: "0 auto 30px" }}
           >
-            Checks starting from{" "}
+            Verifications starting from{" "}
             <Heading
               as="span"
               color="#4959E7"
@@ -44,15 +44,16 @@ const Starting: React.FC<Props> = ({ priceRef }) => {
           </Heading>
 
           <Text
-            maxW={{ base: "325px", md: "560px" }}
+            maxW={{ base: "600px", md: "812px" }}
             margin="0 auto"
             color="#6C6B74"
             textAlign={{ base: "center", md: "center" }}
             fontSize={{ base: "14px", md: "20px" }}
             lineHeight={{ base: "22px", md: "32px" }}
           >
-            Nam et sed at interdum dui consequat viverra aliquet. Risus quis id
-            ultrices mattis turpis sit justo.
+            Pay-per-use allows businesses of all sizes to save thousands of
+            dollars a month. There are no hidden fees and you’ll only be
+            invoiced for successful verifications.
           </Text>
         </Box>
 
@@ -72,7 +73,7 @@ const Starting: React.FC<Props> = ({ priceRef }) => {
               fontWeight="500"
               color="#110F24"
             >
-              No Licence fees
+              No licence fees
             </Heading>
           </Box>
           <Box w="100%" textAlign="center">
@@ -90,7 +91,7 @@ const Starting: React.FC<Props> = ({ priceRef }) => {
               fontWeight="500"
               color="#110F24"
             >
-              No Implementation fees
+              No integration costs
             </Heading>
           </Box>
           <Box w="100%" textAlign="center">
@@ -108,7 +109,7 @@ const Starting: React.FC<Props> = ({ priceRef }) => {
               fontWeight="500"
               color="#110F24"
             >
-              No Minimum spend
+              No minimum spend
             </Heading>
           </Box>
           <Box w="100%" textAlign="center">
@@ -126,7 +127,7 @@ const Starting: React.FC<Props> = ({ priceRef }) => {
               fontWeight="500"
               color="#110F24"
             >
-              No Hosting fees
+              No hosting fees
             </Heading>
           </Box>
         </SimpleGrid>

@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo } from "react";
+import type { NextPage } from "next";
+import React, { useState } from "react";
 import { useRef } from "react";
 import Image from "next/image";
 
@@ -13,11 +14,11 @@ import {
   SimpleGrid,
 } from "@chakra-ui/react";
 
-import Comp2 from "public/images/cp2.svg";
-import Comp3 from "public/images/cp3.svg";
-import CoinstashLogo from "public/images/Coinstash.svg";
-import TMNZLogo from "public/images/tmnz.svg";
-import TompkinsWakeLogo from "public/images/TompkinsWake.svg";
+import Comp1 from "public/images/comp1.png";
+import Comp2 from "public/images/comp2.png";
+import Comp3 from "public/images/comp3.png";
+import Comp4 from "public/images/comp4.png";
+import Comp5 from "public/images/comp5.png";
 import PhoneMb from "public/images/phone.svg";
 
 interface Props {
@@ -26,21 +27,12 @@ interface Props {
 
 const Banner: React.FC<Props> = ({ bannerRef }) => {
   const videoRef = useRef<any>(null);
-  const tryForFreeInput = useRef<HTMLInputElement | null>(null);
-
-  const logos = useMemo<Array<string>>(() => {
-    return [CoinstashLogo, Comp2, Comp3, TMNZLogo, TompkinsWakeLogo];
-  }, []);
-
-  useEffect(() => {
-    tryForFreeInput.current?.focus();
-  }, []);
 
   return (
     <div ref={bannerRef}>
       <Box
         w="100%"
-        padding={{ base: "113px 25px 60px", md: "203px 0 100px" }}
+        padding={{ base: "134px 20px 100px", md: "203px 0 100px" }}
         background={{
           base: "url('/images/bg-banner-mb.svg') no-repeat bottom center",
           md: "url('/images/bg-banner.svg') no-repeat bottom center",
@@ -74,8 +66,7 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
                 fontSize={{ base: "16px", md: "20px" }}
                 lineHeight={{ base: "25px", md: "32px" }}
               >
-                Provide your ideal KYC/AML experience through a single API and
-                dashboard
+                Say hello to more customers and wave goodbye to fraudsters.
               </Text>
 
               <InputGroup height="62px" maxW={{ base: "100%", lg: "511px" }}>
@@ -87,13 +78,11 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
                   fontSize={{ base: "14px", md: "16px" }}
                   color="#D9DBF9"
                   border="1px solid rgba(255, 255, 255, 0.35)"
+                  outline="none"
                   _placeholder={{ color: "#D9DBF9" }}
-                  autoFocus
                   _focus={{
-                    outline: "1px solid white",
-                    outlineOffset: 0,
+                    outline: "none",
                   }}
-                  ref={tryForFreeInput}
                 />
                 <InputRightElement
                   width={{ base: "122px", md: "150px" }}
@@ -116,7 +105,7 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
                       border: "none",
                     }}
                   >
-                    Try for free
+                    Get a demo
                   </Button>
                 </InputRightElement>
               </InputGroup>
@@ -144,7 +133,7 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
                   preload="yes"
                   ref={videoRef}
                 >
-                  <source src="/videos/banner.webm" type="video/webm" />
+                  <source src="/videos/main_phone.webm" type="video/webm" />
                   Your browser does not support HTML video.
                 </video>
               </Box>
@@ -161,8 +150,8 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
         </Box>
 
         <Box
-          maxW="843px"
-          margin={{ base: "36px 36px 0", md: "60px auto 0" }}
+          maxW="1012px"
+          margin={{ base: "100px 36px 0", md: "60px auto 0" }}
           textAlign="center"
         >
           <Heading
@@ -176,20 +165,109 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
             We work with companies like
           </Heading>
 
-          <SimpleGrid columns={{ base: 2, lg: 5 }} gap={{ base: "15px" }}>
-            {logos.map((logo) => (
-              <Box
-                textAlign="center"
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Box maxW={{ base: "100px", md: "150px" }}>
-                  <Image alt="" src={logo} priority />
-                </Box>
+          <Box
+            display={{ base: "flex" }}
+            alignItems="center"
+            justifyContent="center"
+            w="100%"
+            gap={{ base: "20px", sm: "40px", md: "80px" }}
+          >
+            <Box
+              display="inline-flex"
+              alignItems="center"
+              // mx={{ base: "20px", md: "40px" }}
+              // maxW={{ base: "103px", md: "152px" }}
+            >
+              <Image alt="" src={Comp1} priority width="180px" height="49px" />
+            </Box>
+            <Box
+              display="inline-flex"
+              alignItems="center"
+              // mx={{ base: "20px", md: "40px" }}
+              // maxW={{ base: "105px", md: "155px" }}
+              mt={{ base: "6px", md: 0 }}
+            >
+              <Image alt="" src={Comp2} priority width="70px" height="70px" />
+            </Box>
+            <Box
+              display="inline-flex"
+              alignItems="center"
+              // mx={{ base: "20px", md: "40px" }}
+              // maxW={{ base: "95px", md: "141px" }}
+            >
+              <Image alt="" src={Comp3} priority width="171px" height="38px" />
+            </Box>
+            <Box
+              display="inline-flex"
+              alignItems="center"
+              // mx={{ base: "20px", md: "40px" }}
+              // maxW={{ base: "102px", md: "150px" }}
+            >
+              <Image alt="" src={Comp4} priority width="157px" height="63px" />
+            </Box>
+            <Box
+              mx={{ base: "20px", md: "40px" }}
+              maxW={{ base: "102px", md: "150px" }}
+            >
+              <Image alt="" src={Comp5} priority />
+            </Box>
+          </Box>
+
+          {/* <SimpleGrid
+            columns={{ base: 2, md: 4 }}
+            gap={{ base: "15px", md: "0" }}
+          >
+            <Box
+              textAlign="center"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Box maxW={{ base: "103px", md: "152px" }}>
+                <Image alt="" src={Comp1} priority />
               </Box>
-            ))}
-          </SimpleGrid>
+            </Box>
+            <Box
+              textAlign="center"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Box maxW={{ base: "105px", md: "155px" }} mt={{base: '6px', md: 0}}>
+                <Image alt="" src={Comp2} priority />
+              </Box>
+            </Box>
+            <Box
+              textAlign="center"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Box maxW={{ base: "95px", md: "141px" }}>
+                <Image alt="" src={Comp3} priority />
+              </Box>
+            </Box>
+            <Box
+              textAlign="center"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Box maxW={{ base: "102px", md: "150px" }}>
+                <Image alt="" src={Comp4} priority />
+              </Box>
+            </Box>
+            <Box
+              textAlign="center"
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Box maxW={{ base: "102px", md: "150px" }}>
+                <Image alt="" src={Comp5} priority />
+              </Box>
+            </Box>
+          </SimpleGrid> */}
         </Box>
 
         {/* <Companies /> */}
