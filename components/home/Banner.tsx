@@ -182,6 +182,7 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
+                key={logo}
               >
                 <Box maxW={{ base: "100px", md: "150px" }}>
                   <Image alt="" src={logo} priority />
