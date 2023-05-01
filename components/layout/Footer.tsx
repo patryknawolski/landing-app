@@ -383,7 +383,7 @@ const Footer: NextPage = () => {
           alignItems="center"
         >
           <Link
-            href="https://www.linkedin.com/company/13976151/admin/"
+            href="https://www.linkedin.com/company/realyou/"
             target="_blank"
             fontWeight="normal"
             fontSize="16px"
