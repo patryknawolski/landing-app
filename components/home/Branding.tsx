@@ -5,9 +5,9 @@ import Image from "next/image";
 import { Box, Heading, Text, Grid, GridItem } from "@chakra-ui/react";
 import { Hide } from "@chakra-ui/react";
 
-import BrandingImg from "public/images/branding.webp";
+import BrandingImg from "public/images/new-branding1.png";
 import Branding1Img from "public/images/branding1.svg";
-import Branding2Img from "public/images/branding2.svg";
+import Branding2Img from "public/images/new-branding3.png";
 
 const Branding: NextPage = () => {
   const sliderRef = useRef<any>(null);
@@ -93,14 +93,14 @@ const Branding: NextPage = () => {
           maxW="620px"
           margin={{ base: "0 auto 15px", md: "0 auto 30px" }}
         >
-          Customise your firm’s branding{" "}
+          Avoid customer pushback with{" "}
           <Heading
             as="span"
             color="#4959E7"
             fontSize={{ base: "28px", md: "40px" }}
             lineHeight={{ base: "35px", md: "50px" }}
           >
-            to save time and money
+            {`your firm’s unique branding`}
           </Heading>
         </Heading>
 
@@ -112,8 +112,7 @@ const Branding: NextPage = () => {
           fontSize={{ base: "14px", md: "20px" }}
           lineHeight={{ base: "22px", md: "32px" }}
         >
-          With your firm’s logo and colour palette on display you’ll increase
-          brand loyalty and get verifications completed faster
+          {`Increase completed verifications, customer loyalty, and retention, gain a competitive edge, maintain brand consistency, and stand out from the competition.`}
         </Text>
       </Box>
 
@@ -233,7 +232,7 @@ const Branding: NextPage = () => {
                   lineHeight={{ base: "25px", md: "38px" }}
                   color={active === 0 ? "#4959E7" : "#110F24"}
                 >
-                  BitPrime
+                  Dye & Durham
                 </Heading>
                 <Hide below="sm">
                   <Text
@@ -243,8 +242,8 @@ const Branding: NextPage = () => {
                     color={active === 0 ? "#4959E7" : "#6C6B74"}
                     maxW="387px"
                   >
-                    Aliquet augue sed sed metus maecenas nit viverra ut. Orci
-                    elit lorem elit magna sed.
+                    Provides regulatory information, workflow technology,
+                    property settlement services and legal support solutions.
                   </Text>
                 </Hide>
               </Box>
@@ -275,7 +274,7 @@ const Branding: NextPage = () => {
                   lineHeight={{ base: "25px", md: "38px" }}
                   color={active === 1 ? "#4959E7" : "#110F24"}
                 >
-                  Kubota
+                  Kubota Australia Finance
                 </Heading>
                 <Hide below="sm">
                   <Text
@@ -284,8 +283,8 @@ const Branding: NextPage = () => {
                     lineHeight={{ base: "22px", md: "28px" }}
                     color={active === 1 ? "#4959E7" : "#6C6B74"}
                   >
-                    Aliquet augue sed sed metus maecenas nit viverra ut. Orci
-                    elit lorem elit magna sed.
+                    Offers secured equipment finance to businesses looking to
+                    purchase new, demo and used Kubota equipment.
                   </Text>
                 </Hide>
               </Box>
@@ -316,7 +315,7 @@ const Branding: NextPage = () => {
                   lineHeight={{ base: "25px", md: "38px" }}
                   color={active === 2 ? "#4959E7" : "#110F24"}
                 >
-                  Member Check
+                  SquareOne
                 </Heading>
                 <Hide below="sm">
                   <Text
@@ -325,8 +324,9 @@ const Branding: NextPage = () => {
                     lineHeight={{ base: "22px", md: "28px" }}
                     color={active === 2 ? "#4959E7" : "#6C6B74"}
                   >
-                    Aliquet augue sed sed metus maecenas nit viverra ut. Orci
-                    elit lorem elit magna sed.
+                    Financial well-being for the next generation by providing
+                    the tools parents need to help their kids to be great with
+                    money.
                   </Text>
                 </Hide>
               </Box>

@@ -73,7 +73,7 @@ const Security: NextPage = () => {
           fontSize={{ base: "28px", md: "40px" }}
           lineHeight={{ base: "35px", md: "50px" }}
           textAlign={{ base: "left", md: "center" }}
-          maxW="656px"
+          maxW="800px"
           margin={{ base: "0 auto 15px", md: "0 auto 30px" }}
         >
           <Heading
@@ -85,43 +85,43 @@ const Security: NextPage = () => {
           >
             Security & privacy{" "}
           </Heading>
-          is at the heart that everything we do
+          is in our DNA
         </Heading>
 
         <Text
-          maxW="512px"
+          maxW="720px"
           margin="0 auto"
           color="#6C6B74"
           textAlign={{ base: "left", md: "center" }}
           fontSize={{ base: "14px", md: "20px" }}
           lineHeight={{ base: "22px", md: "32px" }}
         >
-          Nam et sed at interdum dui consequat viverra aliquet. Risus quis id
-          ultrices mattis turpis sit justo.
+          {`Your customer’s data is completely encrypted at all times. We provide
+          both in-transit and at-rest military-grade TLS based encryption and more.`}
         </Text>
       </Box>
 
       <Box w="100%">
         <SimpleGrid columns={{ base: 1, md: 2, xl: 4 }} gap="26px">
           <BookCard
-            title="State of the Art data Protection"
-            text="Convallis nunc felis in adipiscing faucibus pulvinar vulputate neque mauris"
-            icon={Img1}
-          />
-          <BookCard
-            title="Secure"
-            text="Nulla accumsan vitae ut molestie volutpat fermentum condimentum viverra  ac"
+            title="PII Excluded In Emails"
+            text="Personally identifiable information (PII) only visible via secure login. Your data is yours to own and configure."
             icon={Img2}
           />
           <BookCard
-            title="Certified"
-            text="Tortor odio curabitur mauris nibh egestas hendrerit a nullam et"
-            icon={Img3}
+            title={`Multi-factor Authentication`}
+            text="Protect your valuable information and accounts against unauthorised access."
+            icon={Img1}
           />
           <BookCard
             title="GDPR Compliant"
-            text="Elementum, euismod libero nisi, facilisis risus pulvinar mattis congue urna"
+            text="We meet the General Data Protection Regulation (GDPR) requirements for properly handling personal data."
             icon={Img4}
+          />
+          <BookCard
+            title="ISO 27001 Compliant"
+            text="We meet world's best-known standard for information security management systems (ISMS)."
+            icon={Img3}
           />
         </SimpleGrid>
       </Box>

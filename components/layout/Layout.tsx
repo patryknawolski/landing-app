@@ -42,6 +42,8 @@ const Layout: React.FC<Props> = ({
     }
   };
 
+  const onViewWhyCore = () => {};
+
   return (
     <Box>
       {/* {loading && (

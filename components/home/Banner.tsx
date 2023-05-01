@@ -74,8 +74,7 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
                 fontSize={{ base: "16px", md: "20px" }}
                 lineHeight={{ base: "25px", md: "32px" }}
               >
-                Provide your ideal KYC/AML experience through a single API and
-                dashboard
+                Say hello to more customers and wave goodbye to fraudsters.
               </Text>
 
               <InputGroup height="62px" maxW={{ base: "100%", lg: "511px" }}>
@@ -116,7 +115,7 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
                       border: "none",
                     }}
                   >
-                    Try for free
+                    Get a demo
                   </Button>
                 </InputRightElement>
               </InputGroup>
@@ -144,7 +143,7 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
                   preload="yes"
                   ref={videoRef}
                 >
-                  <source src="/videos/banner.webm" type="video/webm" />
+                  <source src="/videos/main_phone.webm" type="video/webm" />
                   Your browser does not support HTML video.
                 </video>
               </Box>

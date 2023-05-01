@@ -16,8 +16,9 @@ import {
 } from "@chakra-ui/react";
 import { BsLinkedin } from "react-icons/bs";
 
-import Logo from "public/images/logo-footer.svg";
-import BSILogo from "public/images/bsi.webp";
+import Logo from "public/images/CoreKYCBlue.svg";
+// import Logo from "public/images/logo-footer.svg";
+import IDRLogo from "public/images/IDR.png";
 import AWSLogo from "public/images/aws.svg";
 
 const Footer: NextPage = () => {
@@ -35,7 +36,7 @@ const Footer: NextPage = () => {
         }}
       >
         <Box marginBottom="46px">
-          <Image alt="" src={Logo} />
+          <Image alt="" src={Logo} width="148px" height="24px" />
         </Box>
         <Spacer />
         <Box>
@@ -46,7 +47,6 @@ const Footer: NextPage = () => {
                   <Link
                     fontWeight="normal"
                     fontSize="16px"
-                    textTransform="capitalize"
                     color="#110f24"
                     _hover={{
                       cursor: "pointer",
@@ -63,7 +63,6 @@ const Footer: NextPage = () => {
                   <Link
                     fontWeight="normal"
                     fontSize="16px"
-                    textTransform="capitalize"
                     color="#110f24"
                     _hover={{
                       cursor: "pointer",
@@ -71,16 +70,15 @@ const Footer: NextPage = () => {
                       color: "#4959e7",
                     }}
                   >
-                    About Us
+                    About us
                   </Link>
                 </NextLink>
               </ListItem>
               <ListItem marginBottom="10px">
-                <NextLink href="/">
+                <NextLink href="/#developers">
                   <Link
                     fontWeight="normal"
                     fontSize="16px"
-                    textTransform="capitalize"
                     color="#110f24"
                     _hover={{
                       cursor: "pointer",
@@ -97,7 +95,6 @@ const Footer: NextPage = () => {
                   <Link
                     fontWeight="normal"
                     fontSize="16px"
-                    textTransform="capitalize"
                     color="#110f24"
                     _hover={{
                       cursor: "pointer",
@@ -114,7 +111,7 @@ const Footer: NextPage = () => {
                   <Link
                     fontWeight="normal"
                     fontSize="16px"
-                    textTransform="capitalize"
+                    
                     color="#110f24"
                     _hover={{
                       cursor: "pointer",
@@ -134,7 +131,6 @@ const Footer: NextPage = () => {
                   <Link
                     fontWeight="normal"
                     fontSize="16px"
-                    textTransform="capitalize"
                     color="#110f24"
                     _hover={{
                       cursor: "pointer",
@@ -151,7 +147,6 @@ const Footer: NextPage = () => {
                   <Link
                     fontWeight="normal"
                     fontSize="16px"
-                    textTransform="capitalize"
                     color="#110f24"
                     _hover={{
                       cursor: "pointer",
@@ -168,7 +163,6 @@ const Footer: NextPage = () => {
                   <Link
                     fontWeight="normal"
                     fontSize="16px"
-                    textTransform="capitalize"
                     color="#110f24"
                     _hover={{
                       cursor: "pointer",
@@ -185,7 +179,6 @@ const Footer: NextPage = () => {
                   <Link
                     fontWeight="normal"
                     fontSize="16px"
-                    textTransform="capitalize"
                     color="#110f24"
                     _hover={{
                       cursor: "pointer",
@@ -201,11 +194,10 @@ const Footer: NextPage = () => {
 
             <List minW={{ base: "120px", xl: "160px" }} margin="0">
               <ListItem marginBottom="10px">
-                <NextLink href="/">
+                <NextLink href="/#whyCore">
                   <Link
                     fontWeight="normal"
                     fontSize="16px"
-                    textTransform="capitalize"
                     color="#110f24"
                     _hover={{
                       cursor: "pointer",
@@ -213,7 +205,7 @@ const Footer: NextPage = () => {
                       color: "#4959e7",
                     }}
                   >
-                    Sign In
+                    Why CoreKYC?
                   </Link>
                 </NextLink>
               </ListItem>
@@ -222,7 +214,6 @@ const Footer: NextPage = () => {
                   <Link
                     fontWeight="normal"
                     fontSize="16px"
-                    textTransform="capitalize"
                     color="#110f24"
                     _hover={{
                       cursor: "pointer",
@@ -230,7 +221,7 @@ const Footer: NextPage = () => {
                       color: "#4959e7",
                     }}
                   >
-                    Try For Free
+                    Sign in
                   </Link>
                 </NextLink>
               </ListItem>
@@ -239,7 +230,6 @@ const Footer: NextPage = () => {
                   <Link
                     fontWeight="normal"
                     fontSize="16px"
-                    textTransform="capitalize"
                     color="#110f24"
                     _hover={{
                       cursor: "pointer",
@@ -247,7 +237,7 @@ const Footer: NextPage = () => {
                       color: "#4959e7",
                     }}
                   >
-                    Book A Demo
+                    Get a demo
                   </Link>
                 </NextLink>
               </ListItem>
@@ -274,23 +264,10 @@ const Footer: NextPage = () => {
         >
           <Box
             alignItems="center"
-            margin={{ base: "0 0 35px", lg: "0 200px 0 0" }}
             display="inline-flex"
+            margin={{ base: "0 0 35px", lg: "0 72px 0 0" }}
           >
-            <Box maxW="126px">
-              <Image alt="" src={BSILogo} priority />
-            </Box>
-            <Text
-              fontSize="14px"
-              fontWeight="normal"
-              marginLeft="20px"
-              color="#666"
-            >
-              Corekyc is ISO 27001 Certified
-            </Text>
-          </Box>
-          <Box alignItems="center" display="inline-flex">
-            <Box maxW="126px">
+            <Box maxW="72px">
               <Image alt="" src={AWSLogo} priority />
             </Box>
             <Text
@@ -299,7 +276,20 @@ const Footer: NextPage = () => {
               marginLeft="20px"
               color="#666"
             >
-              Corekyc is powered by Amazon Web Services
+              CoreKYC is powered by Amazon Web Services
+            </Text>
+          </Box>
+          <Box alignItems="center" display="inline-flex">
+            <Box maxW="134px">
+              <Image alt="" src={IDRLogo} priority />
+            </Box>
+            <Text
+              fontSize="14px"
+              fontWeight="normal"
+              marginLeft="20px"
+              color="#666"
+            >
+              Passive liveness is powered by ID R&D
             </Text>
           </Box>
         </Box>
@@ -336,7 +326,6 @@ const Footer: NextPage = () => {
                   sm: "0 54px 10px 0",
                   lg: "0 20px",
                 }}
-                textTransform="capitalize"
                 color="#666"
                 _hover={{
                   cursor: "pointer",
@@ -356,7 +345,6 @@ const Footer: NextPage = () => {
                   sm: "0 54px 10px 0",
                   lg: "0 20px",
                 }}
-                textTransform="capitalize"
                 color="#666"
                 _hover={{
                   cursor: "pointer",
@@ -376,7 +364,7 @@ const Footer: NextPage = () => {
                   sm: "0 54px 10px 0",
                   lg: "0 20px",
                 }}
-                textTransform="capitalize"
+                
                 color="#666"
                 _hover={{
                   cursor: "pointer",
@@ -395,9 +383,10 @@ const Footer: NextPage = () => {
           alignItems="center"
         >
           <Link
+            href="https://www.linkedin.com/company/13976151/admin/"
+            target="_blank"
             fontWeight="normal"
             fontSize="16px"
-            textTransform="capitalize"
             color="#4959e7"
             display="inline-flex"
             alignItems="center"

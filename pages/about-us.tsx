@@ -10,8 +10,8 @@ const AboutUs: NextPage = () => {
   return (
     <Layout title="About Us" isStarted={true}>
       <Banner
-        title="Some text about your company "
-        text="Scelerisque nisl velit non pretium luctus imperdiet in eget. Sed vitae nisl vulputate ut eu."
+        title="Verify remote customers & prevent fraud"
+        text="With CoreKYC, businesses can be confident that their customers are who they say they are."
       />
       <Detail />
       <Founders />

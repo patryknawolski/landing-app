@@ -44,8 +44,9 @@ const GetStarted: NextPage = () => {
             maxW="511px"
             fontWeight="normal"
           >
-            Nam venenatis egestas tortor in pellentesque. Nunc maecenas augue
-            sit aenean neque.
+            With real-time ID scanning, lightning-fast OCR, data verification,
+            and passive liveness checks, you can remotely onboard customers in
+            less than 30 seconds.
           </Text>
 
           <InputGroup
@@ -89,23 +90,10 @@ const GetStarted: NextPage = () => {
                   border: "none",
                 }}
               >
-                Try for free
+                Get a demo
               </Button>
             </InputRightElement>
           </InputGroup>
-
-          {/* <Box textAlign="center">
-            <Button
-              variant="outline"
-              color={COLORS.white}
-              position={{ base: "relative", lg: "absolute" }}
-              right="0"
-              top="0"
-              marginTop={{ base: "70px", lg: 0 }}
-            >
-              Try for free
-            </Button>
-          </Box> */}
         </Box>
       </Box>
     </Box>

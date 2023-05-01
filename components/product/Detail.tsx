@@ -1,8 +1,9 @@
 import type { NextPage } from "next";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import LinkNext from "next/link";
 import { BsArrowRightShort } from "react-icons/bs";
+import { FiCheck } from 'react-icons/fi'
 import {
   Box,
   Link,
@@ -13,12 +14,14 @@ import {
   Grid,
   GridItem,
   Icon,
+  Input,
+  Button,
 } from "@chakra-ui/react";
 
 import FaceIdImg from "public/images/face-id.svg";
-import QuickIdImg from "public/images/quickid.svg";
-import FaceMatchImg from "public/images/bn-face.svg";
-import PepCheckImg from "public/images/pep-check-pr.svg";
+import QuickIdImg from "public/images/new-quick-idv.svg";
+import FaceMatchImg from "public/images/new-face-match.svg";
+import PepCheckImg from "public/images/new-pep-check.svg";
 import PepCheckFullImg from "public/images/pep-check-full.svg";
 
 interface ImageType {
@@ -26,10 +29,15 @@ interface ImageType {
 }
 
 interface InfoType {
+  id: number;
   title: string;
   text: string;
   list: Array<string>;
   url: string;
+  active: any;
+  sent: any;
+  onDownload: (id: number) => void;
+  onSend: (id: number) => void;
 }
 
 interface TextType {
@@ -56,7 +64,22 @@ const Item: React.FC<TextType> = ({ value }) => (
   </ListItem>
 );
 
-const BoxDetail: React.FC<InfoType> = ({ title, text, list, url }) => {
+const BoxDetail: React.FC<InfoType> = ({
+  id,
+  title,
+  text,
+  list,
+  url,
+  active,
+  sent,
+  onDownload,
+  onSend,
+}) => {
+  const handleDownload = () => {
+    onDownload(id);
+  };
+  
+
   return (
     <Box w="100%" h="100%" display="flex" alignItems="center">
       <Box w="100%">
@@ -86,7 +109,53 @@ const BoxDetail: React.FC<InfoType> = ({ title, text, list, url }) => {
           ))}
         </UnorderedList>
 
-        <LinkNext href={url}>
+        {id === active && id === sent ? (
+          <Text
+            fontSize={{ base: "14px", md: "20px" }}
+            lineHeight={{ base: "22px", md: "32px" }}
+            fontWeight={600}
+            color="#4959E7"
+            display="flex" alignItems="center"
+          >
+            Documents sent <FiCheck style={{marginLeft: '10px'}} />
+          </Text>
+        ) : id === active && id !== sent ? (
+          <Box display={{ base: "flex" }} alignItems="center">
+            <Input
+              placeholder="Your work email"
+              type="email"
+              fontSize="14px"
+              lineHeight="21px"
+              fontWeight="500"
+              p="15px 16px"
+              borderRadius="10px"
+              border="1px solid #DDDFE7"
+              mr="6px"
+              h="50px"
+              _placeholder={{
+                color: "#8185A0",
+              }}
+            />
+            <Button
+              fontSize="16px"
+              lineHeight="24px"
+              fontWeight="600"
+              p="13px 36px"
+              borderRadius="10px"
+              bg="#4959E7"
+              h="50px"
+              color="#fff"
+              _hover={{
+                bg: "#4959E7",
+                color: "#fff",
+                opacity: 0.7,
+              }}
+              onClick={() => onSend(id)}
+            >
+              Download
+            </Button>
+          </Box>
+        ) : (
           <Link
             alignItems="center"
             display="inline-flex"
@@ -97,8 +166,12 @@ const BoxDetail: React.FC<InfoType> = ({ title, text, list, url }) => {
             cursor="pointer"
             textDecoration="none"
             color="#4959e7"
+            _hover={{
+              textDecoration: "none",
+            }}
+            onClick={handleDownload}
           >
-            Learn more{" "}
+            Download the fact sheet{" "}
             <Icon
               w="26px"
               h="26px"
@@ -107,15 +180,27 @@ const BoxDetail: React.FC<InfoType> = ({ title, text, list, url }) => {
               as={BsArrowRightShort}
             />
           </Link>
-        </LinkNext>
+        )}
       </Box>
     </Box>
   );
 };
 
 const Detail: NextPage = () => {
+  const [active, setActive] = useState<any>(null);
+  const [sent, setSent] = useState<any>(null);
+
+  const handleViewDownload = (index: number) => {
+    setActive(index);
+  };
+
+  const handleSent = (index: number) => {
+    setSent(index);
+  };
+  console.log("sent: ", sent)
+
   return (
-    <Box w="100%" position="relative">
+    <Box w="100%" position="relative" overflow="hidden">
       <Box maxW="1440px" margin="0 auto">
         <Box
           padding={{
@@ -125,7 +210,7 @@ const Detail: NextPage = () => {
           }}
         >
           <Grid
-            gap={{ base: "40px", md: "60px", xl: "120px" }}
+            gap={{ base: "40px", md: "60px", xl: "40px" }}
             templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(5, 1fr)" }}
           >
             <GridItem
@@ -138,13 +223,18 @@ const Detail: NextPage = () => {
             </GridItem>
             <GridItem colSpan={{ base: 5, lg: 2 }}>
               <BoxDetail
+                id={1}
+                active={active}
+                sent={sent}
+                onSend={handleSent}
+                onDownload={handleViewDownload}
                 url="/face-id"
-                title="Face ID"
-                text="Eget eget at pulvinar neque enim massa. Sit venenatis vitae accumsan purus eget magna sed pellentesque."
+                title="Face IDV"
+                text="Globally compliant remote identity verification that combines best-in-class biometrics, data verification & world-first anti-fraud features."
                 list={[
-                  "Mauris cursus enim metus dolor tempus ",
-                  "Tincidunt placerat integer diam enim ",
-                  "Turpis lectus ac neque laoreet quisque ",
+                  "Document authentication & accurate OCR",
+                  "Customer identity & PEP verification ",
+                  "Facial recognition & passive liveness detection",
                 ]}
               />
             </GridItem>
@@ -156,15 +246,20 @@ const Detail: NextPage = () => {
             </GridItem>
 
             <GridItem colSpan={{ base: 5, lg: 2 }}>
-              <Box h="100% " pl={{ base: "0", md: "32px" }}>
+              <Box h="100% " pl={{ base: "0", md: "0px" }}>
                 <BoxDetail
+                  id={2}
+                  active={active}
+                  sent={sent}
+                  onSend={handleSent}
+                  onDownload={handleViewDownload}
                   url="/quick-id"
-                  title="Quick ID"
-                  text="Eget eget at pulvinar neque enim massa. Sit venenatis vitae accumsan purus eget magna sed pellentesque."
+                  title="Quick IDV"
+                  text="Access 1000’s of global data sets to verify your customer’s ID docs, name, date of birth, address, and politically exposed persons (PEP) status."
                   list={[
-                    "Mauris cursus enim metus dolor tempus ",
-                    "Tincidunt placerat integer diam enim ",
-                    "Turpis lectus ac neque laoreet quisque ",
+                    "Onboard 93% of customers the first time",
+                    "Verifications completed in under 5 seconds",
+                    "Omni-channel experience on any device ",
                   ]}
                 />
               </Box>
@@ -187,13 +282,18 @@ const Detail: NextPage = () => {
             </GridItem>
             <GridItem colSpan={{ base: 5, lg: 2 }}>
               <BoxDetail
+                id={3}
+                active={active}
+                sent={sent}
+                onSend={handleSent}
+                onDownload={handleViewDownload}
                 url="/face-match"
                 title="Face Match"
-                text="Eget eget at pulvinar neque enim massa. Sit venenatis vitae accumsan purus eget magna sed pellentesque."
+                text="Confidently match the image of your remote customer to the image of that customer on their government-issued identity document."
                 list={[
-                  "Mauris cursus enim metus dolor tempus ",
-                  "Tincidunt placerat integer diam enim ",
-                  "Turpis lectus ac neque laoreet quisque ",
+                  "iBeta Level 1 and 2 ISO 330107-3 compliant",
+                  "Works with customers wearing glasses & hats",
+                  "Works with ID documents 20+ years old",
                 ]}
               />
             </GridItem>
@@ -216,18 +316,20 @@ const Detail: NextPage = () => {
             templateColumns={{ base: "repeat(1, 1fr)", lg: "repeat(2, 1fr)" }}
           >
             <GridItem colSpan={1}>
-              <Box
-                pl={{ base: "0", md: "0", lg: "40px", xl: "127px" }}
-                h="100%"
-              >
+              <Box pl={{ base: "0", md: "0", lg: "40px", xl: "90px" }} h="100%">
                 <BoxDetail
+                  id={4}
+                  active={active}
+                  sent={sent}
+                  onSend={handleSent}
+                  onDownload={handleViewDownload}
                   url="/pep-check"
                   title="PEP Check"
-                  text="Eget eget at pulvinar neque enim massa. Sit venenatis vitae accumsan purus eget magna sed pellentesque."
+                  text="Access 300+ PEP, sanctions, and watchlists to receive only the most relevant matches and avoid false positives."
                   list={[
-                    "Mauris cursus enim metus dolor tempus ",
-                    "Tincidunt placerat integer diam enim ",
-                    "Turpis lectus ac neque laoreet quisque ",
+                    "Run manual, API, SDK, or bulk checks",
+                    "Databases automatically updated daily",
+                    "Multi-language support & whitelisting",
                   ]}
                 />
               </Box>

@@ -70,6 +70,13 @@ const Carousel: NextPage = () => {
   //   };
   // }, []);
 
+  const handleExplore = () => {
+    window.open(
+      "https://www.reviews.io/company-reviews/store/realyou-co-nz?utm_source=realyou-co-nz&utm_medium=widget&utm_campaign=carousel",
+      "_blank"
+    );
+  };
+
   return (
     <Box w="100%" paddingBottom={{ base: "70px", md: "100px" }}>
       <Box maxW="1440px" margin="0 auto">
@@ -96,8 +103,9 @@ const Carousel: NextPage = () => {
                 margin="0 auto 40px"
                 color="#110f24"
               >
-                Id nulla iaculis posuere elementum sit orci. Morbi etiam a
-                turpis magna consectetur ullamcorper mattis massa sodales.
+                {`The best system for verifying clients for AML that I've come
+                across. It's simple to use, quick and takes away of the stress
+                of getting it wrong.`}
               </Heading>
 
               <Text
@@ -107,7 +115,7 @@ const Carousel: NextPage = () => {
                 marginBottom="60px"
                 color="#6C6B74"
               >
-                - Wade Warren, CEO Lorem
+                - Kathy E., Realtor
               </Text>
             </Box>
 
@@ -127,8 +135,8 @@ const Carousel: NextPage = () => {
                 margin="0 auto 40px"
                 color="#110f24"
               >
-                Id nulla iaculis posuere elementum sit orci. Morbi etiam a
-                turpis magna consectetur ullamcorper mattis massa sodales.
+                We are new to CoreKYC but so far the experience is fantastic for
+                both our clients and me personally. Loving what you offer.
               </Heading>
 
               <Text
@@ -138,7 +146,7 @@ const Carousel: NextPage = () => {
                 marginBottom="60px"
                 color="#6C6B74"
               >
-                - Wade Warren, CEO Lorem
+                - Brent S., Solicitor
               </Text>
             </Box>
 
@@ -158,8 +166,9 @@ const Carousel: NextPage = () => {
                 margin="0 auto 40px"
                 color="#110f24"
               >
-                Id nulla iaculis posuere elementum sit orci. Morbi etiam a
-                turpis magna consectetur ullamcorper mattis massa sodales.
+                We have been using CoreKYC for nearly two years and it has
+                worked faultlessly. I am very happy with the Quick IDV and Face
+                Match software.
               </Heading>
 
               <Text
@@ -169,7 +178,7 @@ const Carousel: NextPage = () => {
                 marginBottom="60px"
                 color="#6C6B74"
               >
-                - Wade Warren, CEO Lorem
+                - Kit. P, Online Lender
               </Text>
             </Box>
           </Slider>
@@ -190,6 +199,7 @@ const Carousel: NextPage = () => {
                 cursor: "pointer",
                 textDecoration: "none",
               }}
+              onClick={handleExplore}
             >
               Explore more on{" "}
               <Heading

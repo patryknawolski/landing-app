@@ -16,7 +16,7 @@ import {
   ListIcon,
 } from "@chakra-ui/react";
 
-import SingleImg from "public/images/single-view.svg";
+import SingleImg from "public/images/new-single-view.png";
 import SingleMbImg from "public/images/single-view-mb.svg";
 
 interface InfoType {
@@ -106,7 +106,7 @@ const BoxDetail: React.FC<InfoType> = ({ title, text, list }) => {
 
 const SingleView = () => {
   return (
-    <Box w="100%" padding={{ base: "60px 0 90px", md: "150px 0 0" }}>
+    <Box w="100%" padding={{ base: "60px 0 90px", md: "0px 0 0" }}>
       <Box maxW="1440px" margin="0 auto">
         <SimpleGrid
           columns={{ base: 1, md: 2 }}
@@ -126,21 +126,20 @@ const SingleView = () => {
                 lineHeight={{ base: "35px", md: "50px" }}
                 color="#110F24"
                 fontWeight="600"
-                maxW="316px"
+                maxW="400px"
                 marginBottom={{ base: "15px", md: "25px" }}
               >
-                Single view of{" "}
+                Your all-in-one{" "}
                 <Heading
                   as="span"
                   fontSize={{ base: "28px", md: "40px" }}
                   lineHeight={{ base: "35px", md: "50px" }}
                   color="#4959E7"
                   fontWeight="600"
-                  maxW="545px"
                   marginBottom={{ base: "15px", md: "25px" }}
                   display={{ base: "inline", md: "block" }}
                 >
-                  the customer
+                  customer dashboard
                 </Heading>
               </Heading>
               <Text
@@ -150,15 +149,15 @@ const SingleView = () => {
                 color="#6C6B74"
                 marginBottom={{ base: "15px", md: "25px" }}
               >
-                Eget eget at pulvinar neque enim massa. Sit venenatis vitae
-                accumsan purus eget magna sed pellentesque.
+                Make manual review operations more efficient by consolidating
+                all verification-related data, regardless of its source, into
+                one unified view.
               </Text>
 
               <List>
-                <Item value="Sapien, pretium quam cursus imperdiet " />
-                <Item value="In lacus, porttitor eget adipiscing donec " />
-                <Item value="Odio orci sit a eu est vel facilisi" />
-                <Item value="Neque condimentum ut quam pulvinar " />
+                <Item value="Initiate, monitor & review verifications" />
+                <Item value="Manage verification links & storage" />
+                <Item value="Manage users & permissions" />
               </List>
             </Box>
           </Box>

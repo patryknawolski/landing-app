@@ -16,15 +16,21 @@ import {
   Link,
 } from "@chakra-ui/react";
 
-import Logo from "public/images/logo-header.svg";
+import Logo from "public/images/CoreKYCWhite.svg";
+// import Logo from "public/images/logo-header.svg";
 import MenuImg from "public/images/bars.svg";
 
 interface Props {
   heightBanner?: number;
   onViewPrice?: () => void;
+  onViewWhyCore?: () => void;
 }
 
-const Header: React.FC<Props> = ({ onViewPrice, heightBanner }) => {
+const Header: React.FC<Props> = ({
+  onViewPrice,
+  heightBanner,
+  onViewWhyCore,
+}) => {
   const menuRef: any = React.useRef();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [showBg, setShowBg] = useState(false);
@@ -43,6 +49,11 @@ const Header: React.FC<Props> = ({ onViewPrice, heightBanner }) => {
 
     return () => window.removeEventListener("scroll", onScroll);
   }, [heightBanner]);
+
+  const handleScroll = (id: String) => {
+    // onViewWhyCore()
+    window.location.href = `#${id}`;
+  };
 
   return (
     <Box
@@ -127,10 +138,10 @@ const Header: React.FC<Props> = ({ onViewPrice, heightBanner }) => {
                 color: "#4959E7",
               }}
             >
-              About Us
+              About us
             </Link>
           </NextLink>
-          <NextLink href="/">
+          <NextLink href="#developers">
             <Link
               fontSize="16px"
               fontStyle="normal"
@@ -146,6 +157,7 @@ const Header: React.FC<Props> = ({ onViewPrice, heightBanner }) => {
                 backgroundColor: "#fff",
                 color: "#4959E7",
               }}
+              onClick={() => handleScroll("developers")}
             >
               Developers
             </Link>
@@ -184,6 +196,36 @@ const Header: React.FC<Props> = ({ onViewPrice, heightBanner }) => {
         >
           <Button
             color="#FFFFFF"
+            // _hover={{ bg: "none", opacity: 0.7, outline: "none" }}
+            // _active={{ bg: "none", opacity: 0.7, outline: "none" }}
+            variant="outline"
+            // border="2px solid rgba(255, 255, 255, 0.74)"
+            border="none"
+            h="50px"
+            padding="8px 15px"
+            borderRadius="10px"
+            fontSize="16px"
+            fontWeight="semibold"
+            _hover={{
+              cursor: "pointer",
+              textDecoration: "none",
+              backgroundColor: "#fff",
+              color: "#4959E7",
+            }}
+            // _active={{
+            //   backgroundColor: "none",
+            // }}
+            _focus={{
+              backgroundColor: "#fff",
+              boxShadow: "none",
+              color: "#4959E7",
+            }}
+            onClick={() => handleScroll("whyCore")}
+          >
+            Why CoreKYC?
+          </Button>
+          <Button
+            color="#FFFFFF"
             variant="ghost"
             fontSize="16px"
             fontWeight="semibold"
@@ -207,34 +249,7 @@ const Header: React.FC<Props> = ({ onViewPrice, heightBanner }) => {
               backgroundColor: "none",
             }}
           >
-            Sign In
-          </Button>
-          <Button
-            color="#FFFFFF"
-            // _hover={{ bg: "none", opacity: 0.7, outline: "none" }}
-            // _active={{ bg: "none", opacity: 0.7, outline: "none" }}
-            variant="outline"
-            // border="2px solid rgba(255, 255, 255, 0.74)"
-            border="none"
-            h="50px"
-            w="150px"
-            borderRadius="10px"
-            fontSize="16px"
-            fontWeight="semibold"
-            _hover={{
-              cursor: "pointer",
-              textDecoration: "none",
-              backgroundColor: "#fff",
-              color: "#4959E7",
-            }}
-            _active={{
-              backgroundColor: "none",
-            }}
-            _focus={{
-              backgroundColor: "none",
-            }}
-          >
-            Try for free
+            Sign in
           </Button>
           <Button
             color="#FFFFFF"
@@ -247,8 +262,9 @@ const Header: React.FC<Props> = ({ onViewPrice, heightBanner }) => {
             borderRadius="10px"
             fontSize="16px"
             fontWeight="semibold"
+            ml={{ base: "31px !important" }}
           >
-            Book a demo
+            Get a demo
           </Button>
         </Stack>
 
@@ -336,7 +352,7 @@ const Header: React.FC<Props> = ({ onViewPrice, heightBanner }) => {
                       opacity: 0.7,
                     }}
                   >
-                    About Us
+                    About us
                   </Link>
                 </NextLink>
                 <NextLink href="/">
@@ -411,7 +427,7 @@ const Header: React.FC<Props> = ({ onViewPrice, heightBanner }) => {
                   w="155px"
                   h="45px"
                 >
-                  Book a demo
+                  Get a demo
                 </Button>
                 <Button
                   color="#fff"
@@ -424,7 +440,7 @@ const Header: React.FC<Props> = ({ onViewPrice, heightBanner }) => {
                   w="155px"
                   h="45px"
                 >
-                  Try for free
+                  Why CoreKYC?
                 </Button>
 
                 <Button
@@ -437,7 +453,7 @@ const Header: React.FC<Props> = ({ onViewPrice, heightBanner }) => {
                   w="155px"
                   h="45px"
                 >
-                  Sign In
+                  Sign in
                 </Button>
               </Box>
             </DrawerBody>
