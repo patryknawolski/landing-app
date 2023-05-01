@@ -15,7 +15,7 @@ import {
 
 import Comp2 from "public/images/cp2.svg";
 import Comp3 from "public/images/cp3.svg";
-import CoinstashLogo from "public/images/Coinstash.svg";
+import CoinstashLogo from "public/images/coinstash.svg";
 import TMNZLogo from "public/images/tmnz.svg";
 import TompkinsWakeLogo from "public/images/TompkinsWake.svg";
 import PhoneMb from "public/images/phone.svg";
