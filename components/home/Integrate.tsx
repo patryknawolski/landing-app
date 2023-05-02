@@ -98,16 +98,21 @@ const Integrate: NextPage = () => {
               >
                 {slides.map(({ title }, index) => (
                   <Box
+                    key={title}
                     fontWeight={400}
                     fontSize="14px"
                     lineHeight="21px"
                     p="12px 20px"
                     border="1px solid #DDDFE7"
                     borderRadius="5px"
-                    bg={activeSlideIndex === index ? "#EAF5FF" : null}
-                    borderColor={activeSlideIndex === index ? "#99A7F3" : null}
-                    color={activeSlideIndex === index ? "#4959E7" : "#110F24"}
-                    ml={index !== 0 ? "10px" : null}
+                    style={{
+                      backgroundColor:
+                        activeSlideIndex === index ? "#EAF5FF" : undefined,
+                      borderColor:
+                        activeSlideIndex === index ? "#99A7F3" : undefined,
+                      color: activeSlideIndex === index ? "#4959E7" : "#110F24",
+                      marginLeft: index !== 0 ? "10px" : undefined,
+                    }}
                     _hover={{
                       color: "#4959E7",
 
@@ -127,76 +132,10 @@ const Integrate: NextPage = () => {
                 ))}
               </Box>
               <Slider {...sliderSettings} ref={sliderRef}>
-                {slides.map(({ img }) => (
-                  <Image alt="" src={img} priority />
+                {slides.map(({ img }, index) => (
+                  <Image key={index} alt="" src={img} priority />
                 ))}
               </Slider>
-              {/* <Tabs variant="unstyled" onChange={(index) => setTabIndex(index)}>
-                <TabList
-                  bg="#fff"
-                  borderRadius={"10px"}
-                  boxShadow="0px 0px 10px #EDF0F5"
-                  p="10px"
-                  boxSizing="border-box"
-                  display="inline-flex"
-                >
-                  {tabs.map(({ title }, index) => (
-                    <Tab
-                      color="#110F24"
-                      fontWeight={400}
-                      fontSize="14px"
-                      lineHeight="21px"
-                      p="12px 20px"
-                      border="1px solid #DDDFE7"
-                      borderRadius="5px"
-                      ml={index !== 0 ? "10px" : null}
-                      _selected={{
-                        bg: "#EAF5FF",
-                        borderColor: "#99A7F3",
-                        color: "#4959E7",
-
-                        outline: "none !important",
-                      }}
-                      _hover={{
-                        color: "#4959E7",
-
-                        cursor: "pointer",
-                        outline: "none !important",
-                      }}
-                      _focus={{
-                        outline: "none !important",
-                      }}
-                      _active={{
-                        outline: "none !important",
-                      }}
-                    >
-                      {title}
-                    </Tab>
-                  ))}
-                </TabList>
-                <TabPanels mt="30px">
-                  {tabs.map(({ img }) => (
-                    <TabPanel>
-                      <Image alt="" src={img} priority />
-                    </TabPanel>
-                  ))}
-                </TabPanels>
-              </Tabs> */}
-
-              {/* <Box display="inline-flex">
-                {tabs.map((_tab, index) => (
-                  <a
-                    style={{
-                      width: "8px",
-                      height: "8px",
-                      display: "inline-flex",
-                      borderRadius: "50%",
-                      background: tabIndex === index ? "#4959E7" : "#E9E9F2",
-                      margin: "0 12px",
-                    }}
-                  ></a>
-                ))}
-              </Box> */}
             </Box>
           </Box>
         </GridItem>
