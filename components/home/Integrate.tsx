@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import LinkNext from "next/link";
 import {
@@ -17,20 +17,48 @@ import {
   TabPanels,
 } from "@chakra-ui/react";
 import { BsArrowRightShort } from "react-icons/bs";
+import Slider from "react-slick";
 
 import Img1 from "public/images/tab1.png";
 import Img2 from "public/images/tab2.png";
 import Img3 from "public/images/tab3.png";
+import { Settings } from "react-slick";
+
+const slides = [
+  {
+    title: "Hosted flow",
+    img: Img1,
+  },
+  {
+    title: "Embedded flow",
+    img: Img2,
+  },
+  {
+    title: "Mobile SDKs",
+    img: Img3,
+  },
+];
 
 const Integrate: NextPage = () => {
-  const [tabIndex, setTabIndex] = useState(0);
+  const sliderRef = useRef<Slider | null>(null);
+  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
+  const sliderSettings: Settings = {
+    dots: true,
+    afterChange: (index: number) => {
+      setActiveSlideIndex(index);
+    },
+  };
+
+  const handleTabClick = (index: number) => {
+    sliderRef.current?.slickGoTo(index);
+  };
 
   return (
     <Box
       id="developers"
       w="100%"
-      padding={{ base: "0 20px", md: "0 0 0" }}
-      margin="150px auto 0"
+      padding={{ base: "60px 25px", md: "0 0 0" }}
+      margin={{ md: "150px auto" }}
     >
       <Grid
         gap="40px"
@@ -55,11 +83,55 @@ const Integrate: NextPage = () => {
             w="100%"
           >
             <Box
-              ml={{ base: "0", md: "126px" }}
-              maxW={{ base: "332px", md: "641px" }}
+              pl={{ base: "0", md: "126px" }}
+              maxW={{ base: "332px", md: "100%" }}
               textAlign="center"
             >
-              <Tabs variant="unstyled" onChange={(index) => setTabIndex(index)}>
+              <Box
+                bg="#fff"
+                borderRadius={"10px"}
+                boxShadow="0px 0px 10px #edf0f5"
+                mb="30px"
+                p="10px"
+                boxSizing="border-box"
+                display="inline-flex"
+              >
+                {slides.map(({ title }, index) => (
+                  <Box
+                    fontWeight={400}
+                    fontSize="14px"
+                    lineHeight="21px"
+                    p="12px 20px"
+                    border="1px solid #DDDFE7"
+                    borderRadius="5px"
+                    bg={activeSlideIndex === index ? "#EAF5FF" : null}
+                    borderColor={activeSlideIndex === index ? "#99A7F3" : null}
+                    color={activeSlideIndex === index ? "#4959E7" : "#110F24"}
+                    ml={index !== 0 ? "10px" : null}
+                    _hover={{
+                      color: "#4959E7",
+
+                      cursor: "pointer",
+                      outline: "none !important",
+                    }}
+                    _focus={{
+                      outline: "none !important",
+                    }}
+                    _active={{
+                      outline: "none !important",
+                    }}
+                    onClick={() => handleTabClick(index)}
+                  >
+                    {title}
+                  </Box>
+                ))}
+              </Box>
+              <Slider {...sliderSettings} ref={sliderRef}>
+                {slides.map(({ img }) => (
+                  <Image alt="" src={img} priority />
+                ))}
+              </Slider>
+              {/* <Tabs variant="unstyled" onChange={(index) => setTabIndex(index)}>
                 <TabList
                   bg="#fff"
                   borderRadius={"10px"}
@@ -68,143 +140,63 @@ const Integrate: NextPage = () => {
                   boxSizing="border-box"
                   display="inline-flex"
                 >
-                  <Tab
-                    color="#110F24"
-                    fontWeight={400}
-                    fontSize="14px"
-                    lineHeight="21px"
-                    p="12px 20px"
-                    border="1px solid #DDDFE7"
-                    borderRadius="5px"
-                    _selected={{
-                      bg: "#EAF5FF",
-                      borderColor: "#99A7F3",
-                      color: "#4959E7",
+                  {tabs.map(({ title }, index) => (
+                    <Tab
+                      color="#110F24"
+                      fontWeight={400}
+                      fontSize="14px"
+                      lineHeight="21px"
+                      p="12px 20px"
+                      border="1px solid #DDDFE7"
+                      borderRadius="5px"
+                      ml={index !== 0 ? "10px" : null}
+                      _selected={{
+                        bg: "#EAF5FF",
+                        borderColor: "#99A7F3",
+                        color: "#4959E7",
 
-                      outline: "none !important",
-                    }}
-                    _hover={{
-                      color: "#4959E7",
+                        outline: "none !important",
+                      }}
+                      _hover={{
+                        color: "#4959E7",
 
-                      cursor: "pointer",
-                      outline: "none !important",
-                    }}
-                    _focus={{
-                      outline: "none !important",
-                    }}
-                    _active={{
-                      outline: "none !important",
-                    }}
-                  >
-                    Hosted flow
-                  </Tab>
-                  <Tab
-                    color="#110F24"
-                    fontWeight={400}
-                    fontSize="14px"
-                    lineHeight="21px"
-                    p="12px 20px"
-                    border="1px solid #DDDFE7"
-                    borderRadius="5px"
-                    mx="10px"
-                    _selected={{
-                      bg: "#EAF5FF",
-                      borderColor: "#99A7F3",
-                      color: "#4959E7",
-
-                      outline: "none !important",
-                    }}
-                    _hover={{
-                      color: "#4959E7",
-
-                      cursor: "pointer",
-                      outline: "none !important",
-                    }}
-                    _focus={{
-                      outline: "none !important",
-                    }}
-                    _active={{
-                      outline: "none !important",
-                    }}
-                  >
-                    Embedded flow
-                  </Tab>
-                  <Tab
-                    color="#110F24"
-                    fontWeight={400}
-                    fontSize="14px"
-                    lineHeight="21px"
-                    p="12px 20px"
-                    border="1px solid #DDDFE7"
-                    borderRadius="5px"
-                    _selected={{
-                      bg: "#EAF5FF",
-                      borderColor: "#99A7F3",
-                      color: "#4959E7",
-
-                      outline: "none !important",
-                    }}
-                    _hover={{
-                      color: "#4959E7",
-
-                      cursor: "pointer",
-                      outline: "none !important",
-                    }}
-                    _focus={{
-                      outline: "none !important",
-                    }}
-                    _active={{
-                      outline: "none !important",
-                    }}
-                  >
-                    Mobile SDKs
-                  </Tab>
+                        cursor: "pointer",
+                        outline: "none !important",
+                      }}
+                      _focus={{
+                        outline: "none !important",
+                      }}
+                      _active={{
+                        outline: "none !important",
+                      }}
+                    >
+                      {title}
+                    </Tab>
+                  ))}
                 </TabList>
                 <TabPanels mt="30px">
-                  <TabPanel>
-                    <Image alt="" src={Img1} priority />
-                  </TabPanel>
-                  <TabPanel>
-                    <Image alt="" src={Img2} priority />
-                  </TabPanel>
-                  <TabPanel>
-                    <Image alt="" src={Img3} priority />
-                  </TabPanel>
+                  {tabs.map(({ img }) => (
+                    <TabPanel>
+                      <Image alt="" src={img} priority />
+                    </TabPanel>
+                  ))}
                 </TabPanels>
-              </Tabs>
+              </Tabs> */}
 
-              <Box display="inline-flex">
-                <a
-                  style={{
-                    width: "8px",
-                    height: "8px",
-                    display: "inline-flex",
-                    borderRadius: "50%",
-                    background: tabIndex === 0 ? "#4959E7" : "#E9E9F2",
-                    margin: "0 12px",
-                  }}
-                ></a>
-                <a
-                  style={{
-                    width: "8px",
-                    height: "8px",
-                    display: "inline-flex",
-                    borderRadius: "50%",
-                    background: tabIndex === 1 ? "#4959E7" : "#E9E9F2",
-                    margin: "0 12px",
-                  }}
-                ></a>
-                <a
-                  style={{
-                    width: "8px",
-                    height: "8px",
-                    display: "inline-flex",
-                    borderRadius: "50%",
-                    background: tabIndex === 2 ? "#4959E7" : "#E9E9F2",
-                    margin: "0 12px",
-                  }}
-                ></a>
-              </Box>
+              {/* <Box display="inline-flex">
+                {tabs.map((_tab, index) => (
+                  <a
+                    style={{
+                      width: "8px",
+                      height: "8px",
+                      display: "inline-flex",
+                      borderRadius: "50%",
+                      background: tabIndex === index ? "#4959E7" : "#E9E9F2",
+                      margin: "0 12px",
+                    }}
+                  ></a>
+                ))}
+              </Box> */}
             </Box>
           </Box>
         </GridItem>
@@ -216,7 +208,6 @@ const Integrate: NextPage = () => {
             alignItems="center"
             display="flex"
             justifyContent="center"
-            padding={{ base: "0 25px", md: 0 }}
           >
             <Box w="100%">
               <Heading
