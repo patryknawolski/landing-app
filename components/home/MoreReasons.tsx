@@ -8,112 +8,95 @@ import { FiChevronRight } from "react-icons/fi";
 
 const data = [
   {
-    title:
-      "Avoid failed checks from hyphens & accents/diacritics in customer’s names",
-    text: "Optical character recognition (OCR) enables hyphens to be accurately detected, as well as accents and diacritics to be converted into simple Latin characters. ",
+    title: "Avoid failed verifications by accepting diacritical marks in names",
+    text: "Detect diacritical marks and convert them into Latin characters more precisely than other OCR solutions for a hassle-free identification process.",
+  },
+  {
+    title: "Allow glasses, hats & more for facial recognition",
+    text: "Our technology allows you can verify customers wearing hats, scarves, glasses, contact lenses, and sunglasses. It also works with changes in their appearance, like makeup or facial hair.",
+  },
+  {
+    title: "Prevent AML non-compliance with cutting edge anti-fraud tools",
+    text: "Protect your firm against AML breaches and reputational risk by detecting detect tampered, printed, and fake identity documents and more to ensure compliance and avoid penalties.",
+  },
+  {
+    title: "Prevent fraudulent accounts with accurate onboarding screening",
+    text: "Ensure your customers are legitimate by accessing our proprietary anti-fraud tools and the world's first fraud database (coming soon).",
   },
   {
     title:
-      "Avoid asking customers to remove their glasses & hats for facial recognition",
-    text: "With FaceMatch, you can verify customers wearing hats, scarves, glasses, contact lenses, and sunglasses. It also works with changes in their appearance, like makeup or facial hair growth.",
+      "Streamline onboarding of customers by eliminating slow paper-based processes",
+    text: "Effortlessly verify customers across 30+ countries: access hundreds of databases to instantly verify identity documents, names, and addresses.",
   },
   {
-    title: "Avoid AML non-compliance from outdated biometric software",
-    text: "In order to prevent anti-money laundering breaches, monetary penalties, and reputational risk, detect tampered or fake identity documents lacking security features.",
+    title: "Reduce onboarding time and keep your customers engaged",
+    text: "Employing real-time identity scanning, lighting-fast OCR, address auto-complete, and passive liveness checks enables firms to onboard customers remotely in under 30 seconds.",
   },
-
   {
-    title: "Stop fraudsters from being onboarded",
-    text: "Make sure your customers are who they say they are by accessing the world's first fraud database and using our proprietary anti-fraud tools. Say goodbye to fraudsters and get more customers.",
+    title: "Eliminate monthly minimums, subscriptions, and long-term contracts",
+    text: "Our pay-per-use pricing model will save your firm thousands each month, with clear and transparent billing only for completed verifications, and no hidden fees or charges.",
   },
-
   {
-    title: "Avoid a slow paper-based process for onboarding overseas customers",
-    text: "Instantly and electronically verify your customers in over 30 countries. Access 100's of government and commercial databases to verify your customer's identity documents, name, and address.",
+    title: "Say goodbye to joining, support, training and integration costs",
+    text: "Enjoy annual savings of tens of thousands of dollars with free onboarding, API/iFrame/SDK integrations, dedicated support, and unlimited training.",
   },
-
-  {
-    title: "Don’t lose customers to a slow onboarding experience",
-    text: "Using real-time identity document scanning, lightning-fast OCR, address auto-complete, and passive liveness checks, you can remotely onboard customers in less than 30 seconds.",
-  },
-
   {
     title:
-      "Avoid minimum monthly fees, subscription costs & multi-year contracts",
-    text: "Pay-per-use allows businesses of all sizes to save thousands of dollars a month. There are no hidden charges for verifications since they are only billed once they are completed at the end of the month.",
+      "Retrieve KYC verification data with ease - no back-and-forth needed",
+    text: "Take full control of your data and access it anytime, anywhere - no providers holding your data captive. Download comprehensive verification reports with ease, as you retain ownership of your data.",
   },
-
   {
-    title: "Avoid paying any joining, support, or integration costs",
-    text: "You'll save tens of thousands of dollars a year with our free dedicated account managers, free ongoing support, and API, embedded iFrame, or SDK integrations.",
+    title: "Reduce failed verifications and improve efficiency",
+    text: "Maximise efficiency with over 93% of customers verified on the first attempt - minimise manual intervention and repeated verification requests.",
   },
-
   {
-    title:
-      "Don’t go back and forth with your KYC provider to retrieve verification data",
-    text: "Don't allow other providers to hold your data hostage. As the owner of your data, you'll have 24/7 access to it. At the click of a button, you can download comprehensive verification reports.",
+    title: "Avoid overpriced and outdated biometric tools from resellers",
+    text: "Gain direct access to cutting-edge biometric and anti-fraud tools from the technology maker - customise workflows to fit your customers' needs and save tens of thousands of dollars yearly.",
   },
-
   {
-    title: "Avoid seeing a large number of failed verifications",
-    text: "Get over 93% of your customers verified on the first try. Your team should avoid manual intervention, and more importantly, should avoid asking your customers to repeat the verification process.",
+    title: "No charges for verifications until successfully completed",
+    text: "Pay only for completed verifications - initiate verifications as many times as needed and see a 20-30% reduction in KYC spending.",
   },
-
   {
-    title: "Don’t pay for overpriced, 2nd-hand, and outdated biometric tools",
-    text: "Benefit from direct access to cutting-edge biometric and anti-fraud tools and save tens of thousands of dollars annually. Your workflows can be customised to meet the specific needs of your customers.",
+    title: "No charge for reminders to complete verifications",
+    text: "Eliminate the need to manually remind customers to complete verifications with our free automated reminders sent 24 and 72 hours after the initial verification.",
   },
-
-  {
-    title: "Never be charged for verifications until they’re completed",
-    text: "Verifications can be initiated an unlimited number of times, and you will only be charged for completed ones. Your AML/KYC spending will be reduced by 20-30% as a result.",
-  },
-
   {
     title:
-      "Never be charged to remind your customer to complete a verification",
-    text: "Avoid manually resending incomplete verification reminders to your customers. Your initial verification will be followed up with free automatic reminders 24 and 72 hours later.",
+      "Prevent failed verifications due to changes in a customer’s appearance",
+    text: "Match your customers' current appearance with ID photos from 20+ years ago - avoid inaccurate solutions from other vendors.",
   },
-
-  {
-    title:
-      "Avoid failed facematch verifications from changes in a customer’s appearance",
-    text: "Avoid manually resending incomplete verification reminders to your customers. After an incomplete verification is initiated, your customer will be automatically reminded 24 and 72 hours later.",
-  },
-
   {
     title:
       "Avoid asking customers to smile, blink or turn their heads for liveness checks",
-    text: "When you provide passive liveness technology to your customers, all they have to do is take a single frame photo of themselves without taking any further action.",
-  },
-
-  {
-    title:
-      "Avoid reviewing huge amounts of falsely flagged politically exposed persons (PEP)",
-    text: "Artificial intelligence (AI) draws daily from hundreds of watchlists and sanctions lists around the world to provide only the most relevant PEP matches and exclude false positives.",
-  },
-
-  {
-    title:
-      "Avoid verification links automatically expiring & being charged to resend them",
-    text: "With this feature, you will be able to control when your customer's verification links expire so you do not have to manually resend them and will not be charged for incomplete verifications again.",
-  },
-
-  {
-    title:
-      "Avoid your data being automatically deleted or a chance to download it",
-    text: "Verifications completed within your dashboard are stored for a period of time of your choice in order to comply with anti-money laundering regulations. Storing sensitive information isn't your responsibility. ",
-  },
-
-  {
-    title:
-      "Avoid incomplete verification by allowing verifications on a smartphone or desktop",
-    text: "To get more customers, allow them to complete their verifications anywhere, on any device with a camera and an internet connection (omnichannel). Other providers limit onboarding to a smartphone.",
+    text: "Enable easy and passive liveness checks for your customers - no need to smile, blink, or turn their heads. Simply take a single-frame photo to verify their identity.",
   },
   {
     title:
-      "Avoid customer pushback with your firm’s logo and branding on verifications",
-    text: "To increase completed verifications, display your firm's logo and branding in all communications sent through our dashboard. Additionally, you will gain a competitive edge and improve customer relations.",
+      "Reduce false flags for Politically Exposed Persons (PEPs) and streamline your review process",
+    text: "Efficiently screen PEPs with our AI technology, which utilises thousands of sanctions lists worldwide to identify relevant matches and eliminate false positives.",
+  },
+  {
+    title:
+      "Prevent automatic expiry of verification links and avoid charges for their resending",
+    text: "Never worry about expired verification links again. Control when links expire, eliminating the need for manual resending and avoiding any additional charges for incomplete verifications.",
+  },
+  {
+    title: "Prevent automatic deletion of data and ensure data downloadability",
+    text: "Securely store completed verifications for as long as you need to comply with anti-money laundering regulations, without having to worry about the responsibility of storing sensitive information.",
+  },
+  {
+    title: "Enable omni-channel verifications to onboard more customers",
+    text: "Allow switching between desktop and mobile devices without starting the verification process again. Other providers limit onboarding to a single device, which may turn away potential customers.",
+  },
+  {
+    title:
+      "Add your firm’s branding to verifications to prevent customer pushback",
+    text: "Improve verification completion rates and enhance customer relationships by displaying your company's logo and branding on all outbound communications.",
+  },
+  {
+    title: "Prevent data breaches with a secure KYC/AML platform",
+    text: "Secure data with limited password attempts, PII exclusion in emails, regular password updates, unusual login notifications, 2FA, and auto-deletion options.",
   },
 ];
 
@@ -264,7 +247,7 @@ const MoreReasons: NextPage = () => {
                   borderRadius="5px"
                   bg="#F8FAFF"
                   p={{ base: "30px 40px", md: "40px 60px" }}
-                  minH={{ base: "236px", xxl: '260px' }}
+                  minH={{ base: "236px", xxl: "260px" }}
                   maxW={{ base: "628px" }}
                 >
                   <Heading
