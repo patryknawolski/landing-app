@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 
 import Layout from "components/layout/Layout";
-import Banner from "common/Banner";
+import Banner from "common/NewsletterBanner";
 import Information from "components/face-match/Information";
 import HowDoesItWork from "components/face-match/HowDoesItWork";
 import Reasons from "components/face-match/Reasons";

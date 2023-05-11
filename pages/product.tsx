@@ -2,9 +2,7 @@ import type { NextPage } from "next";
 
 import Layout from "components/layout/Layout";
 import Banner from "components/product/Banner";
-import Detail from 'components/product/Detail'
-
-import { Box } from "@chakra-ui/react";
+import Detail from "components/product/Detail";
 
 const Product: NextPage = () => {
   return (

@@ -1,11 +1,8 @@
 import type { NextPage } from "next";
-import NextLink from "next/link";
-import { useRef, useState } from "react";
-import { Box, Button, Heading, Text } from "@chakra-ui/react";
 
-import Slider from "react-slick";
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
-import { FiChevronRight } from "react-icons/fi";
+import Layout from "components/layout/Layout";
+import Banner from "common/Banner";
+import { Container, SimpleGrid } from "@chakra-ui/react";
 import ReasonCard from "common/ReasonCard";
 
 const data = [
@@ -102,182 +99,29 @@ const data = [
   },
 ];
 
-const MoreReasons: NextPage = () => {
-  const sliderRef = useRef<any>(null);
-  const [settings, setSettings] = useState({
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 300,
-    autoplay: true,
-    centerMode: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    className: "center",
-    centerPadding: "40px",
-    responsive: [
-      {
-        breakpoint: 1441,
-        settings: {
-          dots: false,
-          arrows: false,
-          infinite: true,
-          speed: 300,
-          autoplay: true,
-          centerMode: true,
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          className: "center",
-          centerPadding: "40px",
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          dots: false,
-          arrows: false,
-          infinite: true,
-          speed: 300,
-          autoplay: true,
-          centerMode: true,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          className: "center",
-          centerPadding: "20px",
-        },
-      },
-      {
-        breakpoint: 376,
-        settings: {
-          dots: false,
-          arrows: false,
-          infinite: true,
-          speed: 300,
-          autoplay: true,
-          centerMode: true,
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          className: "center",
-          centerPadding: "0px",
-        },
-      },
-    ],
-  });
-
-  const handleChange = (index: number) => {
-    setTimeout(() => {
-      if (index === 3) {
-        sliderRef.current.slickGoTo(0, false);
-        setSettings({ ...settings, autoplay: false });
-      }
-    }, 3000);
-  };
-
+const ReasonsPage: NextPage = () => {
   return (
-    <Box
-      w="100%"
-      padding={{ base: "20px 0 60px", md: "90px 0" }}
-      background="#fff"
-      overflow="hidden"
-    >
-      <Box w="100%" margin="0 auto" px={{ base: "20px", md: 0 }}>
-        <Box>
-          <Heading
-            as="h3"
-            color="##110F24"
-            fontSize={{ base: "28px", md: "40px" }}
-            lineHeight={{ base: "35px", md: "50px" }}
-            textAlign={{ base: "center", md: "center" }}
-            maxW="800px"
-            margin={{ base: "0 auto 15px", md: "0 auto 30px" }}
-          >
-            Here’s{" "}
-            <Heading
-              as="span"
-              color="#4959E7"
-              fontSize={{ base: "28px", md: "40px" }}
-              lineHeight={{ base: "35px", md: "50px" }}
-            >
-              20 more{" "}
-            </Heading>
-            reasons:
-          </Heading>
-        </Box>
-
-        <Box w="100%" mt={{ base: "40px", md: "80px" }} position="relative">
-          <Button
-            bg="#fff"
-            borderRadius="50% !important"
-            w="48px"
-            h="48px !important"
-            left={{ base: "5px", sm: "10px", md: "40px" }}
-            top="calc(50% - 24px)"
-            position="absolute"
-            zIndex="2"
-            minW="30px !important"
-            color="#4959E7"
-            boxShadow="0px 6px 12px rgba(0, 0, 0, 0.1)"
-            onClick={() => sliderRef.current.slickPrev()}
-          >
-            <BsChevronLeft />
-          </Button>
-          <Button
-            bg="#fff"
-            borderRadius="50% !important"
-            w="48px"
-            h="48px !important"
-            right={{ base: "5px", sm: "10px", md: "40px" }}
-            top="calc(50% - 24px)"
-            position="absolute"
-            zIndex="2"
-            minW="30px !important"
-            color="#4959E7"
-            boxShadow="0px 6px 12px rgba(0, 0, 0, 0.1)"
-            onClick={() => sliderRef.current.slickNext()}
-          >
-            <BsChevronRight />
-          </Button>
-          <Slider
-            {...settings}
-            className="moreReasonsSlider"
-            ref={sliderRef}
-            afterChange={handleChange}
-          >
-            {data.map((item, i) => (
-              <Box px={{ base: "20px" }} key={i}>
-                <ReasonCard
-                  title={item.title}
-                  text={item.text}
-                  mode="carousel"
-                />
-              </Box>
-            ))}
-          </Slider>
-        </Box>
-
-        <Box textAlign="center" px={{ base: "20px", md: "0px" }}>
-          <NextLink href="/reasons">
-            <Button
-              fontWeight={600}
-              fontSize={{ base: "16px" }}
-              lineHeight={{ base: "24px" }}
-              letterSpacing="0.02em"
-              color="#fff"
-              p="13px"
-              bg="#4959E7"
-              w="100%"
-              maxW="450px"
-              borderRadius="10px"
-              mt={{ base: "24px", md: "45px" }}
-              rightIcon={<FiChevronRight />}
-            >
-              Learn more
-            </Button>
-          </NextLink>
-        </Box>
-      </Box>
-    </Box>
+    <Layout title="Reasons" isStarted={false}>
+      <Banner title="Why CoreKYC" text="Here’s 20 more reasons" />
+      <Container>
+        <SimpleGrid
+          columns={{ base: 1, sm: 2, lg: 3 }}
+          spacing={{ base: 4, sm: 8, lg: 16 }}
+          py={{ base: 4, sm: 8, lg: 16 }}
+          px={{ base: 2, sm: 6, lg: 14 }}
+        >
+          {data.map((item) => (
+            <ReasonCard
+              key={item.title}
+              title={item.title}
+              text={item.text}
+              mode="grid"
+            />
+          ))}
+        </SimpleGrid>
+      </Container>
+    </Layout>
   );
 };
 
-export default MoreReasons;
+export default ReasonsPage;

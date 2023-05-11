@@ -1,8 +1,14 @@
 import type { AppProps } from "next/app";
 import "../styles/globals.scss";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
-
 import { createBreakpoints } from "@chakra-ui/theme-tools";
+import type { ComponentStyleConfig } from "@chakra-ui/theme";
+
+const Container: ComponentStyleConfig = {
+  baseStyle: {
+    maxW: "1440px",
+  },
+};
 
 const breakpoints = createBreakpoints({
   xs: "23em",
@@ -13,7 +19,7 @@ const breakpoints = createBreakpoints({
   xxl: "96em",
 });
 
-const theme = extendTheme({ breakpoints });
+const theme = extendTheme({ breakpoints, components: { Container } });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

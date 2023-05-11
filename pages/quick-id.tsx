@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 
 import Layout from "components/layout/Layout";
-import Banner from "common/Banner";
+import NewsletterBanner from "common/NewsletterBanner";
 import Information from "components/face-match/Information";
 import HowDoesItWork from "components/face-match/HowDoesItWork";
 import Reasons from "components/face-match/Reasons";
@@ -12,7 +12,7 @@ import BannerImg from "public/images/quickid.svg";
 const QuickId: NextPage = () => {
   return (
     <Layout title="QuickID" isStarted={true}>
-      <Banner
+      <NewsletterBanner
         isPep={false}
         image={BannerImg}
         title="QuickID"
