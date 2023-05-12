@@ -141,28 +141,29 @@ const Header: React.FC<Props> = ({
               About us
             </Link>
           </NextLink>
-          <NextLink href="#developers">
-            <Link
-              fontSize="16px"
-              fontStyle="normal"
-              fontWeight="500"
-              lineHeight="163.5%"
-              color="#fff"
-              margin={{ base: 0, xl: "0 15px" }}
-              padding="6px 15px"
-              borderRadius="10px"
-              _hover={{
-                cursor: "pointer",
-                textDecoration: "none",
-                backgroundColor: "#fff",
-                color: "#4959E7",
-              }}
-              onClick={() => handleScroll("developers")}
-            >
-              Developers
-            </Link>
-          </NextLink>
-          {/* <NextLink href="/"> */}
+          <Link
+            target="_blank"
+            href="https://corekyc.stoplight.io/docs/corekyc-api/oxwvy00so15bb-basic-real-aml-workflow"
+            fontSize="16px"
+            fontStyle="normal"
+            fontWeight="500"
+            lineHeight="163.5%"
+            color="#fff"
+            margin={{ base: 0, xl: "0 15px" }}
+            padding="6px 15px"
+            borderRadius="10px"
+            _focus={{
+              outline: "none",
+            }}
+            _hover={{
+              cursor: "pointer",
+              textDecoration: "none",
+              backgroundColor: "#fff",
+              color: "#4959E7",
+            }}
+          >
+            Developers
+          </Link>
           <Link
             fontSize="16px"
             fontStyle="normal"
