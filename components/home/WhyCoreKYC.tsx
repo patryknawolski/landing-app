@@ -1,12 +1,30 @@
 import type { NextPage } from "next";
 import Image from "next/image";
-import { Box, Heading, Text, Button, SimpleGrid } from "@chakra-ui/react";
-
-import { FiChevronRight } from "react-icons/fi";
+import { Box, Heading, Text, SimpleGrid } from "@chakra-ui/react";
 
 import Chart1Img from "public/images/whycore1.svg";
-import Chart2Img from "public/images/chart2.svg";
-import Chart3Img from "public/images/chart3.svg";
+import Chart2Img from "public/images/whycore2.svg";
+import Chart3Img from "public/images/whycore3.svg";
+
+const WhyCoreKYCItems: Array<{ title: string; subtitle: string; img: string }> =
+  [
+    {
+      title: "Onboard customers from 30+ countries",
+      subtitle: "Verify your customers remotely from over 30 countries.",
+      img: Chart1Img,
+    },
+    {
+      title: "Verify your customers in seconds",
+      subtitle:
+        "Verify your customers on desktop or smartphone, anywhere, anytime.",
+      img: Chart2Img,
+    },
+    {
+      title: "Reduce your KYC costs by 60%",
+      subtitle: "Our pay-per-use model will slash your monthly KYC spend.",
+      img: Chart3Img,
+    },
+  ];
 
 const WhyCoreKYC: NextPage = () => {
   return (
@@ -41,141 +59,48 @@ const WhyCoreKYC: NextPage = () => {
 
         <Box>
           <SimpleGrid columns={{ base: 1, md: 3 }} gap="16px">
-            <Box
-              borderRadius="5px"
-              bg="#F8FAFF"
-              p={{ base: "31px 30px" }}
-              textAlign="center"
-            >
-              <Heading
-                fontWeight={700} 
-                fontSize={{ base: "20px" }}
-                lineHeight={{ base: "27px" }}
-                color="#4959E7"
-                mb="20px"
-                maxW={{base: '214px'}}
+            {WhyCoreKYCItems.map((item) => (
+              <Box
+                key={item.title}
+                borderRadius="5px"
+                bg="#F8FAFF"
+                p={{ base: "31px 30px" }}
                 textAlign="center"
-                mx={{base: 'auto'}}
               >
-                Reduce your KYC costs by 47%
-              </Heading>
-              <Box mx="auto" display="flex" justifyContent="center">
-                <Image
-                  alt=""
-                  layout="intrinsic"
-                  width="322px"
-                  height="234px"
-                  src={Chart1Img}
-                  priority
-                />
-              </Box>
+                <Heading
+                  fontWeight={700}
+                  fontSize={{ base: "20px" }}
+                  lineHeight={{ base: "27px" }}
+                  color="#4959E7"
+                  mb="40px"
+                  maxW={{ base: "214px" }}
+                  textAlign="center"
+                  mx={{ base: "auto" }}
+                >
+                  {item.title}
+                </Heading>
+                <Box mx="auto" display="flex" justifyContent="center">
+                  <Image
+                    alt=""
+                    layout="intrinsic"
+                    width="322px"
+                    height="234px"
+                    src={item.img}
+                    priority
+                  />
+                </Box>
 
-              <Button
-                fontWeight={700}
-                fontSize={{ base: "16px" }}
-                lineHeight={{ base: "24px" }}
-                letterSpacing="0.02em"
-                color="#4959E7"
-                p="13px"
-                bg="#FFFFFF"
-                w="100%"
-                borderRadius="10px"
-                mt={{base: '24px', md: '45px'}}
-                rightIcon={<FiChevronRight />}
-              >
-                Learn more
-              </Button>
-            </Box>
-            <Box
-              borderRadius="5px"
-              bg="#F8FAFF"
-              p={{ base: "31px 30px" }}
-              textAlign="center"
-            >
-              <Heading
-                fontWeight={700}
-                fontSize={{ base: "20px" }}
-                lineHeight={{ base: "27px" }}
-                color="#4959E7"
-                mb="20px"
-                maxW={{base: '214px'}}
-                textAlign="center"
-                mx={{base: 'auto'}}
-              >
-                Onboard 58% more customers in seconds
-              </Heading>
-              <Box mx="auto" display="flex" justifyContent="center">
-                <Image
-                  alt=""
-                  layout="intrinsic"
-                  width="322px"
-                  height="234px"
-                  src={Chart2Img}
-                  priority
-                />
+                <Text
+                  marginTop="32px"
+                  fontWeight={400}
+                  fontSize={{ base: "15px" }}
+                  lineHeight={{ base: "24px" }}
+                  color="#6C6B74"
+                >
+                  {item.subtitle}
+                </Text>
               </Box>
-
-              <Button
-                fontWeight={700}
-                fontSize={{ base: "16px" }}
-                lineHeight={{ base: "24px" }}
-                letterSpacing="0.02em"
-                color="#4959E7"
-                p="13px"
-                bg="#FFFFFF"
-                w="100%"
-                borderRadius="10px"
-                mt={{base: '24px', md: '45px'}}
-                rightIcon={<FiChevronRight />}
-              >
-                Learn more
-              </Button>
-            </Box>
-            <Box
-              borderRadius="5px"
-              bg="#F8FAFF"
-              p={{ base: "31px 30px" }}
-              textAlign="center"
-            >
-              <Heading
-                fontWeight={700}
-                fontSize={{ base: "20px" }}
-                lineHeight={{ base: "27px" }}
-                color="#4959E7"
-                mb="20px"
-                maxW={{base: '214px'}}
-                textAlign="center"
-                mx={{base: 'auto'}}
-              >
-                Reduce manual  reviews by 71%
-              </Heading>
-              <Box mx="auto" display="flex" justifyContent="center">
-                <Image
-                  alt=""
-                  layout="intrinsic"
-                  width="322px"
-                  height="234px"
-                  src={Chart3Img}
-                  priority
-                />
-              </Box>
-
-              <Button
-                fontWeight={700}
-                fontSize={{ base: "16px" }}
-                lineHeight={{ base: "24px" }}
-                letterSpacing="0.02em"
-                color="#4959E7"
-                p="13px"
-                bg="#FFFFFF"
-                w="100%"
-                borderRadius="10px"
-                mt={{base: '24px', md: '45px'}}
-                rightIcon={<FiChevronRight />}
-              >
-                Learn more
-              </Button>
-            </Box>
+            ))}
           </SimpleGrid>
         </Box>
       </Box>
