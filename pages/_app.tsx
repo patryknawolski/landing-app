@@ -3,6 +3,8 @@ import "../styles/globals.scss";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { createBreakpoints } from "@chakra-ui/theme-tools";
 import type { ComponentStyleConfig } from "@chakra-ui/theme";
+import { CalendlyContextProvider } from "contexts/CalendlyContext";
+import { CalendlyModal } from "common/CalendlyModal";
 
 const Container: ComponentStyleConfig = {
   baseStyle: {
@@ -23,9 +25,12 @@ const theme = extendTheme({ breakpoints, components: { Container } });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <CalendlyContextProvider>
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+        <CalendlyModal />
+      </ChakraProvider>
+    </CalendlyContextProvider>
   );
 }
 

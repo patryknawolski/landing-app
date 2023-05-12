@@ -19,6 +19,7 @@ import {
 import Logo from "public/images/CoreKYCWhite.svg";
 // import Logo from "public/images/logo-header.svg";
 import MenuImg from "public/images/bars.svg";
+import { useCalendlyContext } from "contexts/CalendlyContext";
 
 interface Props {
   heightBanner?: number;
@@ -34,6 +35,7 @@ const Header: React.FC<Props> = ({
   const menuRef: any = React.useRef();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [showBg, setShowBg] = useState(false);
+  const { setIsModalOpen } = useCalendlyContext();
 
   useEffect(() => {
     const onScroll = (e: any) => {
@@ -54,6 +56,8 @@ const Header: React.FC<Props> = ({
     // onViewWhyCore()
     window.location.href = `#${id}`;
   };
+
+  const onBookADemoClick = () => setIsModalOpen(true);
 
   return (
     <Box
@@ -264,8 +268,9 @@ const Header: React.FC<Props> = ({
             fontSize="16px"
             fontWeight="semibold"
             ml={{ base: "31px !important" }}
+            onClick={onBookADemoClick}
           >
-            Get a demo
+            Book a demo
           </Button>
         </Stack>
 
