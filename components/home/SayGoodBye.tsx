@@ -15,54 +15,42 @@ import Img4 from "public/images/fraud4.svg";
 import Img5 from "public/images/fraud5.svg";
 import Img6 from "public/images/fraud6.svg";
 import Img7 from "public/images/fraud7.svg";
-import Img8 from "public/images/fraud8.svg";
-import Img9 from "public/images/fraud9.svg";
 
 const data = [
   {
-    title: "Synthetic humans",
-    text: "Preloaded images or videos of a human instead of a human physically present behind the camera.",
+    title: "Document liveness",
+    text: "Determines whether the ID presented is physically present or a digital image or video.",
     image: Img1,
   },
   {
-    title: "Emulated devices",
-    text: "Manipulated desktop browser settings to appear as a different device, language, or time zone.",
+    title: "Document printed",
+    text: "Determines whether the ID presented is a printed copy or cutout or the original document.",
     image: Img2,
   },
   {
-    title: "Inconsistent ID photos",
-    text: "Portrait photos (larger) and ghost photos (smaller and transparent) that are inconsistent.",
+    title: "Portrait photo overlay",
+    text: "Detects if a document’s portrait photo is original or a physical overlay is present.",
     image: Img3,
   },
   {
-    title: "Virtual cameras",
-    text: "A desktop’s camera stream bypassed with a pre-recorded video or image.",
+    title: "Duplicate portrait photos",
+    text: "Detects duplicate portrait photos on different IDs with inconsistent ID data.",
     image: Img4,
   },
   {
-    title: "Fraudulent MRZ data",
-    text: "Overlayed printed MRZ data from a different passport or artificially created.",
+    title: "Device spoofing",
+    text: "Detects duplicate portrait photos on different IDs with inconsistent ID data.",
     image: Img5,
   },
   {
-    title: "Fraudulent text",
-    text: "Overlayed printed text from a stolen ID.",
+    title: "Deepfakes & cheapfakes",
+    text: "Detects sophisticated and crude manipulation of digital media.",
     image: Img6,
   },
   {
-    title: "Fraudulent photos",
-    text: "Overlayed printed portrait photos.",
+    title: "Face liveness",
+    text: "Determines whether the individual presented is physically present or a digital image or video.",
     image: Img7,
-  },
-  {
-    title: "Synthetic IDs",
-    text: "IDs captured from a device rather than physically presented. ",
-    image: Img8,
-  },
-  {
-    title: "Fraudulent IDs",
-    text: "A fraudster's photo combined with stolen identity details used to create a physical ID.",
-    image: Img9,
   },
 ];
 
