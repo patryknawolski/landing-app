@@ -20,6 +20,7 @@ class MyDocument extends Document {
             href="https://assets.calendly.com/assets/external/widget.css"
             rel="stylesheet"
           />
+          <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
           <script
             src="https://assets.calendly.com/assets/external/widget.js"
             type="text/javascript"
