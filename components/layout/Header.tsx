@@ -105,6 +105,25 @@ const Header: React.FC<Props> = ({
           alignItems="center"
           margin="0 auto"
         >
+          <Link
+            fontSize="16px"
+            fontStyle="normal"
+            fontWeight="500"
+            lineHeight="163.5%"
+            color="#fff"
+            margin={{ base: 0, xl: "0 15px" }}
+            padding="6px 15px"
+            borderRadius="10px"
+            _hover={{
+              cursor: "pointer",
+              textDecoration: "none",
+              backgroundColor: "#fff",
+              color: "#4959E7",
+            }}
+            onClick={() => handleScroll("whyCore")}
+          >
+            Why CoreKYC?
+          </Link>
           <NextLink href="/product">
             <Link
               fontSize="16px"
@@ -125,6 +144,44 @@ const Header: React.FC<Props> = ({
               Products
             </Link>
           </NextLink>
+          <Link
+            fontSize="16px"
+            fontStyle="normal"
+            fontWeight="500"
+            lineHeight="163.5%"
+            color="#fff"
+            margin={{ base: 0, xl: "0 15px" }}
+            padding="6px 15px"
+            borderRadius="10px"
+            _hover={{
+              cursor: "pointer",
+              textDecoration: "none",
+              backgroundColor: "#fff",
+              color: "#4959E7",
+            }}
+            onClick={onViewPrice}
+          >
+            Pricing
+          </Link>
+          <Link
+            fontSize="16px"
+            fontStyle="normal"
+            fontWeight="500"
+            lineHeight="163.5%"
+            color="#fff"
+            margin={{ base: 0, xl: "0 15px" }}
+            padding="6px 15px"
+            borderRadius="10px"
+            _hover={{
+              cursor: "pointer",
+              textDecoration: "none",
+              backgroundColor: "#fff",
+              color: "#4959E7",
+            }}
+            onClick={onBookADemoClick}
+          >
+            Get a demo
+          </Link>
           <NextLink href="/about-us">
             <Link
               fontSize="16px"
@@ -168,25 +225,6 @@ const Header: React.FC<Props> = ({
           >
             Developers
           </Link>
-          <Link
-            fontSize="16px"
-            fontStyle="normal"
-            fontWeight="500"
-            lineHeight="163.5%"
-            color="#fff"
-            margin={{ base: 0, xl: "0 15px" }}
-            padding="6px 15px"
-            borderRadius="10px"
-            _hover={{
-              cursor: "pointer",
-              textDecoration: "none",
-              backgroundColor: "#fff",
-              color: "#4959E7",
-            }}
-            onClick={onViewPrice}
-          >
-            Pricing
-          </Link>
           {/* </NextLink> */}
         </Box>
 
@@ -199,36 +237,6 @@ const Header: React.FC<Props> = ({
           display={{ base: "none", lg: "inline-flex" }}
           alignItems="center"
         >
-          <Button
-            color="#FFFFFF"
-            // _hover={{ bg: "none", opacity: 0.7, outline: "none" }}
-            // _active={{ bg: "none", opacity: 0.7, outline: "none" }}
-            variant="outline"
-            // border="2px solid rgba(255, 255, 255, 0.74)"
-            border="none"
-            h="50px"
-            padding="8px 15px"
-            borderRadius="10px"
-            fontSize="16px"
-            fontWeight="semibold"
-            _hover={{
-              cursor: "pointer",
-              textDecoration: "none",
-              backgroundColor: "#fff",
-              color: "#4959E7",
-            }}
-            // _active={{
-            //   backgroundColor: "none",
-            // }}
-            _focus={{
-              backgroundColor: "#fff",
-              boxShadow: "none",
-              color: "#4959E7",
-            }}
-            onClick={() => handleScroll("whyCore")}
-          >
-            Why CoreKYC?
-          </Button>
           <Button
             color="#FFFFFF"
             variant="ghost"
@@ -258,19 +266,30 @@ const Header: React.FC<Props> = ({
           </Button>
           <Button
             color="#FFFFFF"
-            _hover={{ bg: "none", opacity: 0.7, outline: "none" }}
-            _active={{ bg: "none", opacity: 0.7, outline: "none" }}
-            variant="outline"
-            border="2px solid rgba(255, 255, 255, 0.74)"
-            h="50px"
-            w="150px"
-            borderRadius="10px"
+            variant="ghost"
             fontSize="16px"
             fontWeight="semibold"
-            ml={{ base: "31px !important" }}
-            onClick={onBookADemoClick}
+            // w="53px !important"
+            minW="53px !important"
+            // mr="18"
+            h="50px"
+            padding="8px 15px"
+            // w="150px"
+            borderRadius="10px"
+            _hover={{
+              cursor: "pointer",
+              textDecoration: "none",
+              backgroundColor: "#fff",
+              color: "#4959E7",
+            }}
+            _active={{
+              backgroundColor: "none",
+            }}
+            _focus={{
+              backgroundColor: "none",
+            }}
           >
-            Book a demo
+            Contact us
           </Button>
         </Stack>
 
@@ -432,6 +451,7 @@ const Header: React.FC<Props> = ({
                   mr="15px"
                   w="155px"
                   h="45px"
+                  onClick={onBookADemoClick}
                 >
                   Get a demo
                 </Button>
