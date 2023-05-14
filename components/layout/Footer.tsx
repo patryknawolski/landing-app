@@ -21,11 +21,59 @@ import Logo from "public/images/CoreKYCBlue.svg";
 import IDRLogo from "public/images/IDR.png";
 import AWSLogo from "public/images/aws.svg";
 import { useCalendlyContext } from "contexts/CalendlyContext";
+import { useCallback, useMemo } from "react";
 
 const Footer: NextPage = () => {
   const { setIsModalOpen } = useCalendlyContext();
 
-  const onBookADemoClick = () => setIsModalOpen(true);
+  const onBookADemoClick = useCallback(
+    () => setIsModalOpen(true),
+    [setIsModalOpen]
+  );
+
+  const links: Array<
+    Array<{
+      label: string;
+      nextHref?: string;
+      href?: string;
+      targetBlank?: boolean;
+      onClick?: () => void;
+    }>
+  > = useMemo(
+    () => [
+      [
+        {
+          label: "Why CoreKYC?",
+          nextHref: "/#whyCore",
+        },
+        {
+          label: "Products",
+          nextHref: "/product",
+        },
+        {
+          label: "Pricing",
+          nextHref: "/#pricing",
+        },
+      ],
+      [
+        {
+          label: "Get a demo",
+          onClick: onBookADemoClick,
+        },
+        {
+          label: "About us",
+          nextHref: "/about-us",
+        },
+        {
+          label: "Developers",
+          href: "https://corekyc.stoplight.io/docs/corekyc-api/oxwvy00so15bb-basic-real-aml-workflow",
+          targetBlank: true,
+        },
+      ],
+      [{ label: "Sign in" }, { label: "Contact us" }],
+    ],
+    [onBookADemoClick]
+  );
 
   return (
     <Box w="100%" overflow="hidden" borderTop="1px solid #E5E5EA">
@@ -46,139 +94,58 @@ const Footer: NextPage = () => {
         <Spacer />
         <Box>
           <SimpleGrid columns={{ md: 3, sm: 2 }} spacing="30px">
-            <List minW={{ base: "120px", xl: "160px" }} margin="0">
-              <ListItem marginBottom="10px">
-                <NextLink href="#whyCore">
-                  <Link
-                    fontWeight="normal"
-                    fontSize="16px"
-                    color="#110f24"
-                    _hover={{
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      color: "#4959e7",
-                    }}
-                  >
-                    Why CoreKYC?
-                  </Link>
-                </NextLink>
-              </ListItem>
-              <ListItem marginBottom="10px">
-                <NextLink href="/about-us">
-                  <Link
-                    fontWeight="normal"
-                    fontSize="16px"
-                    color="#110f24"
-                    _hover={{
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      color: "#4959e7",
-                    }}
-                  >
-                    About us
-                  </Link>
-                </NextLink>
-              </ListItem>
-              <ListItem marginBottom="10px">
-                <NextLink href="#pricing">
-                  <Link
-                    fontWeight="normal"
-                    fontSize="16px"
-                    color="#110f24"
-                    _hover={{
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      color: "#4959e7",
-                    }}
-                  >
-                    Pricing
-                  </Link>
-                </NextLink>
-              </ListItem>
-            </List>
-
-            <List minW={{ base: "120px", xl: "160px" }} margin="0">
-              <ListItem marginBottom="10px">
-                <NextLink href="/face-id">
-                  <Link
-                    fontWeight="normal"
-                    fontSize="16px"
-                    color="#110f24"
-                    _hover={{
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      color: "#4959e7",
-                    }}
-                    onClick={onBookADemoClick}
-                  >
-                    Get a demo
-                  </Link>
-                </NextLink>
-              </ListItem>
-              <ListItem marginBottom="10px">
-                <NextLink href="/about-us">
-                  <Link
-                    fontWeight="normal"
-                    fontSize="16px"
-                    color="#110f24"
-                    _hover={{
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      color: "#4959e7",
-                    }}
-                  >
-                    About us
-                  </Link>
-                </NextLink>
-              </ListItem>
-              <ListItem marginBottom="10px">
-                <Link
-                  target="_blank"
-                  href="https://corekyc.stoplight.io/docs/corekyc-api/oxwvy00so15bb-basic-real-aml-workflow"
-                  fontWeight="normal"
-                  fontSize="16px"
-                  color="#110f24"
-                  _hover={{
-                    cursor: "pointer",
-                    textDecoration: "none",
-                    color: "#4959e7",
-                  }}
-                >
-                  Developers
-                </Link>
-              </ListItem>
-            </List>
-
-            <List minW={{ base: "120px", xl: "160px" }} margin="0">
-              <ListItem marginBottom="10px">
-                <Link
-                  fontWeight="normal"
-                  fontSize="16px"
-                  color="#110f24"
-                  _hover={{
-                    cursor: "pointer",
-                    textDecoration: "none",
-                    color: "#4959e7",
-                  }}
-                >
-                  Sign in
-                </Link>
-              </ListItem>
-              <ListItem marginBottom="10px">
-                <Link
-                  fontWeight="normal"
-                  fontSize="16px"
-                  color="#110f24"
-                  _hover={{
-                    cursor: "pointer",
-                    textDecoration: "none",
-                    color: "#4959e7",
-                  }}
-                >
-                  Contact us
-                </Link>
-              </ListItem>
-            </List>
+            {links.map((list) => (
+              <List
+                key={list.map((link) => link.label).join("-")}
+                minW={{ base: "120px", xl: "160px" }}
+                margin="0"
+              >
+                {list.map(
+                  ({ label, nextHref, href, targetBlank, onClick }, index) => (
+                    <ListItem key={label}>
+                      <ListItem
+                        marginBottom={
+                          index + 1 < list.length ? "10px" : undefined
+                        }
+                      >
+                        {nextHref ? (
+                          <NextLink href={nextHref}>
+                            <Link
+                              fontWeight="normal"
+                              fontSize="16px"
+                              color="#110f24"
+                              _hover={{
+                                cursor: "pointer",
+                                textDecoration: "none",
+                                color: "#4959e7",
+                              }}
+                            >
+                              {label}
+                            </Link>
+                          </NextLink>
+                        ) : (
+                          <Link
+                            href={href}
+                            target={targetBlank ? "_blank" : undefined}
+                            fontWeight="normal"
+                            fontSize="16px"
+                            color="#110f24"
+                            _hover={{
+                              cursor: "pointer",
+                              textDecoration: "none",
+                              color: "#4959e7",
+                            }}
+                            onClick={onClick}
+                          >
+                            {label}
+                          </Link>
+                        )}
+                      </ListItem>
+                    </ListItem>
+                  )
+                )}
+              </List>
+            ))}
           </SimpleGrid>
         </Box>
       </Box>
