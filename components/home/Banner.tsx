@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import { useRef } from "react";
 import Image from "next/image";
 
@@ -24,13 +24,32 @@ interface Props {
   bannerRef: any;
 }
 
+const logos = [
+  {
+    img: CoinstashLogo,
+    mdWidth: "121px",
+  },
+  {
+    img: Comp2,
+    mdWidth: "115px",
+  },
+  {
+    img: Comp3,
+    mdWidth: "105px",
+  },
+  {
+    img: TMNZLogo,
+    mdWidth: "90px",
+  },
+  {
+    img: TompkinsWakeLogo,
+    mdWidth: "176px",
+  },
+];
+
 const Banner: React.FC<Props> = ({ bannerRef }) => {
   const videoRef = useRef<any>(null);
   const tryForFreeInput = useRef<HTMLInputElement | null>(null);
-
-  const logos = useMemo<Array<string>>(() => {
-    return [CoinstashLogo, Comp2, Comp3, TMNZLogo, TompkinsWakeLogo];
-  }, []);
 
   useEffect(() => {
     tryForFreeInput.current?.focus();
@@ -40,7 +59,7 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
     <div ref={bannerRef}>
       <Box
         w="100%"
-        padding={{ base: "113px 25px 60px", md: "203px 0 100px" }}
+        padding={{ base: "113px 25px 60px", md: "203px 25px 100px" }}
         background={{
           base: "url('/images/bg-banner-mb.svg') no-repeat bottom center",
           md: "url('/images/bg-banner.svg') no-repeat bottom center",
@@ -160,8 +179,8 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
         </Box>
 
         <Box
-          maxW="843px"
-          margin={{ base: "36px 36px 0", md: "60px auto 0" }}
+          // maxW="843px"
+          mt={{ base: "36px", md: "60px" }}
           textAlign="center"
         >
           <Heading
@@ -175,24 +194,28 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
             We work with companies like
           </Heading>
 
-          <SimpleGrid columns={{ base: 2, lg: 5 }} gap={{ base: "15px" }}>
-            {logos.map((logo) => (
+          <Box
+            display="grid"
+            gridTemplateColumns={{
+              base: "repeat(2, minmax(0, auto))",
+              md: "repeat(5, minmax(0, auto))",
+            }}
+            gridGap={{ base: "15px", md: "48px" }}
+            justifyContent="center"
+          >
+            {logos.map(({ img, mdWidth }) => (
               <Box
-                textAlign="center"
+                key={img}
+                maxW={{ base: "100px", md: mdWidth }}
+                width="100%"
                 display="flex"
-                justifyContent="center"
                 alignItems="center"
-                key={logo}
               >
-                <Box maxW={{ base: "100px", md: "150px" }}>
-                  <Image alt="" src={logo} priority />
-                </Box>
+                <Image alt="" src={img} priority />
               </Box>
             ))}
-          </SimpleGrid>
+          </Box>
         </Box>
-
-        {/* <Companies /> */}
       </Box>
     </div>
   );
