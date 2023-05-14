@@ -104,7 +104,7 @@ const data = [
 
 const MoreReasons: NextPage = () => {
   const sliderRef = useRef<any>(null);
-  const [settings, setSettings] = useState({
+  const settings = {
     dots: false,
     arrows: false,
     infinite: true,
@@ -162,15 +162,6 @@ const MoreReasons: NextPage = () => {
         },
       },
     ],
-  });
-
-  const handleChange = (index: number) => {
-    setTimeout(() => {
-      if (index === 3) {
-        sliderRef.current.slickGoTo(0, false);
-        setSettings({ ...settings, autoplay: false });
-      }
-    }, 3000);
   };
 
   return (
@@ -237,12 +228,7 @@ const MoreReasons: NextPage = () => {
           >
             <BsChevronRight />
           </Button>
-          <Slider
-            {...settings}
-            className="moreReasonsSlider"
-            ref={sliderRef}
-            afterChange={handleChange}
-          >
+          <Slider {...settings} className="moreReasonsSlider" ref={sliderRef}>
             {data.map((item, i) => (
               <Box px={{ base: "20px" }} key={i}>
                 <ReasonCard
