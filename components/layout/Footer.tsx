@@ -20,8 +20,13 @@ import Logo from "public/images/CoreKYCBlue.svg";
 // import Logo from "public/images/logo-footer.svg";
 import IDRLogo from "public/images/IDR.png";
 import AWSLogo from "public/images/aws.svg";
+import { useCalendlyContext } from "contexts/CalendlyContext";
 
 const Footer: NextPage = () => {
+  const { setIsModalOpen } = useCalendlyContext();
+
+  const onBookADemoClick = () => setIsModalOpen(true);
+
   return (
     <Box w="100%" overflow="hidden" borderTop="1px solid #E5E5EA">
       <Box
@@ -43,7 +48,7 @@ const Footer: NextPage = () => {
           <SimpleGrid columns={{ md: 3, sm: 2 }} spacing="30px">
             <List minW={{ base: "120px", xl: "160px" }} margin="0">
               <ListItem marginBottom="10px">
-                <NextLink href="/product">
+                <NextLink href="#whyCore">
                   <Link
                     fontWeight="normal"
                     fontSize="16px"
@@ -54,7 +59,7 @@ const Footer: NextPage = () => {
                       color: "#4959e7",
                     }}
                   >
-                    Products
+                    Why CoreKYC?
                   </Link>
                 </NextLink>
               </ListItem>
@@ -75,23 +80,7 @@ const Footer: NextPage = () => {
                 </NextLink>
               </ListItem>
               <ListItem marginBottom="10px">
-                <NextLink href="/#developers">
-                  <Link
-                    fontWeight="normal"
-                    fontSize="16px"
-                    color="#110f24"
-                    _hover={{
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      color: "#4959e7",
-                    }}
-                  >
-                    Developers
-                  </Link>
-                </NextLink>
-              </ListItem>
-              <ListItem marginBottom="10px">
-                <NextLink href="/#pricing">
+                <NextLink href="#pricing">
                   <Link
                     fontWeight="normal"
                     fontSize="16px"
@@ -106,23 +95,6 @@ const Footer: NextPage = () => {
                   </Link>
                 </NextLink>
               </ListItem>
-              {/* <ListItem marginBottom="10px">
-                <NextLink href="/">
-                  <Link
-                    fontWeight="normal"
-                    fontSize="16px"
-                    
-                    color="#110f24"
-                    _hover={{
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      color: "#4959e7",
-                    }}
-                  >
-                    Security
-                  </Link>
-                </NextLink>
-              </ListItem> */}
             </List>
 
             <List minW={{ base: "120px", xl: "160px" }} margin="0">
@@ -137,13 +109,14 @@ const Footer: NextPage = () => {
                       textDecoration: "none",
                       color: "#4959e7",
                     }}
+                    onClick={onBookADemoClick}
                   >
-                    Face IDV
+                    Get a demo
                   </Link>
                 </NextLink>
               </ListItem>
               <ListItem marginBottom="10px">
-                <NextLink href="/quick-id">
+                <NextLink href="/about-us">
                   <Link
                     fontWeight="normal"
                     fontSize="16px"
@@ -154,92 +127,56 @@ const Footer: NextPage = () => {
                       color: "#4959e7",
                     }}
                   >
-                    Quick IDV
+                    About us
                   </Link>
                 </NextLink>
               </ListItem>
               <ListItem marginBottom="10px">
-                <NextLink href="/face-match">
-                  <Link
-                    fontWeight="normal"
-                    fontSize="16px"
-                    color="#110f24"
-                    _hover={{
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      color: "#4959e7",
-                    }}
-                  >
-                    Face Match
-                  </Link>
-                </NextLink>
-              </ListItem>
-              <ListItem marginBottom="10px">
-                <NextLink href="/pep-check">
-                  <Link
-                    fontWeight="normal"
-                    fontSize="16px"
-                    color="#110f24"
-                    _hover={{
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      color: "#4959e7",
-                    }}
-                  >
-                    PEP Check
-                  </Link>
-                </NextLink>
+                <Link
+                  target="_blank"
+                  href="https://corekyc.stoplight.io/docs/corekyc-api/oxwvy00so15bb-basic-real-aml-workflow"
+                  fontWeight="normal"
+                  fontSize="16px"
+                  color="#110f24"
+                  _hover={{
+                    cursor: "pointer",
+                    textDecoration: "none",
+                    color: "#4959e7",
+                  }}
+                >
+                  Developers
+                </Link>
               </ListItem>
             </List>
 
             <List minW={{ base: "120px", xl: "160px" }} margin="0">
               <ListItem marginBottom="10px">
-                <NextLink href="/#whyCore">
-                  <Link
-                    fontWeight="normal"
-                    fontSize="16px"
-                    color="#110f24"
-                    _hover={{
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      color: "#4959e7",
-                    }}
-                  >
-                    Why CoreKYC?
-                  </Link>
-                </NextLink>
+                <Link
+                  fontWeight="normal"
+                  fontSize="16px"
+                  color="#110f24"
+                  _hover={{
+                    cursor: "pointer",
+                    textDecoration: "none",
+                    color: "#4959e7",
+                  }}
+                >
+                  Sign in
+                </Link>
               </ListItem>
               <ListItem marginBottom="10px">
-                <NextLink href="/">
-                  <Link
-                    fontWeight="normal"
-                    fontSize="16px"
-                    color="#110f24"
-                    _hover={{
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      color: "#4959e7",
-                    }}
-                  >
-                    Sign in
-                  </Link>
-                </NextLink>
-              </ListItem>
-              <ListItem marginBottom="10px">
-                <NextLink href="/">
-                  <Link
-                    fontWeight="normal"
-                    fontSize="16px"
-                    color="#110f24"
-                    _hover={{
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      color: "#4959e7",
-                    }}
-                  >
-                    Get a demo
-                  </Link>
-                </NextLink>
+                <Link
+                  fontWeight="normal"
+                  fontSize="16px"
+                  color="#110f24"
+                  _hover={{
+                    cursor: "pointer",
+                    textDecoration: "none",
+                    color: "#4959e7",
+                  }}
+                >
+                  Contact us
+                </Link>
               </ListItem>
             </List>
           </SimpleGrid>
