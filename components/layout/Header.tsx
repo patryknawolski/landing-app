@@ -332,7 +332,6 @@ const Header: React.FC<Props> = ({
           >
             Developers
           </Link>
-          {/* </NextLink> */}
         </Box>
 
         <Stack
@@ -373,28 +372,17 @@ const Header: React.FC<Props> = ({
           </Button>
           <Button
             color="#FFFFFF"
-            variant="ghost"
+            _hover={{ bg: "none", opacity: 0.7, outline: "none" }}
+            _active={{ bg: "none", opacity: 0.7, outline: "none" }}
+            variant="outline"
+            border="2px solid rgba(255, 255, 255, 0.74)"
+            h="50px"
+            w="150px"
+            borderRadius="10px"
             fontSize="16px"
             fontWeight="semibold"
-            // w="53px !important"
-            minW="53px !important"
-            // mr="18"
-            h="50px"
-            padding="8px 15px"
-            // w="150px"
-            borderRadius="10px"
-            _hover={{
-              cursor: "pointer",
-              textDecoration: "none",
-              backgroundColor: "#fff",
-              color: "#4959E7",
-            }}
-            _active={{
-              backgroundColor: "none",
-            }}
-            _focus={{
-              backgroundColor: "none",
-            }}
+            ml={{ base: "31px !important" }}
+            onClick={onBookADemoClick}
           >
             Contact us
           </Button>
