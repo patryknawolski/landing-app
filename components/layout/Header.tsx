@@ -14,6 +14,11 @@ import {
   DrawerCloseButton,
   DrawerHeader,
   Link,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverBody,
+  PopoverArrow,
 } from "@chakra-ui/react";
 
 import Logo from "public/images/CoreKYCWhite.svg";
@@ -105,26 +110,7 @@ const Header: React.FC<Props> = ({
           alignItems="center"
           margin="0 auto"
         >
-          <Link
-            fontSize="16px"
-            fontStyle="normal"
-            fontWeight="500"
-            lineHeight="163.5%"
-            color="#fff"
-            margin={{ base: 0, xl: "0 15px" }}
-            padding="6px 15px"
-            borderRadius="10px"
-            _hover={{
-              cursor: "pointer",
-              textDecoration: "none",
-              backgroundColor: "#fff",
-              color: "#4959E7",
-            }}
-            onClick={() => handleScroll("whyCore")}
-          >
-            Why CoreKYC?
-          </Link>
-          <NextLink href="/product">
+          <NextLink href="/#whyCore">
             <Link
               fontSize="16px"
               fontStyle="normal"
@@ -141,9 +127,130 @@ const Header: React.FC<Props> = ({
                 color: "#4959E7",
               }}
             >
-              Products
+              Why CoreKYC?
             </Link>
           </NextLink>
+          <Popover trigger="hover" offset={[15, 10]}>
+            <PopoverTrigger>
+              <Box
+                _hover={{
+                  cursor: "pointer",
+                  textDecoration: "none",
+                  color: "#4959E7",
+                }}
+              >
+                <NextLink href="/product">
+                  <Link
+                    position="relative"
+                    padding="6px 15px"
+                    borderRadius="10px"
+                    fontSize="16px"
+                    fontStyle="normal"
+                    fontWeight="500"
+                    lineHeight="163.5%"
+                    color="#fff"
+                    margin={{ base: 0, xl: "0 15px" }}
+                    _hover={{
+                      textDecoration: "none",
+                    }}
+                    _before={{
+                      content: "''",
+                      position: "absolute",
+                      top: "calc(100% - 4px)",
+                      left: "calc(50% - 3px)",
+                      display: "block",
+                      width: 0,
+                      height: 0,
+                      borderWidth: "7px 6px 0 6px",
+                      borderColor: "#fff transparent transparent transparent",
+                      borderStyle: "solid",
+                    }}
+                  >
+                    Products
+                  </Link>
+                </NextLink>
+              </Box>
+            </PopoverTrigger>
+            <PopoverContent
+              width="200px"
+              outline="none"
+              _focus={{ outline: "none" }}
+              borderColor="#fff"
+            >
+              <NextLink href="/product#face-idv">
+                <Link
+                  fontSize="16px"
+                  fontStyle="normal"
+                  fontWeight="500"
+                  lineHeight="163.5%"
+                  padding="6px 15px"
+                  borderRadius="10px"
+                  _hover={{
+                    cursor: "pointer",
+                    textDecoration: "none",
+                    backgroundColor: "#fff",
+                    color: "#4959E7",
+                  }}
+                >
+                  Face IDV
+                </Link>
+              </NextLink>
+              <NextLink href="/product#quick-idv">
+                <Link
+                  fontSize="16px"
+                  fontStyle="normal"
+                  fontWeight="500"
+                  lineHeight="163.5%"
+                  padding="6px 15px"
+                  borderRadius="10px"
+                  _hover={{
+                    cursor: "pointer",
+                    textDecoration: "none",
+                    backgroundColor: "#fff",
+                    color: "#4959E7",
+                  }}
+                >
+                  Quick IDV
+                </Link>
+              </NextLink>
+              <NextLink href="/product#face-match">
+                <Link
+                  fontSize="16px"
+                  fontStyle="normal"
+                  fontWeight="500"
+                  lineHeight="163.5%"
+                  padding="6px 15px"
+                  borderRadius="10px"
+                  _hover={{
+                    cursor: "pointer",
+                    textDecoration: "none",
+                    backgroundColor: "#fff",
+                    color: "#4959E7",
+                  }}
+                >
+                  Face Match
+                </Link>
+              </NextLink>
+              <NextLink href="/product#pep-check">
+                <Link
+                  fontSize="16px"
+                  fontStyle="normal"
+                  fontWeight="500"
+                  lineHeight="163.5%"
+                  padding="6px 15px"
+                  borderRadius="10px"
+                  _hover={{
+                    cursor: "pointer",
+                    textDecoration: "none",
+                    backgroundColor: "#fff",
+                    color: "#4959E7",
+                  }}
+                >
+                  PEP Check
+                </Link>
+              </NextLink>
+            </PopoverContent>
+          </Popover>
           <Link
             fontSize="16px"
             fontStyle="normal"
@@ -313,7 +420,6 @@ const Header: React.FC<Props> = ({
 
           <DrawerContent
             background="linear-gradient(144.51deg, #4776E6 0%, #8E54E9 100%)"
-            // minHeight="100vh"
             position="relative"
           >
             <Box p="20px" display="flex" alignItems="flex-start">

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import LinkNext from "next/link";
 import { BsArrowRightShort } from "react-icons/bs";
-import { FiCheck } from 'react-icons/fi'
+import { FiCheck } from "react-icons/fi";
 import {
   Box,
   Link,
@@ -78,7 +78,6 @@ const BoxDetail: React.FC<InfoType> = ({
   const handleDownload = () => {
     onDownload(id);
   };
-  
 
   return (
     <Box w="100%" h="100%" display="flex" alignItems="center">
@@ -115,9 +114,10 @@ const BoxDetail: React.FC<InfoType> = ({
             lineHeight={{ base: "22px", md: "32px" }}
             fontWeight={600}
             color="#4959E7"
-            display="flex" alignItems="center"
+            display="flex"
+            alignItems="center"
           >
-            Documents sent <FiCheck style={{marginLeft: '10px'}} />
+            Documents sent <FiCheck style={{ marginLeft: "10px" }} />
           </Text>
         ) : id === active && id !== sent ? (
           <Box display={{ base: "flex" }} alignItems="center">
@@ -197,10 +197,10 @@ const Detail: NextPage = () => {
   const handleSent = (index: number) => {
     setSent(index);
   };
-  console.log("sent: ", sent)
+  console.log("sent: ", sent);
 
   return (
-    <Box w="100%" position="relative" overflow="hidden">
+    <Box id="face-idv" w="100%" position="relative" overflow="hidden">
       <Box maxW="1440px" margin="0 auto">
         <Box
           padding={{
@@ -245,7 +245,7 @@ const Detail: NextPage = () => {
               <ViewImage image={FaceIdImg} />
             </GridItem>
 
-            <GridItem colSpan={{ base: 5, lg: 2 }}>
+            <GridItem id="quick-idv" colSpan={{ base: 5, lg: 2 }}>
               <Box h="100% " pl={{ base: "0", md: "0px" }}>
                 <BoxDetail
                   id={2}
@@ -280,7 +280,7 @@ const Detail: NextPage = () => {
                 <ViewImage image={FaceMatchImg} />
               </Box>
             </GridItem>
-            <GridItem colSpan={{ base: 5, lg: 2 }}>
+            <GridItem id="face-match" colSpan={{ base: 5, lg: 2 }}>
               <BoxDetail
                 id={3}
                 active={active}
@@ -315,7 +315,7 @@ const Detail: NextPage = () => {
             gap={{ base: "40px", md: "40px", xl: "120px" }}
             templateColumns={{ base: "repeat(1, 1fr)", lg: "repeat(2, 1fr)" }}
           >
-            <GridItem colSpan={1}>
+            <GridItem id="pep-check" colSpan={1}>
               <Box pl={{ base: "0", md: "0", lg: "40px", xl: "90px" }} h="100%">
                 <BoxDetail
                   id={4}
