@@ -165,12 +165,12 @@ const Header: React.FC<Props> = ({
                       _before={{
                         content: "''",
                         position: "absolute",
-                        top: "calc(100% - 4px)",
-                        left: "calc(50% - 3px)",
+                        top: "calc(50% - 2px)",
+                        right: 0,
                         display: "block",
                         width: 0,
                         height: 0,
-                        borderWidth: "7px 6px 0 6px",
+                        borderWidth: "5px 3.5px 0 3.5px",
                         borderColor: "#fff transparent transparent transparent",
                         borderStyle: "solid",
                       }}
