@@ -7,21 +7,19 @@ import {
   Box,
   SimpleGrid,
   Text,
-  Icon,
   Center,
   Link,
   Spacer,
   ListItem,
   List,
 } from "@chakra-ui/react";
-import { BsLinkedin } from "react-icons/bs";
 
 import Logo from "public/images/CoreKYCBlue.svg";
-// import Logo from "public/images/logo-footer.svg";
 import IDRLogo from "public/images/IDR.png";
 import AWSLogo from "public/images/aws.svg";
 import { useCalendlyContext } from "contexts/CalendlyContext";
 import { useCallback, useMemo } from "react";
+import { LinkedInLink } from "common/LinkedInLink";
 
 const Footer: NextPage = () => {
   const { setIsModalOpen } = useCalendlyContext();
@@ -286,22 +284,7 @@ const Footer: NextPage = () => {
           justifyContent="flex-end"
           alignItems="center"
         >
-          <Link
-            href="https://www.linkedin.com/company/realyou/"
-            target="_blank"
-            fontWeight="normal"
-            fontSize="16px"
-            color="#4959e7"
-            display="inline-flex"
-            alignItems="center"
-            _hover={{
-              cursor: "pointer",
-              textDecoration: "none",
-              color: "#4959e7",
-            }}
-          >
-            <Icon marginRight="7px" as={BsLinkedin} /> Follow us on Linkedin
-          </Link>
+          <LinkedInLink />
         </Box>
       </Box>
     </Box>

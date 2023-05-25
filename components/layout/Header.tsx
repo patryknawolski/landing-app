@@ -25,6 +25,7 @@ import Logo from "public/images/CoreKYCWhite.svg";
 // import Logo from "public/images/logo-header.svg";
 import MenuImg from "public/images/bars.svg";
 import { useCalendlyContext } from "contexts/CalendlyContext";
+import { ContactModal } from "common/ContactModal";
 
 interface Props {
   heightBanner?: number;
@@ -39,6 +40,11 @@ const Header: React.FC<Props> = ({
 }) => {
   const menuRef: any = React.useRef();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const {
+    isOpen: isContactModalOpen,
+    onOpen: openContactModal,
+    onClose: onContactModalClose,
+  } = useDisclosure();
   const [showBg, setShowBg] = useState(false);
   const { setIsModalOpen } = useCalendlyContext();
 
@@ -64,232 +70,196 @@ const Header: React.FC<Props> = ({
 
   const onBookADemoClick = () => setIsModalOpen(true);
 
-  return (
-    <Box
-      // maxW="1440px"
-      margin="0 auto"
-      position="fixed"
-      zIndex="1000"
-      top="0"
-      left="0"
-      right="0"
-      bg={
-        showBg
-          ? // ? "linear-gradient(179deg, rgba(71,118,230,1) 0%, rgba(142,84,233,1) 100%)"
-            "#5f6be9"
-          : ""
-      }
-    >
-      <Box
-        w="100%"
-        padding={{
-          base: `${showBg ? "15px 25px" : "20px 25px"}`,
-          xl: `${showBg ? "15px 65px" : "30px 65px"}`,
-        }}
-        boxSizing="border-box"
-        overflow="hidden"
-        display="flex"
-        alignItems="center"
-        maxW="1440px"
-        margin="0 auto"
-        transition="padding 0.3s ease-in-out"
-      >
-        <NextLink href="/">
-          <Link
-            display="inline-flex"
-            alignItems="center"
-            justifyContent="center"
-            maxW={{ base: "90px", md: "120px" }}
-          >
-            <Image alt="" src={Logo} priority />
-          </Link>
-        </NextLink>
+  const onContactUsClick = () => {};
 
+  return (
+    <>
+      <Box
+        // maxW="1440px"
+        margin="0 auto"
+        position="fixed"
+        zIndex="1000"
+        top="0"
+        left="0"
+        right="0"
+        bg={
+          showBg
+            ? // ? "linear-gradient(179deg, rgba(71,118,230,1) 0%, rgba(142,84,233,1) 100%)"
+              "#5f6be9"
+            : ""
+        }
+      >
         <Box
-          display={{ base: "none", lg: "inline-flex" }}
+          w="100%"
+          padding={{
+            base: `${showBg ? "15px 25px" : "20px 25px"}`,
+            xl: `${showBg ? "15px 65px" : "30px 65px"}`,
+          }}
+          boxSizing="border-box"
+          overflow="hidden"
+          display="flex"
           alignItems="center"
+          maxW="1440px"
           margin="0 auto"
+          transition="padding 0.3s ease-in-out"
         >
-          <NextLink href="/#whyCore">
+          <NextLink href="/">
             <Link
-              fontSize="16px"
-              fontStyle="normal"
-              fontWeight="500"
-              lineHeight="163.5%"
-              color="#fff"
-              margin={{ base: 0, xl: "0 15px" }}
-              padding="6px 15px"
-              borderRadius="10px"
-              _hover={{
-                cursor: "pointer",
-                textDecoration: "none",
-                backgroundColor: "#fff",
-                color: "#4959E7",
-              }}
+              display="inline-flex"
+              alignItems="center"
+              justifyContent="center"
+              maxW={{ base: "90px", md: "120px" }}
             >
-              Why CoreKYC?
+              <Image alt="" src={Logo} priority />
             </Link>
           </NextLink>
-          <Popover trigger="hover" offset={[15, 10]}>
-            <PopoverTrigger>
-              <Box
+
+          <Box
+            display={{ base: "none", lg: "inline-flex" }}
+            alignItems="center"
+            margin="0 auto"
+          >
+            <NextLink href="/#whyCore">
+              <Link
+                fontSize="16px"
+                fontStyle="normal"
+                fontWeight="500"
+                lineHeight="163.5%"
+                color="#fff"
+                margin={{ base: 0, xl: "0 15px" }}
+                padding="6px 15px"
+                borderRadius="10px"
                 _hover={{
                   cursor: "pointer",
                   textDecoration: "none",
+                  backgroundColor: "#fff",
                   color: "#4959E7",
                 }}
               >
-                <NextLink href="/product">
+                Why CoreKYC?
+              </Link>
+            </NextLink>
+            <Popover trigger="hover" offset={[15, 10]}>
+              <PopoverTrigger>
+                <Box
+                  _hover={{
+                    cursor: "pointer",
+                    textDecoration: "none",
+                    color: "#4959E7",
+                  }}
+                >
+                  <NextLink href="/product">
+                    <Link
+                      position="relative"
+                      padding="6px 15px"
+                      borderRadius="10px"
+                      fontSize="16px"
+                      fontStyle="normal"
+                      fontWeight="500"
+                      lineHeight="163.5%"
+                      color="#fff"
+                      margin={{ base: 0, xl: "0 15px" }}
+                      _hover={{
+                        textDecoration: "none",
+                      }}
+                      _before={{
+                        content: "''",
+                        position: "absolute",
+                        top: "calc(100% - 4px)",
+                        left: "calc(50% - 3px)",
+                        display: "block",
+                        width: 0,
+                        height: 0,
+                        borderWidth: "7px 6px 0 6px",
+                        borderColor: "#fff transparent transparent transparent",
+                        borderStyle: "solid",
+                      }}
+                    >
+                      Products
+                    </Link>
+                  </NextLink>
+                </Box>
+              </PopoverTrigger>
+              <PopoverContent
+                width="200px"
+                outline="none"
+                _focus={{ outline: "none" }}
+                borderColor="#fff"
+              >
+                <NextLink href="/product#face-idv">
                   <Link
-                    position="relative"
-                    padding="6px 15px"
-                    borderRadius="10px"
                     fontSize="16px"
                     fontStyle="normal"
                     fontWeight="500"
                     lineHeight="163.5%"
-                    color="#fff"
-                    margin={{ base: 0, xl: "0 15px" }}
+                    padding="6px 15px"
+                    borderRadius="10px"
                     _hover={{
+                      cursor: "pointer",
                       textDecoration: "none",
-                    }}
-                    _before={{
-                      content: "''",
-                      position: "absolute",
-                      top: "calc(100% - 4px)",
-                      left: "calc(50% - 3px)",
-                      display: "block",
-                      width: 0,
-                      height: 0,
-                      borderWidth: "7px 6px 0 6px",
-                      borderColor: "#fff transparent transparent transparent",
-                      borderStyle: "solid",
+                      backgroundColor: "#fff",
+                      color: "#4959E7",
                     }}
                   >
-                    Products
+                    Face IDV
                   </Link>
                 </NextLink>
-              </Box>
-            </PopoverTrigger>
-            <PopoverContent
-              width="200px"
-              outline="none"
-              _focus={{ outline: "none" }}
-              borderColor="#fff"
-            >
-              <NextLink href="/product#face-idv">
-                <Link
-                  fontSize="16px"
-                  fontStyle="normal"
-                  fontWeight="500"
-                  lineHeight="163.5%"
-                  padding="6px 15px"
-                  borderRadius="10px"
-                  _hover={{
-                    cursor: "pointer",
-                    textDecoration: "none",
-                    backgroundColor: "#fff",
-                    color: "#4959E7",
-                  }}
-                >
-                  Face IDV
-                </Link>
-              </NextLink>
-              <NextLink href="/product#quick-idv">
-                <Link
-                  fontSize="16px"
-                  fontStyle="normal"
-                  fontWeight="500"
-                  lineHeight="163.5%"
-                  padding="6px 15px"
-                  borderRadius="10px"
-                  _hover={{
-                    cursor: "pointer",
-                    textDecoration: "none",
-                    backgroundColor: "#fff",
-                    color: "#4959E7",
-                  }}
-                >
-                  Quick IDV
-                </Link>
-              </NextLink>
-              <NextLink href="/product#face-match">
-                <Link
-                  fontSize="16px"
-                  fontStyle="normal"
-                  fontWeight="500"
-                  lineHeight="163.5%"
-                  padding="6px 15px"
-                  borderRadius="10px"
-                  _hover={{
-                    cursor: "pointer",
-                    textDecoration: "none",
-                    backgroundColor: "#fff",
-                    color: "#4959E7",
-                  }}
-                >
-                  Face Match
-                </Link>
-              </NextLink>
-              <NextLink href="/product#pep-check">
-                <Link
-                  fontSize="16px"
-                  fontStyle="normal"
-                  fontWeight="500"
-                  lineHeight="163.5%"
-                  padding="6px 15px"
-                  borderRadius="10px"
-                  _hover={{
-                    cursor: "pointer",
-                    textDecoration: "none",
-                    backgroundColor: "#fff",
-                    color: "#4959E7",
-                  }}
-                >
-                  PEP Check
-                </Link>
-              </NextLink>
-            </PopoverContent>
-          </Popover>
-          <Link
-            fontSize="16px"
-            fontStyle="normal"
-            fontWeight="500"
-            lineHeight="163.5%"
-            color="#fff"
-            margin={{ base: 0, xl: "0 15px" }}
-            padding="6px 15px"
-            borderRadius="10px"
-            _hover={{
-              cursor: "pointer",
-              textDecoration: "none",
-              backgroundColor: "#fff",
-              color: "#4959E7",
-            }}
-            onClick={onViewPrice}
-          >
-            Pricing
-          </Link>
-          <Link
-            fontSize="16px"
-            fontStyle="normal"
-            fontWeight="500"
-            lineHeight="163.5%"
-            color="#fff"
-            margin={{ base: 0, xl: "0 15px" }}
-            padding="6px 15px"
-            borderRadius="10px"
-            _hover={{
-              cursor: "pointer",
-              textDecoration: "none",
-              backgroundColor: "#fff",
-              color: "#4959E7",
-            }}
-            onClick={onBookADemoClick}
-          >
-            Get a demo
-          </Link>
-          <NextLink href="/about-us">
+                <NextLink href="/product#quick-idv">
+                  <Link
+                    fontSize="16px"
+                    fontStyle="normal"
+                    fontWeight="500"
+                    lineHeight="163.5%"
+                    padding="6px 15px"
+                    borderRadius="10px"
+                    _hover={{
+                      cursor: "pointer",
+                      textDecoration: "none",
+                      backgroundColor: "#fff",
+                      color: "#4959E7",
+                    }}
+                  >
+                    Quick IDV
+                  </Link>
+                </NextLink>
+                <NextLink href="/product#face-match">
+                  <Link
+                    fontSize="16px"
+                    fontStyle="normal"
+                    fontWeight="500"
+                    lineHeight="163.5%"
+                    padding="6px 15px"
+                    borderRadius="10px"
+                    _hover={{
+                      cursor: "pointer",
+                      textDecoration: "none",
+                      backgroundColor: "#fff",
+                      color: "#4959E7",
+                    }}
+                  >
+                    Face Match
+                  </Link>
+                </NextLink>
+                <NextLink href="/product#pep-check">
+                  <Link
+                    fontSize="16px"
+                    fontStyle="normal"
+                    fontWeight="500"
+                    lineHeight="163.5%"
+                    padding="6px 15px"
+                    borderRadius="10px"
+                    _hover={{
+                      cursor: "pointer",
+                      textDecoration: "none",
+                      backgroundColor: "#fff",
+                      color: "#4959E7",
+                    }}
+                  >
+                    PEP Check
+                  </Link>
+                </NextLink>
+              </PopoverContent>
+            </Popover>
             <Link
               fontSize="16px"
               fontStyle="normal"
@@ -305,282 +275,323 @@ const Header: React.FC<Props> = ({
                 backgroundColor: "#fff",
                 color: "#4959E7",
               }}
+              onClick={onViewPrice}
             >
-              About us
+              Pricing
             </Link>
-          </NextLink>
-          <Link
-            target="_blank"
-            href="https://corekyc.stoplight.io/docs/corekyc-api/oxwvy00so15bb-basic-real-aml-workflow"
-            fontSize="16px"
-            fontStyle="normal"
-            fontWeight="500"
-            lineHeight="163.5%"
-            color="#fff"
-            margin={{ base: 0, xl: "0 15px" }}
-            padding="6px 15px"
-            borderRadius="10px"
-            _focus={{
-              outline: "none",
-            }}
-            _hover={{
-              cursor: "pointer",
-              textDecoration: "none",
-              backgroundColor: "#fff",
-              color: "#4959E7",
-            }}
-          >
-            Developers
-          </Link>
-        </Box>
-
-        <Stack
-          direction="row"
-          spacing={4}
-          align="center"
-          boxSizing="border-box"
-          overflow="hidden"
-          display={{ base: "none", lg: "inline-flex" }}
-          alignItems="center"
-        >
-          <Button
-            color="#FFFFFF"
-            variant="ghost"
-            fontSize="16px"
-            fontWeight="semibold"
-            // w="53px !important"
-            minW="53px !important"
-            // mr="18"
-            h="50px"
-            padding="8px 15px"
-            // w="150px"
-            borderRadius="10px"
-            _hover={{
-              cursor: "pointer",
-              textDecoration: "none",
-              backgroundColor: "#fff",
-              color: "#4959E7",
-            }}
-            _active={{
-              backgroundColor: "none",
-            }}
-            _focus={{
-              backgroundColor: "none",
-            }}
-          >
-            Sign in
-          </Button>
-          <Button
-            color="#FFFFFF"
-            _hover={{ bg: "none", opacity: 0.7, outline: "none" }}
-            _active={{ bg: "none", opacity: 0.7, outline: "none" }}
-            variant="outline"
-            border="2px solid rgba(255, 255, 255, 0.74)"
-            h="50px"
-            w="150px"
-            borderRadius="10px"
-            fontSize="16px"
-            fontWeight="semibold"
-            ml={{ base: "31px !important" }}
-            onClick={onBookADemoClick}
-          >
-            Contact us
-          </Button>
-        </Stack>
-
-        <Link
-          ref={menuRef}
-          display={{ base: "inline-flex", lg: "none" }}
-          marginLeft="auto"
-          onClick={onOpen}
-        >
-          <Image alt="" src={MenuImg} />
-        </Link>
-
-        <Drawer
-          isOpen={isOpen}
-          placement="top"
-          onClose={onClose}
-          finalFocusRef={menuRef}
-        >
-          <DrawerOverlay />
-          <DrawerHeader>Create your account</DrawerHeader>
-
-          <DrawerContent
-            background="linear-gradient(144.51deg, #4776E6 0%, #8E54E9 100%)"
-            position="relative"
-          >
-            <Box p="20px" display="flex" alignItems="flex-start">
-              <Box maxW="100px">
-                <Image alt="" src={Logo} />
-              </Box>
-              <DrawerCloseButton
-                position="unset"
-                ml="auto"
+            <Link
+              fontSize="16px"
+              fontStyle="normal"
+              fontWeight="500"
+              lineHeight="163.5%"
+              color="#fff"
+              margin={{ base: 0, xl: "0 15px" }}
+              padding="6px 15px"
+              borderRadius="10px"
+              _hover={{
+                cursor: "pointer",
+                textDecoration: "none",
+                backgroundColor: "#fff",
+                color: "#4959E7",
+              }}
+              onClick={onBookADemoClick}
+            >
+              Get a demo
+            </Link>
+            <NextLink href="/about-us">
+              <Link
+                fontSize="16px"
+                fontStyle="normal"
+                fontWeight="500"
+                lineHeight="163.5%"
                 color="#fff"
-                border="none"
-                _focus={{ border: "none", outline: "none", bg: "none" }}
-                _active={{ border: "none", outline: "none", bg: "none" }}
-              />
-            </Box>
-
-            <DrawerBody>
-              <Box marginTop="50px" marginBottom="15px" color="#fff">
-                <NextLink href="/product">
-                  <Link
-                    display="block"
-                    w="100%"
-                    textAlign="left"
-                    marginTop="10px"
-                    fontSize="16px"
-                    lineHeight="26px"
-                    mb="30px"
-                    fontWeight="500"
-                    _focus={{
-                      textDecoration: "none",
-                      bg: "none",
-                      opacity: 0.7,
-                    }}
-                    _hover={{
-                      textDecoration: "none",
-                      bg: "none",
-                      opacity: 0.7,
-                    }}
-                  >
-                    Products
-                  </Link>
-                </NextLink>
-                <NextLink href="/about-us">
-                  <Link
-                    display="block"
-                    w="100%"
-                    textAlign="left"
-                    marginTop="10px"
-                    fontSize="16px"
-                    lineHeight="26px"
-                    mb="30px"
-                    fontWeight="500"
-                    _focus={{
-                      textDecoration: "none",
-                      bg: "none",
-                      opacity: 0.7,
-                    }}
-                    _hover={{
-                      textDecoration: "none",
-                      bg: "none",
-                      opacity: 0.7,
-                    }}
-                  >
-                    About us
-                  </Link>
-                </NextLink>
-                <NextLink href="/">
-                  <Link
-                    display="block"
-                    w="100%"
-                    textAlign="left"
-                    marginTop="10px"
-                    fontSize="16px"
-                    lineHeight="26px"
-                    mb="30px"
-                    fontWeight="500"
-                    _focus={{
-                      textDecoration: "none",
-                      bg: "none",
-                      opacity: 0.7,
-                    }}
-                    _hover={{
-                      textDecoration: "none",
-                      bg: "none",
-                      opacity: 0.7,
-                    }}
-                  >
-                    Developers
-                  </Link>
-                </NextLink>
-                <NextLink href="/#price">
-                  <Link
-                    display="block"
-                    w="100%"
-                    textAlign="left"
-                    marginTop="10px"
-                    fontSize="16px"
-                    lineHeight="26px"
-                    mb="30px"
-                    fontWeight="500"
-                    _focus={{
-                      textDecoration: "none",
-                      bg: "none",
-                      opacity: 0.7,
-                    }}
-                    _hover={{
-                      textDecoration: "none",
-                      bg: "none",
-                      opacity: 0.7,
-                    }}
-                  >
-                    Pricing
-                  </Link>
-                </NextLink>
-              </Box>
-
-              <Box
-                textAlign="center"
-                mt="165px"
-                pb="30px"
-                // position="absolute"
-                // bottom="30px"
-                // zIndex="2"
-                // left="0"
-                // right="0"
+                margin={{ base: 0, xl: "0 15px" }}
+                padding="6px 15px"
+                borderRadius="10px"
+                _hover={{
+                  cursor: "pointer",
+                  textDecoration: "none",
+                  backgroundColor: "#fff",
+                  color: "#4959E7",
+                }}
               >
-                <Button
-                  color="#fff"
-                  _hover={{ bg: "none", opacity: 0.7 }}
-                  variant="outline"
-                  border="1px solid rgba(255, 255, 255, 0.74)"
-                  borderRadius="5px"
-                  fontSize="14px"
-                  fontWeight="semibold"
-                  mr="15px"
-                  w="155px"
-                  h="45px"
-                  onClick={onBookADemoClick}
-                >
-                  Get a demo
-                </Button>
-                <Button
-                  color="#fff"
-                  _hover={{ bg: "none", opacity: 0.7 }}
-                  variant="outline"
-                  border="1px solid rgba(255, 255, 255, 0.74)"
-                  borderRadius="5px"
-                  fontSize="14px"
-                  fontWeight="semibold"
-                  w="155px"
-                  h="45px"
-                >
-                  Why CoreKYC?
-                </Button>
+                About us
+              </Link>
+            </NextLink>
+            <Link
+              target="_blank"
+              href="https://corekyc.stoplight.io/docs/corekyc-api/oxwvy00so15bb-basic-real-aml-workflow"
+              fontSize="16px"
+              fontStyle="normal"
+              fontWeight="500"
+              lineHeight="163.5%"
+              color="#fff"
+              margin={{ base: 0, xl: "0 15px" }}
+              padding="6px 15px"
+              borderRadius="10px"
+              _focus={{
+                outline: "none",
+              }}
+              _hover={{
+                cursor: "pointer",
+                textDecoration: "none",
+                backgroundColor: "#fff",
+                color: "#4959E7",
+              }}
+            >
+              Developers
+            </Link>
+          </Box>
 
-                <Button
+          <Stack
+            direction="row"
+            spacing={4}
+            align="center"
+            boxSizing="border-box"
+            overflow="hidden"
+            display={{ base: "none", lg: "inline-flex" }}
+            alignItems="center"
+          >
+            <Button
+              color="#FFFFFF"
+              variant="ghost"
+              fontSize="16px"
+              fontWeight="semibold"
+              // w="53px !important"
+              minW="53px !important"
+              // mr="18"
+              h="50px"
+              padding="8px 15px"
+              // w="150px"
+              borderRadius="10px"
+              _hover={{
+                cursor: "pointer",
+                textDecoration: "none",
+                backgroundColor: "#fff",
+                color: "#4959E7",
+              }}
+              _active={{
+                backgroundColor: "none",
+              }}
+              _focus={{
+                backgroundColor: "none",
+              }}
+            >
+              Sign in
+            </Button>
+            <Button
+              color="#FFFFFF"
+              _hover={{ bg: "none", opacity: 0.7, outline: "none" }}
+              _active={{ bg: "none", opacity: 0.7, outline: "none" }}
+              variant="outline"
+              border="2px solid rgba(255, 255, 255, 0.74)"
+              h="50px"
+              w="150px"
+              borderRadius="10px"
+              fontSize="16px"
+              fontWeight="semibold"
+              ml={{ base: "31px !important" }}
+              onClick={openContactModal}
+            >
+              Contact us
+            </Button>
+          </Stack>
+
+          <Link
+            ref={menuRef}
+            display={{ base: "inline-flex", lg: "none" }}
+            marginLeft="auto"
+            onClick={onOpen}
+          >
+            <Image alt="" src={MenuImg} />
+          </Link>
+
+          <Drawer
+            isOpen={isOpen}
+            placement="top"
+            onClose={onClose}
+            finalFocusRef={menuRef}
+          >
+            <DrawerOverlay />
+            <DrawerHeader>Create your account</DrawerHeader>
+
+            <DrawerContent
+              background="linear-gradient(144.51deg, #4776E6 0%, #8E54E9 100%)"
+              position="relative"
+            >
+              <Box p="20px" display="flex" alignItems="flex-start">
+                <Box maxW="100px">
+                  <Image alt="" src={Logo} />
+                </Box>
+                <DrawerCloseButton
+                  position="unset"
+                  ml="auto"
                   color="#fff"
-                  _hover={{ bg: "#fff", color: "#4959E7" }}
-                  variant="ghost"
-                  fontSize="14px"
-                  fontWeight="semibold"
-                  mt="0"
-                  w="155px"
-                  h="45px"
-                >
-                  Sign in
-                </Button>
+                  border="none"
+                  _focus={{ border: "none", outline: "none", bg: "none" }}
+                  _active={{ border: "none", outline: "none", bg: "none" }}
+                />
               </Box>
-            </DrawerBody>
-          </DrawerContent>
-        </Drawer>
+
+              <DrawerBody>
+                <Box marginTop="50px" marginBottom="15px" color="#fff">
+                  <NextLink href="/product">
+                    <Link
+                      display="block"
+                      w="100%"
+                      textAlign="left"
+                      marginTop="10px"
+                      fontSize="16px"
+                      lineHeight="26px"
+                      mb="30px"
+                      fontWeight="500"
+                      _focus={{
+                        textDecoration: "none",
+                        bg: "none",
+                        opacity: 0.7,
+                      }}
+                      _hover={{
+                        textDecoration: "none",
+                        bg: "none",
+                        opacity: 0.7,
+                      }}
+                    >
+                      Products
+                    </Link>
+                  </NextLink>
+                  <NextLink href="/about-us">
+                    <Link
+                      display="block"
+                      w="100%"
+                      textAlign="left"
+                      marginTop="10px"
+                      fontSize="16px"
+                      lineHeight="26px"
+                      mb="30px"
+                      fontWeight="500"
+                      _focus={{
+                        textDecoration: "none",
+                        bg: "none",
+                        opacity: 0.7,
+                      }}
+                      _hover={{
+                        textDecoration: "none",
+                        bg: "none",
+                        opacity: 0.7,
+                      }}
+                    >
+                      About us
+                    </Link>
+                  </NextLink>
+                  <NextLink href="/">
+                    <Link
+                      display="block"
+                      w="100%"
+                      textAlign="left"
+                      marginTop="10px"
+                      fontSize="16px"
+                      lineHeight="26px"
+                      mb="30px"
+                      fontWeight="500"
+                      _focus={{
+                        textDecoration: "none",
+                        bg: "none",
+                        opacity: 0.7,
+                      }}
+                      _hover={{
+                        textDecoration: "none",
+                        bg: "none",
+                        opacity: 0.7,
+                      }}
+                    >
+                      Developers
+                    </Link>
+                  </NextLink>
+                  <NextLink href="/#price">
+                    <Link
+                      display="block"
+                      w="100%"
+                      textAlign="left"
+                      marginTop="10px"
+                      fontSize="16px"
+                      lineHeight="26px"
+                      mb="30px"
+                      fontWeight="500"
+                      _focus={{
+                        textDecoration: "none",
+                        bg: "none",
+                        opacity: 0.7,
+                      }}
+                      _hover={{
+                        textDecoration: "none",
+                        bg: "none",
+                        opacity: 0.7,
+                      }}
+                    >
+                      Pricing
+                    </Link>
+                  </NextLink>
+                </Box>
+
+                <Box
+                  textAlign="center"
+                  mt="165px"
+                  pb="30px"
+                  // position="absolute"
+                  // bottom="30px"
+                  // zIndex="2"
+                  // left="0"
+                  // right="0"
+                >
+                  <Button
+                    color="#fff"
+                    _hover={{ bg: "none", opacity: 0.7 }}
+                    variant="outline"
+                    border="1px solid rgba(255, 255, 255, 0.74)"
+                    borderRadius="5px"
+                    fontSize="14px"
+                    fontWeight="semibold"
+                    mr="15px"
+                    w="155px"
+                    h="45px"
+                    onClick={onBookADemoClick}
+                  >
+                    Get a demo
+                  </Button>
+                  <Button
+                    color="#fff"
+                    _hover={{ bg: "none", opacity: 0.7 }}
+                    variant="outline"
+                    border="1px solid rgba(255, 255, 255, 0.74)"
+                    borderRadius="5px"
+                    fontSize="14px"
+                    fontWeight="semibold"
+                    w="155px"
+                    h="45px"
+                  >
+                    Why CoreKYC?
+                  </Button>
+
+                  <Button
+                    color="#fff"
+                    _hover={{ bg: "#fff", color: "#4959E7" }}
+                    variant="ghost"
+                    fontSize="14px"
+                    fontWeight="semibold"
+                    mt="0"
+                    w="155px"
+                    h="45px"
+                  >
+                    Sign in
+                  </Button>
+                </Box>
+              </DrawerBody>
+            </DrawerContent>
+          </Drawer>
+        </Box>
       </Box>
-    </Box>
+      <ContactModal isOpen={isContactModalOpen} onClose={onContactModalClose} />
+    </>
   );
 };
 

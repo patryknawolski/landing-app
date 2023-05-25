@@ -12,6 +12,21 @@ const Container: ComponentStyleConfig = {
   },
 };
 
+const Modal: ComponentStyleConfig = {
+  parts: ["content-container"],
+  baseStyle: {
+    content: {
+      borderRadius: "24px",
+    },
+  },
+};
+
+const ModalContent: ComponentStyleConfig = {
+  baseStyle: {
+    borderRadius: "24px",
+  },
+};
+
 const breakpoints = createBreakpoints({
   xs: "23em",
   sm: "26em",
@@ -21,7 +36,16 @@ const breakpoints = createBreakpoints({
   xxl: "96em",
 });
 
-const theme = extendTheme({ breakpoints, components: { Container } });
+const theme = extendTheme({
+  colors: {
+    black: "#110F24",
+    blue: "#4959E7",
+    text_gray: "#5B6081",
+    text_white: "#fff",
+  },
+  breakpoints,
+  components: { Container, Modal, ModalContent },
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
