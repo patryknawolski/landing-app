@@ -35,7 +35,7 @@ const logos = [
   },
   {
     img: Comp3,
-    mdWidth: "105px",
+    mdWidth: "133px",
   },
   {
     img: TMNZLogo,
