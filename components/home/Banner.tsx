@@ -178,11 +178,7 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
           </SimpleGrid>
         </Box>
 
-        <Box
-          // maxW="843px"
-          mt={{ base: "36px", md: "60px" }}
-          textAlign="center"
-        >
+        <Box mt={{ base: "36px", md: "60px" }} textAlign="center">
           <Heading
             as="h5"
             fontSize={{ base: "18px", md: "20px" }}

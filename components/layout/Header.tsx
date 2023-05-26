@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import NextLink from "next/link";
+import { useHover } from "usehooks-ts";
 
 import {
   Box,
@@ -17,12 +18,9 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-  PopoverBody,
-  PopoverArrow,
 } from "@chakra-ui/react";
 
 import Logo from "public/images/CoreKYCWhite.svg";
-// import Logo from "public/images/logo-header.svg";
 import MenuImg from "public/images/bars.svg";
 import { useCalendlyContext } from "contexts/CalendlyContext";
 import { ContactModal } from "common/ContactModal";
@@ -33,13 +31,26 @@ interface Props {
   onViewWhyCore?: () => void;
 }
 
+const productsMenuItems = [
+  { label: "Face IDV", href: "/product#face-idv" },
+  { label: "Quick IDV", href: "/product#quick-idv" },
+  { label: "Face Match", href: "product#face-match" },
+  { label: "PEP Check", href: "/product#pep-check" },
+];
+
 const Header: React.FC<Props> = ({
   onViewPrice,
   heightBanner,
   onViewWhyCore,
 }) => {
-  const menuRef: any = React.useRef();
+  const menuRef = useRef<HTMLAnchorElement>(null);
+  const productsMenuItemRef = useRef<HTMLDivElement>(null);
+  const isProductsMenuItemHovered = useHover(productsMenuItemRef);
+  const productsMenuItemPopoverRef = useRef<HTMLDivElement>(null);
+  const isProductsMenuItemPopoverHovered = useHover(productsMenuItemPopoverRef);
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isProductsPopoverOpen, setIsProductsPopoverOpen] = useState(false);
+
   const {
     isOpen: isContactModalOpen,
     onOpen: openContactModal,
@@ -63,14 +74,17 @@ const Header: React.FC<Props> = ({
     return () => window.removeEventListener("scroll", onScroll);
   }, [heightBanner]);
 
-  const handleScroll = (id: String) => {
-    // onViewWhyCore()
-    window.location.href = `#${id}`;
-  };
+  useEffect(() => {
+    setIsProductsPopoverOpen(
+      isProductsMenuItemHovered || isProductsMenuItemPopoverHovered
+    );
+  }, [isProductsMenuItemHovered, isProductsMenuItemPopoverHovered]);
 
   const onBookADemoClick = () => setIsModalOpen(true);
 
-  const onContactUsClick = () => {};
+  const handleProductsMenuPopoverItemClick = () => {
+    setIsProductsPopoverOpen(false);
+  };
 
   return (
     <>
@@ -139,9 +153,14 @@ const Header: React.FC<Props> = ({
                 Why CoreKYC?
               </Link>
             </NextLink>
-            <Popover trigger="hover" offset={[15, 10]}>
+            <Popover
+              trigger="hover"
+              offset={[15, 10]}
+              isOpen={isProductsPopoverOpen}
+            >
               <PopoverTrigger>
                 <Box
+                  ref={productsMenuItemRef}
                   _hover={{
                     cursor: "pointer",
                     textDecoration: "none",
@@ -181,83 +200,33 @@ const Header: React.FC<Props> = ({
                 </Box>
               </PopoverTrigger>
               <PopoverContent
+                ref={productsMenuItemPopoverRef}
                 width="200px"
                 outline="none"
                 _focus={{ outline: "none" }}
                 borderColor="#fff"
               >
-                <NextLink href="/product#face-idv">
-                  <Link
-                    fontSize="16px"
-                    fontStyle="normal"
-                    fontWeight="500"
-                    lineHeight="163.5%"
-                    padding="6px 15px"
-                    borderRadius="10px"
-                    _hover={{
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      backgroundColor: "#fff",
-                      color: "#4959E7",
-                    }}
-                  >
-                    Face IDV
-                  </Link>
-                </NextLink>
-                <NextLink href="/product#quick-idv">
-                  <Link
-                    fontSize="16px"
-                    fontStyle="normal"
-                    fontWeight="500"
-                    lineHeight="163.5%"
-                    padding="6px 15px"
-                    borderRadius="10px"
-                    _hover={{
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      backgroundColor: "#fff",
-                      color: "#4959E7",
-                    }}
-                  >
-                    Quick IDV
-                  </Link>
-                </NextLink>
-                <NextLink href="/product#face-match">
-                  <Link
-                    fontSize="16px"
-                    fontStyle="normal"
-                    fontWeight="500"
-                    lineHeight="163.5%"
-                    padding="6px 15px"
-                    borderRadius="10px"
-                    _hover={{
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      backgroundColor: "#fff",
-                      color: "#4959E7",
-                    }}
-                  >
-                    Face Match
-                  </Link>
-                </NextLink>
-                <NextLink href="/product#pep-check">
-                  <Link
-                    fontSize="16px"
-                    fontStyle="normal"
-                    fontWeight="500"
-                    lineHeight="163.5%"
-                    padding="6px 15px"
-                    borderRadius="10px"
-                    _hover={{
-                      cursor: "pointer",
-                      textDecoration: "none",
-                      backgroundColor: "#fff",
-                      color: "#4959E7",
-                    }}
-                  >
-                    PEP Check
-                  </Link>
-                </NextLink>
+                {productsMenuItems.map(({ label, href }) => (
+                  <NextLink href={href} key={label}>
+                    <Link
+                      fontSize="16px"
+                      fontStyle="normal"
+                      fontWeight="500"
+                      lineHeight="163.5%"
+                      padding="6px 15px"
+                      borderRadius="10px"
+                      _hover={{
+                        cursor: "pointer",
+                        textDecoration: "none",
+                        backgroundColor: "#fff",
+                        color: "#4959E7",
+                      }}
+                      onClick={handleProductsMenuPopoverItemClick}
+                    >
+                      {label}
+                    </Link>
+                  </NextLink>
+                ))}
               </PopoverContent>
             </Popover>
             <Link
