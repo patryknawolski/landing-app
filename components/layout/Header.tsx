@@ -321,33 +321,35 @@ const Header: React.FC<Props> = ({
             display={{ base: "none", lg: "inline-flex" }}
             alignItems="center"
           >
-            <Button
-              color="#FFFFFF"
-              variant="ghost"
-              fontSize="16px"
-              fontWeight="semibold"
-              // w="53px !important"
-              minW="53px !important"
-              // mr="18"
-              h="50px"
-              padding="8px 15px"
-              // w="150px"
-              borderRadius="10px"
-              _hover={{
-                cursor: "pointer",
-                textDecoration: "none",
-                backgroundColor: "#fff",
-                color: "#4959E7",
-              }}
-              _active={{
-                backgroundColor: "none",
-              }}
-              _focus={{
-                backgroundColor: "none",
-              }}
-            >
-              Sign in
-            </Button>
+            <Link href="https://app.realaml.com/sign-in">
+              <Button
+                color="#FFFFFF"
+                variant="ghost"
+                fontSize="16px"
+                fontWeight="semibold"
+                // w="53px !important"
+                minW="53px !important"
+                // mr="18"
+                h="50px"
+                padding="8px 15px"
+                // w="150px"
+                borderRadius="10px"
+                _hover={{
+                  cursor: "pointer",
+                  textDecoration: "none",
+                  backgroundColor: "#fff",
+                  color: "#4959E7",
+                }}
+                _active={{
+                  backgroundColor: "none",
+                }}
+                _focus={{
+                  backgroundColor: "none",
+                }}
+              >
+                Sign in
+              </Button>
+            </Link>
             <Button
               color="#FFFFFF"
               _hover={{ bg: "none", opacity: 0.7, outline: "none" }}
@@ -540,19 +542,20 @@ const Header: React.FC<Props> = ({
                   >
                     Why CoreKYC?
                   </Button>
-
-                  <Button
-                    color="#fff"
-                    _hover={{ bg: "#fff", color: "#4959E7" }}
-                    variant="ghost"
-                    fontSize="14px"
-                    fontWeight="semibold"
-                    mt="0"
-                    w="155px"
-                    h="45px"
-                  >
-                    Sign in
-                  </Button>
+                  <Link href="https://app.realaml.com/sign-in">
+                    <Button
+                      color="#fff"
+                      _hover={{ bg: "#fff", color: "#4959E7" }}
+                      variant="ghost"
+                      fontSize="14px"
+                      fontWeight="semibold"
+                      mt="0"
+                      w="155px"
+                      h="45px"
+                    >
+                      Sign in
+                    </Button>
+                  </Link>
                 </Box>
               </DrawerBody>
             </DrawerContent>
