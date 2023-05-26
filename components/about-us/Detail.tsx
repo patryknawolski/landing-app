@@ -1,6 +1,18 @@
 import type { NextPage } from "next";
 
 import { Box, SimpleGrid, Text, Heading } from "@chakra-ui/react";
+import { FC, ReactNode } from "react";
+
+const DetailText: FC<{ children: ReactNode }> = ({ children }) => (
+  <Text
+    color="#6C6B74"
+    fontSize={{ base: "14px", md: "18px" }}
+    lineHeight={{ base: "22px", md: "28px" }}
+    marginBottom="15px"
+  >
+    {children}
+  </Text>
+);
 
 const Detail: NextPage = () => {
   return (
@@ -36,35 +48,24 @@ const Detail: NextPage = () => {
           </Box>
 
           <Box>
-            <Text
-              color="#6C6B74"
-              fontSize={{ base: "14px", md: "18px" }}
-              lineHeight={{ base: "22px", md: "28px" }}
-              marginBottom="15px"
-            >
-              In 2018, it became clear that the scores of global biometric
-              providers were not performing their job - detecting fraudulent
-              customer onboarding.
-            </Text>
-            <Text
-              color="#6C6B74"
-              fontSize={{ base: "14px", md: "18px" }}
-              lineHeight={{ base: "22px", md: "28px" }}
-              marginBottom="15px"
-            >
-              {`So, over the past four years, CoreKYC built a new category of know your customer (KYC) that combines best-in-class biometrics with anti-fraud tools that work. We're the first and only certified NZ-coded customer onboarding technology.`}
-            </Text>
-            <Text
-              color="#6C6B74"
-              fontSize={{ base: "14px", md: "18px" }}
-              lineHeight={{ base: "22px", md: "28px" }}
-              marginBottom="15px"
-            >
-              Through our global, omni-channel platform, businesses can access a
-              wide range of tools from hosted, embedded, and mobile verification
-              flows. Affordably verify new customers with ease while preventing
-              fraud and enhancing compliance.
-            </Text>
+            <DetailText>
+              In 2018, it became evident that global biometric providers were
+              failing to effectively detect fraudulent customer onboarding.
+              Consequently, CoreKYC took the initiative to develop a
+              revolutionary form of know your customer (KYC) technology. Our
+              solution integrates state-of-the-art biometrics with powerful
+              anti-fraud tools, setting a new standard in the industry. CoreKYC
+              proudly stands as the sole provider of certified NZ-coded customer
+              onboarding technology.
+            </DetailText>
+            <DetailText>
+              Through our advanced and versatile platform, businesses can access
+              a comprehensive suite of tools for verification across various
+              channels, including hosted, embedded, and mobile verification
+              flows. Our solution offers a cost-effective and effortless means
+              to verify new customers while simultaneously preventing fraud and
+              enhancing compliance.
+            </DetailText>
           </Box>
         </SimpleGrid>
       </Box>
