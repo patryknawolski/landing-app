@@ -321,7 +321,7 @@ const Header: React.FC<Props> = ({
             display={{ base: "none", lg: "inline-flex" }}
             alignItems="center"
           >
-            <Link href="https://app.realaml.com/sign-in">
+            <Link href="https://app.realaml.com/sign-in" target="_blank">
               <Button
                 color="#FFFFFF"
                 variant="ghost"
@@ -542,7 +542,7 @@ const Header: React.FC<Props> = ({
                   >
                     Why CoreKYC?
                   </Button>
-                  <Link href="https://app.realaml.com/sign-in">
+                  <Link href="https://app.realaml.com/sign-in" target="_blank">
                     <Button
                       color="#fff"
                       _hover={{ bg: "#fff", color: "#4959E7" }}
