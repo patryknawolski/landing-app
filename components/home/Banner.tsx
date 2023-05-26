@@ -147,6 +147,7 @@ const Banner: React.FC<Props> = ({ bannerRef }) => {
                         outline: "none",
                         border: "none",
                       }}
+                      type="submit"
                     >
                       Get a demo
                     </Button>
