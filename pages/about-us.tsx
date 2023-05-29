@@ -11,7 +11,7 @@ const AboutUs: NextPage = () => {
     <Layout title="About Us" isStarted={true}>
       <Banner
         title={`Verify remote <span style="white-space:nowrap;">customers & prevent</span> fraud`}
-        text="With CoreKYC, businesses can be confident that their customers are who they say they are."
+        text="CoreKYC empowers businesses to trust that the individuals they engage with are indeed who they claim to be."
       />
       <Detail />
       <Founders />
