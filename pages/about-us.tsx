@@ -8,7 +8,7 @@ import Banner from "common/Banner";
 
 const AboutUs: NextPage = () => {
   return (
-    <Layout title="About Us" isStarted={true}>
+    <Layout title="About Us">
       <Banner
         title={`Verify remote <span style="white-space:nowrap;">customers & prevent</span> fraud`}
         text="CoreKYC empowers businesses to trust that the individuals they engage with are indeed who they claim to be."

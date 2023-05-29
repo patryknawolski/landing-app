@@ -70,7 +70,6 @@ const Home: NextPage = () => {
     // <Suspense fallback={`Loading...`}>
     <Layout
       onViewPrice={onViewPrice}
-      isStarted={true}
       heightBanner={heightBanner}
       title="Corekyc | Onboard Globally. Comply Locally."
     >

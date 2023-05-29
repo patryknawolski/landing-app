@@ -68,10 +68,10 @@ const BaseList: React.FC<ListProps> = ({ data }) => {
 
 const PrivatePolicy: NextPage = () => {
   return (
-    <Layout title="Private Policy" isStarted={false}>
+    <Layout title="Private Policy">
       <Box
         w="100%"
-        h={{base: '79px', md: '110px'}}
+        h={{ base: "79px", md: "110px" }}
         display="flex"
         background="linear-gradient(179deg, rgba(71,118,230,1) 0%, rgba(142,84,233,1) 100%)"
         // background="linear-gradient(144.51deg, #4776E6 0%, #8E54E9 100%)"
@@ -666,10 +666,11 @@ other sites.`,
             <BaseText>
               If you have any questions or suggestions about our Privacy Policy,
               do not hesitate to contact our Privacy Officer at
-              <BaseLink> jordan@realyou.co.nz</BaseLink>. Additionally under the Australian Privacy
-              Principles if you feel that your data has been breached, you can
-              contact OIAC on 1300 363 992 or at enquiries@oaic.gov.au,AmazThe
-              Privacy Act 2020 (NZ) Account holder and number.
+              <BaseLink> jordan@realyou.co.nz</BaseLink>. Additionally under the
+              Australian Privacy Principles if you feel that your data has been
+              breached, you can contact OIAC on 1300 363 992 or at
+              enquiries@oaic.gov.au,AmazThe Privacy Act 2020 (NZ) Account holder
+              and number.
             </BaseText>
           </Box>
         </Box>

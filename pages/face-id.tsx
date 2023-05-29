@@ -11,7 +11,7 @@ import BannerImg from "public/images/face-id.svg";
 
 const FaceId: NextPage = () => {
   return (
-    <Layout title="Face ID" isStarted={true}>
+    <Layout title="Face ID">
       <Banner
         isPep={false}
         image={BannerImg}

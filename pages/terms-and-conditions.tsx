@@ -68,10 +68,10 @@ const BaseList: React.FC<ListProps> = ({ data }) => {
 
 const TermsAndConditions: NextPage = () => {
   return (
-    <Layout title="Private Policy" isStarted={false}>
+    <Layout title="Private Policy">
       <Box
         w="100%"
-        h={{base: '79px', md: '110px'}}
+        h={{ base: "79px", md: "110px" }}
         display="flex"
         background="linear-gradient(179deg, rgba(71,118,230,1) 0%, rgba(142,84,233,1) 100%)"
       />
@@ -343,9 +343,8 @@ const TermsAndConditions: NextPage = () => {
               </ListItem>
               <ListItem>
                 <BaseText>
-                  <strong>Commencement Date</strong> means the date on which
-                  the User has officially become registered for the EIV
-                  Services.
+                  <strong>Commencement Date</strong> means the date on which the
+                  User has officially become registered for the EIV Services.
                 </BaseText>
               </ListItem>
               <ListItem>
@@ -356,8 +355,8 @@ const TermsAndConditions: NextPage = () => {
               </ListItem>
               <ListItem>
                 <BaseText>
-                  <strong>EIV Fee</strong> means the fee charged by Realyou
-                  for executing the EIV Service in accordance with a EIV
+                  <strong>EIV Fee</strong> means the fee charged by Realyou for
+                  executing the EIV Service in accordance with a EIV
                   Transaction.
                 </BaseText>
               </ListItem>
@@ -381,9 +380,9 @@ const TermsAndConditions: NextPage = () => {
               </ListItem>
               <ListItem>
                 <BaseText>
-                  <strong>Personal Information</strong> means information
-                  about an identifiable individual in accordance with the
-                  Privacy Act 1993.
+                  <strong>Personal Information</strong> means information about
+                  an identifiable individual in accordance with the Privacy Act
+                  1993.
                 </BaseText>
               </ListItem>
               <ListItem>
@@ -425,8 +424,8 @@ const TermsAndConditions: NextPage = () => {
               </ListItem>
               <ListItem>
                 <BaseText>
-                  Any obligation not to do anything will be deemed to include
-                  an obligation not to suffer, permit or cause that thing to be
+                  Any obligation not to do anything will be deemed to include an
+                  obligation not to suffer, permit or cause that thing to be
                   done.
                 </BaseText>
               </ListItem>

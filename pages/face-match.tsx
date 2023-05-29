@@ -11,7 +11,7 @@ import BannerImg from "public/images/bn-face.svg";
 
 const FaceMatch: NextPage = () => {
   return (
-    <Layout title="Face Match" isStarted={true}>
+    <Layout title="Face Match">
       <NewsletterBanner
         isPep={false}
         image={BannerImg}

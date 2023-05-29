@@ -12,7 +12,6 @@ import { Box, Spinner } from "@chakra-ui/react";
 interface Props {
   children: React.ReactNode;
   title: String;
-  isStarted: boolean;
   heightBanner?: any;
   onViewPrice?: () => void;
 }
@@ -20,7 +19,6 @@ interface Props {
 const Layout: React.FC<Props> = ({
   children,
   title,
-  isStarted,
   heightBanner,
   onViewPrice,
 }) => {
@@ -78,7 +76,7 @@ const Layout: React.FC<Props> = ({
       <Header onViewPrice={handleViewPrice} heightBanner={heightBanner} />
       {children}
 
-      {isStarted && <GetStarted />}
+      <GetStarted />
       <Footer />
     </Box>
   );

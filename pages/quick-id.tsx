@@ -11,7 +11,7 @@ import BannerImg from "public/images/quickid.svg";
 
 const QuickId: NextPage = () => {
   return (
-    <Layout title="QuickID" isStarted={true}>
+    <Layout title="QuickID">
       <NewsletterBanner
         isPep={false}
         image={BannerImg}

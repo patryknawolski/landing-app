@@ -11,7 +11,7 @@ import BannerImg from "public/images/pep-check.svg";
 
 const PEPCheck: NextPage = () => {
   return (
-    <Layout title="PEP Check" isStarted={true}>
+    <Layout title="PEP Check">
       <Banner
         isPep={true}
         image={BannerImg}

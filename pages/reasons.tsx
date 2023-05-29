@@ -101,7 +101,7 @@ const data = [
 
 const ReasonsPage: NextPage = () => {
   return (
-    <Layout title="Reasons" isStarted={false}>
+    <Layout title="Reasons">
       <Banner title="Why CoreKYC" text="Here’s 20 more reasons" />
       <Container>
         <SimpleGrid
