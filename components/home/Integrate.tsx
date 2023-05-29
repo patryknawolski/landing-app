@@ -51,8 +51,8 @@ const Integrate: NextPage = () => {
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const sliderSettings: Settings = {
     dots: true,
-    afterChange: (index: number) => {
-      setActiveSlideIndex(index);
+    beforeChange: (_currentIndex, nextIndex) => {
+      setActiveSlideIndex(nextIndex);
     },
   };
 
