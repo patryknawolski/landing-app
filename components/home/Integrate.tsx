@@ -197,31 +197,31 @@ const Integrate: NextPage = () => {
                 with our iOS, Android, and React Native SDKs.
               </Text>
 
-              <LinkNext href="/">
-                <Link
-                  alignItems="center"
-                  display="inline-flex"
-                  fontStyle="normal"
-                  fontWeight="600"
-                  fontSize={{ base: "16px", md: "20px" }}
-                  lineHeight={{ base: "26px", md: "32px" }}
-                  cursor="pointer"
-                  textDecoration="none"
-                  color="#4959e7"
-                  _hover={{
-                    textDecoration: "none",
-                  }}
-                >
-                  View API & SDK Documentation{" "}
-                  <Icon
-                    w="26px"
-                    h="26px"
-                    fontSize="26px"
-                    fontWeight="700"
-                    as={BsArrowRightShort}
-                  />
-                </Link>
-              </LinkNext>
+              <Link
+                target="_blank"
+                href="https://corekyc.stoplight.io/docs/corekyc-api/oxwvy00so15bb-basic-real-aml-workflow"
+                alignItems="center"
+                display="inline-flex"
+                fontStyle="normal"
+                fontWeight="600"
+                fontSize={{ base: "16px", md: "20px" }}
+                lineHeight={{ base: "26px", md: "32px" }}
+                cursor="pointer"
+                textDecoration="none"
+                color="#4959e7"
+                _hover={{
+                  textDecoration: "none",
+                }}
+              >
+                View API & SDK Documentation{" "}
+                <Icon
+                  w="26px"
+                  h="26px"
+                  fontSize="26px"
+                  fontWeight="700"
+                  as={BsArrowRightShort}
+                />
+              </Link>
             </Box>
           </Box>
         </GridItem>
