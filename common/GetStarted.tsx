@@ -9,8 +9,23 @@ import {
   InputRightElement,
   Input,
 } from "@chakra-ui/react";
+import { FormEventHandler, useRef } from "react";
+import { useCalendlyContext } from "contexts/CalendlyContext";
 
 const GetStarted: NextPage = () => {
+  const tryForFreeInput = useRef<HTMLInputElement | null>(null);
+
+  const { setIsModalOpen, setEmailPrefill } = useCalendlyContext();
+
+  const onGetADemoFormSubmit: FormEventHandler = (e) => {
+    e.preventDefault();
+
+    if (tryForFreeInput.current?.value) {
+      setEmailPrefill(tryForFreeInput.current.value);
+      setIsModalOpen(true);
+    }
+  };
+
   return (
     <Box
       w="100%"
@@ -49,51 +64,55 @@ const GetStarted: NextPage = () => {
             less than 30 seconds.
           </Text>
 
-          <InputGroup
-            height="62px"
-            mt="25px"
-            maxW={{ base: "100%", lg: "511px" }}
-          >
-            <Input
-              pr="150px"
-              placeholder="Your work email"
-              height={{ base: "55px", md: "62px" }}
-              borderRadius="10px"
-              fontSize={{ base: "14px", md: "16px" }}
-              color="#D9DBF9"
-              border="1px solid rgba(255, 255, 255, 0.35)"
-              outline="none"
-              _placeholder={{ color: "#D9DBF9" }}
-              _focus={{
-                outline: "1px solid white",
-                outlineOffset: 0,
-              }}
-            />
-            <InputRightElement
-              width={{ base: "122px", md: "150px" }}
-              top={{ base: "7px", md: "11px" }}
-              right={{ base: "4px", md: "6px" }}
+          <form onSubmit={onGetADemoFormSubmit}>
+            <InputGroup
+              height="62px"
+              mt="25px"
+              maxW={{ base: "100%", lg: "511px" }}
             >
-              <Button
-                h={{ base: "45px", md: "50px" }}
-                width={{ base: "122px", md: "150px" }}
-                fontSize={{ base: "14px", md: "16px" }}
-                color="#4959E7"
-                bg="#fff"
+              <Input
+                pr="150px"
+                placeholder="Your work email"
+                height={{ base: "55px", md: "62px" }}
                 borderRadius="10px"
-                _active={{
-                  outline: "none",
-                  border: "none",
-                }}
+                fontSize={{ base: "14px", md: "16px" }}
+                color="#D9DBF9"
+                border="1px solid rgba(255, 255, 255, 0.35)"
+                outline="none"
+                _placeholder={{ color: "#D9DBF9" }}
                 _focus={{
-                  outline: "none",
-                  border: "none",
+                  outline: "1px solid white",
+                  outlineOffset: 0,
                 }}
+                ref={tryForFreeInput}
+              />
+              <InputRightElement
+                width={{ base: "122px", md: "150px" }}
+                top={{ base: "7px", md: "11px" }}
+                right={{ base: "4px", md: "6px" }}
               >
-                Get a demo
-              </Button>
-            </InputRightElement>
-          </InputGroup>
+                <Button
+                  h={{ base: "45px", md: "50px" }}
+                  width={{ base: "122px", md: "150px" }}
+                  fontSize={{ base: "14px", md: "16px" }}
+                  color="#4959E7"
+                  bg="#fff"
+                  borderRadius="10px"
+                  _active={{
+                    outline: "none",
+                    border: "none",
+                  }}
+                  _focus={{
+                    outline: "none",
+                    border: "none",
+                  }}
+                  type="submit"
+                >
+                  Get a demo
+                </Button>
+              </InputRightElement>
+            </InputGroup>
+          </form>
         </Box>
       </Box>
     </Box>
