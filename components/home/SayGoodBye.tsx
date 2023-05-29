@@ -15,8 +15,6 @@ import Img4 from "public/images/fraud4.svg";
 import Img5 from "public/images/fraud5.svg";
 import Img6 from "public/images/fraud6.svg";
 import Img7 from "public/images/fraud7.svg";
-import Img8 from "public/images/fraud8.svg";
-import Img9 from "public/images/fraud9.svg";
 
 const data = [
   {
