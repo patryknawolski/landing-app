@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useCallback, useRef } from "react";
+import { BsFillArrowDownCircleFill } from "react-icons/Bs";
 
 import { Box, Heading, Text } from "@chakra-ui/react";
+import { useElementSize } from "usehooks-ts";
 
 interface Props {
   title: string;
@@ -8,8 +10,17 @@ interface Props {
 }
 
 const Banner: React.FC<Props> = ({ title, text }) => {
+  const [bannerRef, { width, height }] = useElementSize();
+
+  const onArrowClick = useCallback(() => {
+    window.scrollTo({
+      top: height,
+    });
+  }, [height]);
+
   return (
     <Box
+      ref={bannerRef}
       display="flex"
       padding={{ base: "120px 24px 90px", lg: "168px 65px 108px" }}
       w="100%"
@@ -44,6 +55,24 @@ const Banner: React.FC<Props> = ({ title, text }) => {
         >
           {text}
         </Text>
+        <Box display="flex" justifyContent={"center"}>
+          <Box
+            display="flex"
+            mt="32px"
+            p="8px"
+            color="text_white"
+            opacity="0.5"
+            _hover={{
+              opacity: 1,
+            }}
+            cursor="pointer"
+            onClick={onArrowClick}
+          >
+            <Box display="flex" className="scroll-button-animation">
+              <BsFillArrowDownCircleFill size="32px" />
+            </Box>
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
