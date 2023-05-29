@@ -11,7 +11,7 @@ const Banner: React.FC<Props> = ({ title, text }) => {
   return (
     <Box
       display="flex"
-      padding={{ base: "185px 24px 165px", lg: "218px 65px" }}
+      padding={{ base: "120px 24px 90px", lg: "168px 65px 108px" }}
       w="100%"
       position="relative"
       overflow="hidden"
@@ -27,16 +27,14 @@ const Banner: React.FC<Props> = ({ title, text }) => {
           as="h3"
           fontSize={{ base: "33px", md: "60px" }}
           lineHeight={{ base: "42px", md: "75px" }}
-          maxW="720px"
           margin="0 auto 20px"
           color="#fff"
         >
-          {title}
+          <span dangerouslySetInnerHTML={{ __html: title }}></span>
         </Heading>
         <Text
           maxW="460px"
           marginTop="20px"
-          // paddingBottom="25px"
           fontStyle="normal"
           fontWeight="normal"
           fontSize={{ base: "16px", md: "20px" }}
