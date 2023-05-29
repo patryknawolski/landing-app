@@ -1,5 +1,5 @@
 import React, { useCallback, useRef } from "react";
-import { BsFillArrowDownCircleFill } from "react-icons/Bs";
+import { BsFillArrowDownCircleFill } from "react-icons/bs";
 
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { useElementSize } from "usehooks-ts";

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useWindowSize } from "hooks/useWindowSize";
 import { Box, Heading, Text, Button } from "@chakra-ui/react";
 
-import { FiChevronRight } from "react-icons/fi";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 import Slider from "react-slick";
