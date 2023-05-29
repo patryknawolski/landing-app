@@ -102,7 +102,10 @@ const data = [
 const ReasonsPage: NextPage = () => {
   return (
     <Layout title="Reasons">
-      <Banner title="Why CoreKYC" text="Here’s 20 more reasons" />
+      <Banner
+        title="Why CoreKYC"
+        text="Discover over 20 compelling reasons why CoreKYC is the ultimate solution for accurately verifying your remote customers and effectively detecting identity impersonation."
+      />
       <Container>
         <SimpleGrid
           columns={{ base: 1, sm: 2, lg: 3 }}
