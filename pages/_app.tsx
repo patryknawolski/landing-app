@@ -42,6 +42,7 @@ const theme = extendTheme({
     blue: "#4959E7",
     text_gray: "#5B6081",
     text_white: "#fff",
+    border: "#e9e9f3",
   },
   breakpoints,
   components: { Container, Modal, ModalContent },

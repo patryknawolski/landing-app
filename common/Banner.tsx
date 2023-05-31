@@ -44,7 +44,7 @@ const Banner: React.FC<Props> = ({ title, text }) => {
           <span dangerouslySetInnerHTML={{ __html: title }}></span>
         </Heading>
         <Text
-          maxW="460px"
+          maxW="748px"
           marginTop="20px"
           fontStyle="normal"
           fontWeight="normal"
