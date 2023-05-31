@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from "react";
+import React, { ReactNode, useCallback, useRef } from "react";
 import { BsFillArrowDownCircleFill } from "react-icons/bs";
 
 import { Box, Heading, Text } from "@chakra-ui/react";
@@ -7,9 +7,10 @@ import { useElementSize } from "usehooks-ts";
 interface Props {
   title: string;
   text: string;
+  adornment?: ReactNode;
 }
 
-const Banner: React.FC<Props> = ({ title, text }) => {
+const Banner: React.FC<Props> = ({ title, text, adornment }) => {
   const [bannerRef, { width, height }] = useElementSize();
 
   const onArrowClick = useCallback(() => {
@@ -34,6 +35,7 @@ const Banner: React.FC<Props> = ({ title, text }) => {
         margin="0 auto"
         textAlign={{ base: "left", sm: "center" }}
       >
+        {adornment}
         <Heading
           as="h3"
           fontSize={{ base: "33px", md: "60px" }}

@@ -7,6 +7,7 @@ import { chakra, Box, Container, Text } from "@chakra-ui/react";
 import AutoGraphIcon from "public/images/auto-graph-icon.svg";
 import SafetyCertificateLineIcon from "public/images/safety-certificate-line-icon.svg";
 import WoldCareOutlineIcon from "public/images/safety-certificate-line-icon.svg";
+import newZealandFlag from "public/images/new-zealand-flag.svg";
 import Image from "next/image";
 
 const pros = [
@@ -190,6 +191,11 @@ const OutsourcedAML: NextPage = () => {
       <Banner
         title="Outsourced AML"
         text="Under Section 34 of NZ’s AML Act 2009, we diligently conduct your customer and enhanceddue diligence (CDD & EDD) on behalf of your clients and their entities."
+        adornment={
+          <Box display="flex" justifyContent="center" mb="12px">
+            <Image src={newZealandFlag} />
+          </Box>
+        }
       />
       <Pros />
       <Stats />
