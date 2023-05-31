@@ -5,9 +5,33 @@ import Image from "next/image";
 import { Box, Heading, Text, Grid, GridItem } from "@chakra-ui/react";
 import { Hide } from "@chakra-ui/react";
 
-import BrandingImg from "public/images/branding-coinstash.svg";
-import Branding1Img from "public/images/branding-kubota-nz.svg";
-import Branding2Img from "public/images/branding-member-check.svg";
+import coinstashMockup from "public/images/branding-coinstash.svg";
+import kubotaNZMockup from "public/images/branding-kubota-nz.svg";
+import memberCheckMockup from "public/images/branding-member-check.svg";
+
+const brands = [
+  {
+    title: "Coinstash",
+    description:
+      "Provides regulatory information, workflow technology, property settlement services and legal support solutions.",
+    image: coinstashMockup,
+    circleColor: "#F3F9FF",
+  },
+  {
+    title: "Kubota NZ Finance",
+    description:
+      "Offers secured equipment finance to businesses looking to purchase new, demo and used Kubota equipment.",
+    image: kubotaNZMockup,
+    circleColor: "#FEF9F8",
+  },
+  {
+    title: "Member Check",
+    description:
+      "Financial well-being for the next generation by providing the tools parents need to help their kids to be great with money.",
+    image: memberCheckMockup,
+    circleColor: "#F3F9FF",
+  },
+];
 
 const Branding: NextPage = () => {
   const sliderRef = useRef<any>(null);
@@ -122,72 +146,30 @@ const Branding: NextPage = () => {
       >
         <GridItem colSpan={{ base: 5, md: 3 }}>
           <Slider {...settings} ref={sliderRef} afterChange={handleChange}>
-            <Box
-              background={{
-                base: 'url("/images/circle.webp") no-repeat center center',
-                md: `url("/images/bg-branding.webp") no-repeat left center`,
-              }}
-              backgroundSize={{
-                base: "cover !important",
-                md: "contain !important",
-              }}
-              padding={{ base: "35px 25px", md: "102px 0" }}
-              display="flex"
-              alignItems="center"
-              justifyContent={{ base: "center", md: "flex-start" }}
-              w="100%"
-            >
+            {brands.map(({ image }) => (
               <Box
-                ml={{ base: "0", md: "106px" }}
-                maxW={{ base: "332px", md: "653px" }}
+                background={{
+                  base: 'url("/images/circle.webp") no-repeat center center',
+                  md: `url("/images/bg-branding.webp") no-repeat left center`,
+                }}
+                backgroundSize={{
+                  base: "cover !important",
+                  md: "contain !important",
+                }}
+                padding={{ base: "35px 25px", md: "102px 0" }}
+                display="flex"
+                alignItems="center"
+                justifyContent={{ base: "center", md: "flex-start" }}
+                w="100%"
               >
-                <Image alt="" src={BrandingImg} priority />
+                <Box
+                  ml={{ base: "0", md: "106px" }}
+                  maxW={{ base: "332px", md: "653px" }}
+                >
+                  <Image alt="" src={image} priority />
+                </Box>
               </Box>
-            </Box>
-            <Box
-              background={{
-                base: 'url("/images/circle.webp") no-repeat center center',
-                md: `url("/images/bg-branding1.webp") no-repeat left center`,
-              }}
-              backgroundSize={{
-                base: "cover !important",
-                md: "contain !important",
-              }}
-              padding={{ base: "35px 25px", md: "102px 0" }}
-              display="flex"
-              alignItems="center"
-              justifyContent={{ base: "center", md: "flex-start" }}
-              w="100%"
-            >
-              <Box
-                ml={{ base: "0", md: "106px" }}
-                maxW={{ base: "332px", md: "653px" }}
-              >
-                <Image alt="" src={Branding1Img} priority />
-              </Box>
-            </Box>
-            <Box
-              background={{
-                base: 'url("/images/circle.webp") no-repeat center center',
-                md: `url("/images/bg-branding2.webp") no-repeat left center`,
-              }}
-              backgroundSize={{
-                base: "cover !important",
-                md: "contain !important",
-              }}
-              padding={{ base: "35px 25px", md: "102px 0" }}
-              display="flex"
-              alignItems="center"
-              justifyContent={{ base: "center", md: "flex-start" }}
-              w="100%"
-            >
-              <Box
-                ml={{ base: "0", md: "106px" }}
-                maxW={{ base: "332px", md: "653px" }}
-              >
-                <Image alt="" src={Branding2Img} priority />
-              </Box>
-            </Box>
+            ))}
           </Slider>
         </GridItem>
 
@@ -206,130 +188,54 @@ const Branding: NextPage = () => {
               alignItems={{ base: "center", sm: undefined }}
               mr={{ base: "0", md: "40px", xl: "80px" }}
             >
-              <Box
-                flex={{ base: "1 0 33.33%", sm: undefined }}
-                padding={{ base: "10px", sm: "25px 40px" }}
-                borderRadius="10px"
-                border={
-                  active === 0 ? "1px solid #E9E9F3" : "1px solid transparent"
-                }
-                boxShadow={{
-                  base:
-                    active === 0 ? "10px 10px 5px 0px rgba(53,53,61,0.05)" : "",
-                  md:
-                    active === 0 ? "10px 10px 5px 0px rgba(53,53,61,0.05)" : "",
-                }}
-                _hover={{
-                  cursor: "pointer",
-                }}
-                onClick={() => handleActive(0)}
-              >
-                <Heading
-                  as="h3"
-                  mb={{ sm: "12px" }}
-                  fontWeight="600"
-                  fontSize={{ base: "16px", md: "33px" }}
-                  lineHeight={{ base: "25px", md: "38px" }}
-                  color={active === 0 ? "#4959E7" : "#110F24"}
+              {brands.map(({ title, description }, index) => (
+                <Box
+                  flex={{ base: "1 0 33.33%", sm: undefined }}
+                  padding={{ base: "10px", sm: "25px 40px" }}
+                  borderRadius="10px"
+                  border={
+                    active === index
+                      ? "1px solid #E9E9F3"
+                      : "1px solid transparent"
+                  }
+                  boxShadow={{
+                    base:
+                      active === index
+                        ? "10px 10px 5px 0px rgba(53,53,61,0.05)"
+                        : "",
+                    md:
+                      active === index
+                        ? "10px 10px 5px 0px rgba(53,53,61,0.05)"
+                        : "",
+                  }}
+                  _hover={{
+                    cursor: "pointer",
+                  }}
+                  onClick={() => handleActive(index)}
                 >
-                  Dye & Durham
-                </Heading>
-                <Hide below="sm">
-                  <Text
-                    fontWeight="normal"
-                    fontSize={{ base: "14px", md: "18px" }}
-                    lineHeight={{ base: "22px", md: "28px" }}
-                    color={active === 0 ? "#4959E7" : "#6C6B74"}
-                    maxW="387px"
+                  <Heading
+                    as="h3"
+                    mb={{ sm: "12px" }}
+                    fontWeight="600"
+                    fontSize={{ base: "16px", md: "33px" }}
+                    lineHeight={{ base: "25px", md: "38px" }}
+                    color={active === index ? "#4959E7" : "#110F24"}
                   >
-                    Provides regulatory information, workflow technology,
-                    property settlement services and legal support solutions.
-                  </Text>
-                </Hide>
-              </Box>
-
-              <Box
-                flex={{ base: "1 0 33.33%", sm: undefined }}
-                padding={{ base: "10px", sm: "25px 40px" }}
-                borderRadius="10px"
-                border={
-                  active === 1 ? "1px solid #E9E9F3" : "1px solid transparent"
-                }
-                boxShadow={{
-                  base:
-                    active === 1 ? "10px 10px 5px 0px rgba(53,53,61,0.05)" : "",
-                  md:
-                    active === 1 ? "10px 10px 5px 0px rgba(53,53,61,0.05)" : "",
-                }}
-                _hover={{
-                  cursor: "pointer",
-                }}
-                onClick={() => handleActive(1)}
-              >
-                <Heading
-                  as="h3"
-                  mb={{ sm: "12px" }}
-                  fontWeight="600"
-                  fontSize={{ base: "16px", md: "33px" }}
-                  lineHeight={{ base: "25px", md: "38px" }}
-                  color={active === 1 ? "#4959E7" : "#110F24"}
-                >
-                  Kubota Australia Finance
-                </Heading>
-                <Hide below="sm">
-                  <Text
-                    fontWeight="normal"
-                    fontSize={{ base: "14px", md: "18px" }}
-                    lineHeight={{ base: "22px", md: "28px" }}
-                    color={active === 1 ? "#4959E7" : "#6C6B74"}
-                  >
-                    Offers secured equipment finance to businesses looking to
-                    purchase new, demo and used Kubota equipment.
-                  </Text>
-                </Hide>
-              </Box>
-
-              <Box
-                flex={{ base: "1 0 33.33%", sm: undefined }}
-                padding={{ base: "10px", sm: "25px 40px" }}
-                borderRadius="10px"
-                border={
-                  active === 2 ? "1px solid #E9E9F3" : "1px solid transparent"
-                }
-                boxShadow={{
-                  base:
-                    active === 2 ? "10px 10px 5px 0px rgba(53,53,61,0.05)" : "",
-                  md:
-                    active === 2 ? "10px 10px 5px 0px rgba(53,53,61,0.05)" : "",
-                }}
-                _hover={{
-                  cursor: "pointer",
-                }}
-                onClick={() => handleActive(2)}
-              >
-                <Heading
-                  as="h3"
-                  mb={{ sm: "12px" }}
-                  fontWeight="600"
-                  fontSize={{ base: "16px", md: "33px" }}
-                  lineHeight={{ base: "25px", md: "38px" }}
-                  color={active === 2 ? "#4959E7" : "#110F24"}
-                >
-                  SquareOne
-                </Heading>
-                <Hide below="sm">
-                  <Text
-                    fontWeight="normal"
-                    fontSize={{ base: "14px", md: "18px" }}
-                    lineHeight={{ base: "22px", md: "28px" }}
-                    color={active === 2 ? "#4959E7" : "#6C6B74"}
-                  >
-                    Financial well-being for the next generation by providing
-                    the tools parents need to help their kids to be great with
-                    money.
-                  </Text>
-                </Hide>
-              </Box>
+                    {title}
+                  </Heading>
+                  <Hide below="sm">
+                    <Text
+                      fontWeight="normal"
+                      fontSize={{ base: "14px", md: "18px" }}
+                      lineHeight={{ base: "22px", md: "28px" }}
+                      color={active === index ? "#4959E7" : "#6C6B74"}
+                      maxW="387px"
+                    >
+                      {description}
+                    </Text>
+                  </Hide>
+                </Box>
+              ))}
             </Box>
           </Box>
         </GridItem>
