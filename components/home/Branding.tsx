@@ -146,8 +146,9 @@ const Branding: NextPage = () => {
       >
         <GridItem colSpan={{ base: 5, md: 3 }}>
           <Slider {...settings} ref={sliderRef} afterChange={handleChange}>
-            {brands.map(({ image }) => (
+            {brands.map(({ title, image }) => (
               <Box
+                key={title}
                 background={{
                   base: 'url("/images/circle.webp") no-repeat center center',
                   md: `url("/images/bg-branding.webp") no-repeat left center`,
@@ -190,6 +191,7 @@ const Branding: NextPage = () => {
             >
               {brands.map(({ title, description }, index) => (
                 <Box
+                  key={title}
                   flex={{ base: "1 0 33.33%", sm: undefined }}
                   padding={{ base: "10px", sm: "25px 40px" }}
                   borderRadius="10px"
