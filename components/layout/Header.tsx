@@ -36,6 +36,7 @@ const productsMenuItems = [
   { label: "Quick IDV", href: "/product#quick-idv" },
   { label: "Face Match", href: "product#face-match" },
   { label: "PEP Check", href: "/product#pep-check" },
+  { label: "Outsourced AML", href: "/outsourced-aml" },
 ];
 
 const Header: React.FC<Props> = ({
