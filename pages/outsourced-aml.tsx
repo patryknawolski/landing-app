@@ -137,7 +137,7 @@ const Stats: FC = () => (
             base: index + 1 < stats.length ? "24px" : undefined,
             md: 0,
           }}
-          textAlign={{ base: "center", md: undefined }}
+          textAlign={{ base: "center", md: "left" }}
         >
           <Text fontSize="50px" lineHeight="1" mb="12px" fontWeight="700">
             {numbers}
