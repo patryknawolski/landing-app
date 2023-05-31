@@ -5,9 +5,9 @@ import Image from "next/image";
 import { Box, Heading, Text, Grid, GridItem } from "@chakra-ui/react";
 import { Hide } from "@chakra-ui/react";
 
-import BrandingImg from "public/images/new-branding1.png";
-import Branding1Img from "public/images/branding1.svg";
-import Branding2Img from "public/images/new-branding3.png";
+import BrandingImg from "public/images/branding-coinstash.svg";
+import Branding1Img from "public/images/branding-kubota-nz.svg";
+import Branding2Img from "public/images/branding-member-check.svg";
 
 const Branding: NextPage = () => {
   const sliderRef = useRef<any>(null);
