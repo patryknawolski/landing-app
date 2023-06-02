@@ -1,16 +1,17 @@
 import React, { ReactNode, useCallback, useRef } from "react";
 import { BsFillArrowDownCircleFill } from "react-icons/bs";
 
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { chakra, Box, Heading, Text, LayoutProps } from "@chakra-ui/react";
 import { useElementSize } from "usehooks-ts";
 
 interface Props {
   title: string;
+  maxTextWidth?: LayoutProps["maxW"];
   text: string;
   adornment?: ReactNode;
 }
 
-const Banner: React.FC<Props> = ({ title, text, adornment }) => {
+const Banner: React.FC<Props> = ({ title, maxTextWidth, text, adornment }) => {
   const [bannerRef, { width, height }] = useElementSize();
 
   const onArrowClick = useCallback(() => {
@@ -42,11 +43,10 @@ const Banner: React.FC<Props> = ({ title, text, adornment }) => {
           lineHeight={{ base: "42px", md: "75px" }}
           margin="0 auto 20px"
           color="#fff"
-        >
-          <span dangerouslySetInnerHTML={{ __html: title }}></span>
-        </Heading>
+          dangerouslySetInnerHTML={{ __html: title }}
+        />
         <Text
-          maxW="748px"
+          maxW={maxTextWidth ?? "748px"}
           marginTop="20px"
           fontStyle="normal"
           fontWeight="normal"
@@ -54,9 +54,8 @@ const Banner: React.FC<Props> = ({ title, text, adornment }) => {
           lineHeight={{ base: "26px", md: "32px" }}
           margin="0 auto"
           color="#fff"
-        >
-          {text}
-        </Text>
+          dangerouslySetInnerHTML={{ __html: text }}
+        ></Text>
         <Box display="flex" justifyContent={"center"}>
           <Box
             display="flex"
