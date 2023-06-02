@@ -2,18 +2,19 @@ import type { NextPage } from "next";
 import { useRef, useState } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
-import { chakra, Box, Heading, Text } from "@chakra-ui/react";
+import { chakra, Box, Heading, Text, Button } from "@chakra-ui/react";
 
 import Img1 from "public/images/fraud-slide1.svg";
 import Img2 from "public/images/fraud-slide2.svg";
 import Img3 from "public/images/fraud-slide3.svg";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 const Access: NextPage = () => {
-  const sliderRef = useRef<any>(null);
+  const sliderRef = useRef<Slider>(null);
   const [settings, setSettings] = useState({
     dots: true,
-    arrows: false,
-    infinite: false,
+    arrows: true,
+    infinite: true,
     speed: 300,
     loop: false,
     autoplay: true,
@@ -24,7 +25,7 @@ const Access: NextPage = () => {
   const handleChange = (index: number) => {
     setTimeout(() => {
       if (index === 3) {
-        sliderRef.current.slickGoTo(0, false);
+        sliderRef.current?.slickGoTo(0, false);
         setSettings({ ...settings, autoplay: false });
       }
     }, 3000);
@@ -37,13 +38,8 @@ const Access: NextPage = () => {
       background="#fff"
       overflow="hidden"
     >
-      <Box
-        w="100%"
-        maxW="1440px"
-        margin="0 auto"
-        px={{ base: "20px", lg: "120px" }}
-      >
-        <Box mb={{ base: "80px" }}>
+      <Box w="100%" maxW="1440px" margin="0 auto">
+        <Box mb={{ base: "80px" }} px={{ base: "20px", lg: "120px" }}>
           <Heading
             as="h3"
             color="##110F24"
@@ -81,22 +77,59 @@ const Access: NextPage = () => {
           </Text>
         </Box>
 
-        <Box w="100%" mt={{ base: "40px", md: "80px" }}>
+        <Box w="100%" mt={{ base: "40px", md: "80px" }} position="relative">
+          <Button
+            bg="#fff"
+            borderRadius="50% !important"
+            w="48px"
+            h="48px !important"
+            left={{ base: "5px", sm: "10px", md: "40px" }}
+            position="absolute"
+            top="50%"
+            transform="translateY(-50%)"
+            zIndex="2"
+            minW="30px !important"
+            color="#4959E7"
+            boxShadow="0px 6px 12px rgba(0, 0, 0, 0.1)"
+            onClick={() => sliderRef.current?.slickPrev()}
+          >
+            <BsChevronLeft />
+          </Button>
+          <Button
+            bg="#fff"
+            borderRadius="50% !important"
+            w="48px"
+            h="48px !important"
+            right={{ base: "5px", sm: "10px", md: "40px" }}
+            top="50%"
+            transform="translateY(-50%)"
+            position="absolute"
+            zIndex="2"
+            minW="30px !important"
+            color="#4959E7"
+            boxShadow="0px 6px 12px rgba(0, 0, 0, 0.1)"
+            onClick={() => sliderRef.current?.slickNext()}
+          >
+            <BsChevronRight />
+          </Button>
+
           <Slider
             {...settings}
             className="platformSlider"
             ref={sliderRef}
             afterChange={handleChange}
           >
-            <Box>
-              <Image alt="" src={Img1} layout="responsive" priority />
-            </Box>
-            <Box>
-              <Image alt="" src={Img2} layout="responsive" priority />
-            </Box>
-            <Box>
-              <Image alt="" src={Img3} layout="responsive" priority />
-            </Box>
+            {[Img1, Img2, Img3].map((img) => (
+              <Box px={{ base: "20px", lg: "120px" }}>
+                <Image
+                  key={img}
+                  alt=""
+                  src={img}
+                  layout="responsive"
+                  priority
+                />
+              </Box>
+            ))}
           </Slider>
         </Box>
       </Box>
