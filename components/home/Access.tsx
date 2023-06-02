@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import { useRef, useState } from "react";
 import Slider from "react-slick";
 import Image from "next/image";
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { chakra, Box, Heading, Text } from "@chakra-ui/react";
 
 import Img1 from "public/images/fraud-slide1.svg";
 import Img2 from "public/images/fraud-slide2.svg";
@@ -72,7 +72,12 @@ const Access: NextPage = () => {
             textAlign="center"
             mx="auto"
           >
-            {`Detect fraudsters and fake IDs with CoreKYC's fraud database, built by our ever-growing 3+ million connections, artificial intelligence, and more (coming soon).`}
+            Detect identity impersonation with CoreKYC's fraud database, built
+            by our{" "}
+            <chakra.span style={{ whiteSpace: "nowrap" }}>
+              ever-growing
+            </chakra.span>{" "}
+            3+ million connections, AI, and more (coming soon).
           </Text>
         </Box>
 
