@@ -68,8 +68,8 @@ const Access: NextPage = () => {
             textAlign="center"
             mx="auto"
           >
-            Detect identity impersonation with CoreKYC's fraud database, built
-            by our{" "}
+            Detect identity impersonation with CoreKYC&apos;s fraud database,
+            built by our{" "}
             <chakra.span style={{ whiteSpace: "nowrap" }}>
               ever-growing
             </chakra.span>{" "}
@@ -120,14 +120,8 @@ const Access: NextPage = () => {
             afterChange={handleChange}
           >
             {[Img1, Img2, Img3].map((img) => (
-              <Box px={{ base: "20px", lg: "120px" }}>
-                <Image
-                  key={img}
-                  alt=""
-                  src={img}
-                  layout="responsive"
-                  priority
-                />
+              <Box px={{ base: "20px", lg: "120px" }} key={img}>
+                <Image alt="" src={img} layout="responsive" priority />
               </Box>
             ))}
           </Slider>
